@@ -4,7 +4,7 @@
 #set page(
   paper: "a4",
   fill: rgb("#ffffff"),
-  margin: (top: 22mm, bottom: 22mm, left: 20mm, right: 20mm),
+  margin: (top: 30mm, bottom: 30mm, left: 20mm, right: 20mm),
   header: context {
     let page-num = counter(page).get().first()
     if page-num == 1 { return none }
@@ -592,7 +592,7 @@
 #v(3pt)
 #table(
   columns: (70pt, 120pt, 1fr),
-  inset: (x: 5pt, y: 4.8pt),
+  inset: (x: 5pt, y: 3.8pt),
   align: (center + horizon, left + horizon, left + horizon),
   [*शब्द* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Word]], [*ध्वनि संघटन (वर्ण-विच्छेद)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Phonetic Decomposition]], [*आबुगिदा संरचनात्मक विवरण* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Structural Analysis & Vowel Behavior]],
   [#strong[कमल] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[kamal]], [क् + अ + म् + अ + ल् + अ], [तीन अक्षरों में अंतर्निहित 'अ' स्वर की स्वाभाविक उपस्थिति। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Three syllabic units with default inherent schwa.]],
@@ -609,7 +609,7 @@
 
 #table(
   columns: (110pt, 1fr, 1fr),
-  inset: (x: 5pt, y: 4.5pt),
+  inset: (x: 5pt, y: 3.6pt),
   align: (left + horizon, left + horizon, left + horizon),
   [*तुलनात्मक बिंदु* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Comparative Parameter]], [*देवनागरी (आबुगिदा)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Devanagari (Abugida)]], [*रोमन / अंग्रेज़ी (वर्णमाला)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Roman / English (Alphabet)]],
   [#strong[मूल वर्ण की प्रकृति] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Basic Character Nature]], [अक्षरात्मक (व्यंजन + अंतर्निहित स्वर)। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Syllabic (Consonant + Inherent Schwa).]], [शुद्ध ध्वन्यात्मक (स्वर-रहित व्यंजन)। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Segmental phoneme without vowels.]],
