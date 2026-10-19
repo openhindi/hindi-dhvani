@@ -22,6 +22,10 @@
       [अनुभाग १.२ : अक्षरात्मक प्रकृति एवं आबुगिदा व्यवस्था]
     } else if page-num == 9 {
       [अनुभाग १.२ : वर्ण-विच्छेद एवं आबुगिदा अभ्यास]
+    } else if page-num == 10 {
+      [अनुभाग १.३ : शिरोरेखा के प्रामाणिक नियम एवं महत्व]
+    } else if page-num == 11 {
+      [अनुभाग १.३ : शिरोरेखा विच्छेद एवं अभ्यास]
     } else {
       [हिन्दी पुस्तक]
     }
@@ -39,6 +43,10 @@
       [Section 1.2 : Abugida Architecture]
     } else if page-num == 9 {
       [Section 1.2 : Orthographic Analysis & Drills]
+    } else if page-num == 10 {
+      [Section 1.3 : Shirorekha Rules & Importance]
+    } else if page-num == 11 {
+      [Section 1.3 : Broken Letters & Exercises]
     } else {
       [Hindi Pushtak]
     }
@@ -489,7 +497,7 @@
 )
 
 #topic-heading(
-  [३], [प्रमुख पारिभाषिक शब्दावली],
+  [२], [प्रमुख पारिभाषिक शब्दावली],
   [3], [Core Technical Terms & Orthographic Concepts]
 )
 
@@ -630,3 +638,91 @@
   ]
 )
 
+#pagebreak()
+
+// --- PAGE 10: अनुभाग १.३ : शिरोरेखा के प्रामाणिक नियम एवं महत्व (भाग १) ---
+#section-opener(
+  [१.३], [शिरोरेखा के प्रामाणिक नियम एवं महत्व],
+  [1.3], [Shirorekha Rules, Importance & Alignment]
+)
+
+#intro-para(
+  [देवनागरी लिपि की सर्वाधिक विशिष्ट और दृश्य पहचान 'शिरोरेखा' (Headline / Overhead Bar) है। यह रेखा केवल एक सौंदर्यात्मक आभूषण नहीं, अपितु प्रत्येक शब्द के स्वतंत्र वर्णों को एक सुसंबद्ध भाषिक इकाई में आबद्ध करने वाला अनिवार्य संरचनात्मक आधार है। शिरोरेखा के बिना देवनागरी का लेखन अधूरा और अमान्य माना जाता है।],
+  [The most prominent visual hallmark of Devanagari is the Shirorekha (overhead horizontal headline). Rather than being merely decorative, it serves as the essential structural anchor binding individual phonetic graphemes into unified orthographic words. Omitting it invalidates standard Hindi orthography.]
+)
+
+#section-subheading(
+  [१], [शिरोरेखा के तीन अनिवार्य संरचनात्मक सिद्धांत],
+  [1], [Three Core Architectural Principles of Shirorekha]
+)
+
+#rule-box(
+  [१. शब्द-एकत्रीकरण एवं क्षैतिज संरेखण],
+  [Word Integration & Horizontal Alignment],
+  [देवनागरी में अक्षर शीर्ष रेखा से नीचे लटकते हैं (Hanging Script)। शिरोरेखा सभी अक्षरों को शीर्ष से जोड़ते हुए एक स्थिर क्षैतिज संरेखण प्रदान करती है। एक शब्द के समस्त अक्षरों पर शिरोरेखा अविभाज्य रूप से एक साथ खींची जाती है। #en-line[In Devanagari, characters hang downward from an overhead ceiling line. The shirorekha provides this top datum line, visually grouping letters into distinct lexical units under a single continuous horizontal stroke.]]
+)
+
+#v(4pt)
+#rule-box(
+  [२. स्ट्रोक-क्रम एवं अंतिम अंकन नियम],
+  [Terminal Stroke Execution Order],
+  [मानक हस्तलेखन का सार्वभौमिक नियम है कि शिरोरेखा सदैव अक्षर के सभी अवयवों (खड़ी पाई, वक्र, गांठे) के पूर्ण होने के उपरांत ही सबसे अंत में खींची जाती है। पहले अक्षर की मुख्य आकृति बनाई जाती है, तदुपरांत बाएं से दाएं रेखा खींची जाती है। #en-line[Calligraphic convention dictates that the shirorekha is invariably the final stroke executed. The core anatomy of the character is drawn first; then the overhead bar is pulled smoothly from left to right across the top.]]
+)
+
+#v(4pt)
+#rule-box(
+  [३. शब्द-विभाजन एवं रिक्त-स्थान अनुशासन],
+  [Inter-Word Spacing & Lexical Boundaries],
+  [दो भिन्न शब्दों के मध्य शिरोरेखा कभी भी निरंतर नहीं रह सकती। शब्द समाप्त होते ही शिरोरेखा को पूर्ण विराम दिया जाता है और मानक शब्द-दूरी (Word Space) के पश्चात ही अगले शब्द की नई शिरोरेखा प्रारंभ होती है। #en-line[The shirorekha must never bridge across two distinct words. Upon word completion, the stroke terminates cleanly, followed by standard inter-word spacing before the next word's headline begins.]]
+)
+
+#pagebreak()
+
+// --- PAGE 11: अनुभाग १.३ : शिरोरेखा विच्छेद, अपवाद एवं अभ्यास (भाग २) ---
+#spread-header(
+  [२], [शिरोरेखा-विच्छेद : खुले शीर्ष वाले विशिष्ट वर्ण],
+  [2], [Open-Loop Characters with Broken Shirorekha]
+)
+
+मानक देवनागरी में खुले लूप (Open Loop) या शीर्ष गांठ वाले वर्णों पर शिरोरेखा अखंड रूप से नहीं खींची जाती। केंद्रीय हिंदी निदेशालय के अनुसार इन वर्णों के लूप पर शिरोरेखा का विच्छेद अनिवार्य है: #v(2pt)
+#text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[In standard Devanagari, characters with open loops must preserve a gap directly above the loop, with the headline anchored only over the vertical stem.]
+
+#v(3pt)
+#table(
+  columns: (70pt, 120pt, 1fr),
+  inset: (x: 5pt, y: 3.8pt),
+  align: (center + horizon, left + horizon, left + horizon),
+  [*वर्ण समूह* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Character]], [*शीर्ष संरचनात्मक लक्षण* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Top Structure]], [*विच्छेद नियम एवं मानक रूप* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Shirorekha Rule & Correct Form]],
+  [#strong[ध, भ] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[dha, bha]], [अग्रिम गांठ एवं ऊर्ध्व वृत्त।], [गांठ खुली रहती है; रेखा केवल पाई पर। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Loops open; bar on stem. Avoids घ / म confusion.]],
+  [#strong[थ] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[tha]], [कुंडलीदार वामावर्त सिरा।], [कुंडली पर रेखा नहीं; पाई पर संधान। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[No bar over curl. Avoids confusion with य / प.]],
+  [#strong[झ, श्र] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[jha, shra]], [द्वि-खंडीय एवं गांठदार शीर्ष।], [गांठ के ऊपर रेखा टूटी रहती है। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Headline gap preserved over top loop/knot.]]
+)
+
+#topic-heading(
+  [३], [शिरोरेखा सहित एवं शिरोरेखा रहित लिपियों की तुलना],
+  [3], [Comparative Study: Headlined vs Non-Headlined Scripts]
+)
+#v(3pt)
+
+#table(
+  columns: (110pt, 1fr, 1fr),
+  inset: (x: 5pt, y: 3.6pt),
+  align: (left + horizon, left + horizon, left + horizon),
+  [*तुलनात्मक बिंदु* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Comparative Aspect]], [*देवनागरी (शिरोरेखा युक्त)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Devanagari (Headlined)]], [*गुजराती / लैटिन (शिरोरेखा रहित)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Gujarati / Latin (Headline-Free)]],
+  [#strong[दृश्य संरेखण एवं गति] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Visual Alignment & Flow]], [शीर्ष रेखा त्वरित क्षैतिज दृष्टि-प्रवाह देती है। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Continuous top edge accelerates reading speed.]], [अक्षरों की भिन्न ऊंचाइयों से गति तय होती है। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Speed guided by ascenders and descenders.]],
+  [#strong[शब्द-सीमा निर्धारण] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Boundary Demarcation]], [शिरोरेखा का विच्छेद तुरंत शब्द-समाप्ति दर्शाता है। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Headline gap immediately signals word boundary.]], [शब्द-सीमा केवल अंतः-शब्द दूरी (Space) पर निर्भर। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Word boundaries rely solely on whitespace.]],
+  [#strong[हस्तलेखन गति] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Handwriting Speed]], [प्रत्येक शब्द के अंत में अतिरिक्त स्ट्रोक अनिवार्य। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Requires a conscious terminal stroke per word.]], [शीर्ष रेखा न होने से त्वरित घसीट लेखन संभव। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Faster cursive writing without top bar.]]
+)
+
+#v(6pt)
+
+#exercise-box(
+  [अनुभाग १.३ स्व-मूल्यांकन अभ्यास],
+  [Section 1.3 Shirorekha & Orthography Review Worksheet],
+  [
+    #strong[१. निम्नलिखित में से किस वर्ण के शीर्ष पर शिरोरेखा का विच्छेद (खुली गांठ) अनिवार्य है?] #h(10pt) #text(size: 8.5pt, fill: rgb("#000000"))[(अ) क #h(8pt) (ब) ध #h(8pt) (स) ग]     #v(1pt)
+    #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Q1. In which of the following characters is a broken headline (open loop) mandatory? (a) ka (b) dha (c) ga]     #v(5pt)
+    #strong[२. 'भ' और 'थ' वर्णों के ऊपर पूरी शिरोरेखा खींच देने से क्रमशः किन वर्णों का भ्रम उत्पन्न होता है?] .....................................................     #v(1pt)
+    #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Q2. Drawing a full solid shirorekha over 'भ' and 'थ' causes visual confusion with which respective letters? ........................]
+  ]
+)

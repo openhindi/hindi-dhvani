@@ -105,11 +105,23 @@ The document currently compiles to **exactly 9 A4 pages** with mathematical prec
   ├── Standard Varna-Vichhed Table (kamal, bhaarat, pustak, devanaagarii)
   ├── Comparative Table: Abugida vs Alphabet System
   └── Self-Evaluation Worksheet Box (Abugida comprehension and varna-vichhed exercise)
+
+[ Page 10 ] : Section 1.3 : Shirorekha Rules, Importance & Alignment (Page 1)
+  ├── Running Header: [Left: Anubhag 1.3 : Shirorekha ke Niyam evam Mahatva] | [Right: Section 1.3 : Shirorekha Rules & Importance]
+  ├── Standard section opener, introductory bilingual paragraph (#v(2.5pt) jump)
+  └── 3 Core Architectural Rule Boxes (Word Binding & Top Alignment, Terminal Stroke Execution Order, Inter-Word Spacing Discontinuity)
+
+[ Page 11 ] : Section 1.3 : Broken-Loop Characters, Comparative Analysis & Drills (Page 2)
+  ├── Running Header: [Left: Anubhag 1.3 : Shirorekha Vichhed evam Abhyas] | [Right: Section 1.3 : Broken Letters & Exercises]
+  ├── Broken-Loop Characters Table (dha, bha, tha, jha, shra — structural rules, rationale against confusions)
+  ├── Comparative Table: Headlined (Devanagari) vs Non-Headlined (Gujarati / Latin) Scripts
+  └── Self-Evaluation Worksheet Box (Comprehension multiple-choice and fill-in-the-blank review questions)
 ```
 
 ---
 
 ## 3. Key Design Insights & Technical Decisions
+
 
 1. **Exact 90% Black Contrast Ratio (`#1a1a1a`)**:
    - Setting English text to 90% black (`#1a1a1a`) achieves the optimal optical hierarchy: it is dark enough to remain crisp and print-ready while clearly subordinating secondary English translations beneath primary Devanagari headings and text.
@@ -174,7 +186,7 @@ typst compile --font-path assets/fonts/ hindi-pushtak.typ hindi-pushtak.pdf
 This section serves as the definitive reference for resuming work in a clean, fresh session without needing past conversation history:
 
 ### 1. Current State & Geometry
-- **Total Compiled Pages**: Exactly **9 A4 pages** (`Pages: 9` verified via `typst compile` and `pdfinfo`).
+- **Total Compiled Pages**: Exactly **11 A4 pages** (`Pages: 11` verified via `typst compile` and `pdfinfo`).
 - **Page Configuration**:
   - Paper: `"a4"`
   - Margins: `(top: 30mm, bottom: 30mm, left: 20mm, right: 20mm)`
@@ -188,6 +200,7 @@ This section serves as the definitive reference for resuming work in a clean, fr
   - `Page 5`: Part 1 Opener (2-column section directory table, `y: 5.5pt`)
   - `Pages 6–7`: **Section 1.1** (*Historical Origin & Structural Evolution of Devanagari Script*) — 2-page spread
   - `Pages 8–9`: **Section 1.2** (*Syllabic Architecture & Abugida Structural System*) — 2-page spread
+  - `Pages 10–11`: **Section 1.3** (*Shirorekha Rules, Importance & Alignment*) — 2-page spread
 
 ### 2. Standard Section Authoring Protocol
 Every new section must be authored as a strict **2-page spread (Pages N & N+1)**:
@@ -207,12 +220,12 @@ Every new section must be authored as a strict **2-page spread (Pages N & N+1)**
 - **Header Update**: Add the page number range to `#set page(header: ...)` in `hindi-pushtak.typ` for `left-title` (Hindi) and `right-title` (English).
 
 ### 3. Immediate Next Task
-- Author **Section 1.3**:
-  - **Title**: *Shirorekha Rules, Importance & Alignment* (शिरोरेखा के प्रामाणिक नियम एवं महत्व)
-  - **Allocated Pages**: **Pages 10 & 11**
+- Author **Section 1.4**:
+  - **Title**: *Characters with Vertical Stem (Khadi Pai)* (खड़ी पाई वाले वर्णों की मानक संरचना)
+  - **Allocated Pages**: **Pages 12 & 13**
   - **Content Scope**:
-    - *Page 10*: Theoretical basis of Shirorekha, optical horizontal alignment, and 3 rule boxes (continuous shirorekha rule, proportional letter dimensions, pen flow and stroke order).
-    - *Page 11*: Shirorekha breaks in broken-loop letters (dha, bha, tha, jha, shra), comparative table, and self-evaluation review worksheet box.
+    - *Page 12*: Classification of Khadi Pai consonants (middle-stem 'ka', 'pha'; end-stem 'kha', 'ga', 'gha', etc.), 3 rule boxes (90° perpendicularity, stem position, conjunct formation via stem dropping).
+    - *Page 13*: Master inventory table of Khadi Pai characters, half-form derivation rules, and self-evaluation review worksheet box.
   - **Running Header Configuration**:
-    - Page 10: `left-title: [अनुभाग १.३ : शिरोरेखा के नियम एवं महत्व]`, `right-title: [Section 1.3 : Shirorekha Rules & Importance]`
-    - Page 11: `left-title: [अनुभाग १.३ : विच्छेद नियम एवं अभ्यास]`, `right-title: [Section 1.3 : Broken Letters & Exercises]`
+    - Page 12: `left-title: [अनुभाग १.४ : खड़ी पाई वाले वर्ण]`, `right-title: [Section 1.4 : Vertical Stem Characters]`
+    - Page 13: `left-title: [अनुभाग १.४ : अर्ध-रूप संरचना एवं अभ्यास]`, `right-title: [Section 1.4 : Half-Forms & Exercises]`
