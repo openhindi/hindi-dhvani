@@ -3,24 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#f2f2f2">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#e9ebf1">
+  <meta name="description" content="हिन्दी पुस्तक — an A4 Devanagari reading experience typeset in the browser.">
   <title>Hindi Pushtak</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111111'/%3E%3Cpath d='M14 20h36v2H14z' fill='%23ffffff'/%3E%3Ctext x='32' y='46' font-family='serif' font-size='32' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3E%E0%A4%85%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23262a6b'/%3E%3Cpath d='M12 20h40v3H12z' fill='%23ffffff'/%3E%3Ctext x='32' y='47' font-family='serif' font-size='30' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3E%E0%A4%85%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <button id="btn-bookmarks" class="icon-btn btn-bookmarks" type="button" aria-label="बुकमार्क / विषय-सूची (Bookmarks / Contents)" aria-controls="toc-drawer" aria-expanded="false" title="बुकमार्क / विषय-सूची (Bookmarks / Contents)">
-    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <a class="skip-link" href="#stage">मुख्य सामग्री पर जाएँ (Skip to content)</a>
+
+  <button id="btn-bookmarks" class="icon-btn btn-bookmarks" type="button"
+          aria-label="बुकमार्क / विषय-सूची (Bookmarks / Contents)"
+          aria-controls="toc-drawer" aria-expanded="false"
+          title="बुकमार्क / विषय-सूची (Bookmarks / Contents)">
+    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
     </svg>
   </button>
 
-  <div class="bottom-controls" aria-label="पठन नियंत्रण (Reading Controls)">
-    <button id="btn-download-pdf" class="icon-btn" type="button" aria-label="पीडीएफ डाउनलोड (Download PDF)" title="पीडीएफ डाउनलोड (Download PDF)">
-      <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <div class="bottom-controls" role="group" aria-label="पठन नियंत्रण (Reading Controls)">
+    <button id="btn-download-pdf" class="icon-btn" type="button"
+            aria-label="पीडीएफ डाउनलोड (Download PDF)"
+            title="पीडीएफ डाउनलोड (Download PDF)">
+      <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
         <polyline points="7 10 12 15 17 10"/>
         <line x1="12" y1="15" x2="12" y2="3"/>
@@ -36,20 +45,20 @@
   <div id="drawer-backdrop" class="drawer-backdrop"></div>
   <aside id="toc-drawer" class="toc-drawer" aria-label="बुकमार्क / विषय-सूची (Bookmarks / Contents)">
     <div class="drawer-top">
-      <h2 class="drawer-title">बुकमार्क / विषय-सूची (Bookmarks)</h2>
+      <h2 class="drawer-title">बुकमार्क / विषय-सूची <span>Bookmarks</span></h2>
       <div class="drawer-actions">
         <button id="btn-close-drawer" class="icon-btn icon-btn--ghost" type="button" aria-label="बंद करें (Close)">
-          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18"/>
             <line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
         </button>
       </div>
     </div>
-    <nav id="drawer-list" class="drawer-list"></nav>
+    <nav id="drawer-list" class="drawer-list" aria-label="Pages"></nav>
   </aside>
 
-  <main id="stage" class="stage">
+  <main id="stage" class="stage" tabindex="-1">
     <div id="book-viewport" class="book"></div>
   </main>
 

@@ -1,13 +1,12 @@
 /**
- * Hindi Master Book — Typst Browser WASM Application
+ * Hindi Pushtak — Typst Browser WASM Application
  *
- * Features:
- *  - Native client-side Typst compilation via WebAssembly (@myriaddreamin/typst.ts from CDN)
- *  - Full Devanagari font support (Noto Sans / Noto Serif Devanagari)
- *  - On-screen vector SVG preview matching exact A4 page geometry
- *  - Direct native binary PDF download ($typst.pdf) without rasterization or canvas slicing
- *  - Interactive contents drawer with active section tracking
- *  - Light / dark reader theme
+ *  - Client-side Typst compilation via WebAssembly (@myriaddreamin/typst.ts)
+ *  - Devanagari font loading (Noto Sans / Noto Serif Devanagari)
+ *  - Vector SVG preview of each A4 page
+ *  - Native binary PDF download ($typst.pdf)
+ *  - Contents drawer with active-page tracking
+ *  - Light / dark theme (stored choice, else system preference)
  */
 
 import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/typst.ts/+esm';
@@ -16,14 +15,18 @@ import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/t
   'use strict';
 
   /* ==========================================================================
-   * 1. CONFIGURATION
+   * 1. CONFIGURATION & STATE
    * ========================================================================== */
 
-  const CONFIG = {
+  const CDN = 'https://cdn.jsdelivr.net/npm/@myriaddreamin';
+
+  const CONFIG = Object.freeze({
     typstUrl: 'hindi-pushtak.typ',
     themeKey: 'hindi-book-theme',
     pdfFileName: 'hindi-pushtak.pdf',
-    defaultPartLabel: 'Hindi Pushtak',
+    compilerWasm: `${CDN}/typst-ts-web-compiler@0.7.0/pkg/typst_ts_web_compiler_bg.wasm`,
+    rendererWasm: `${CDN}/typst-ts-renderer@0.7.0/pkg/typst_ts_renderer_bg.wasm`,
+    page: { width: 596, height: 842 },
     fonts: [
       'fonts/NotoSansDevanagari-Regular.ttf',
       'fonts/NotoSerifDevanagari-Regular.ttf',
@@ -31,21 +34,21 @@ import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/t
     ],
     toc: [
       { pageNum: 1, title: 'मुखपृष्ठ (Cover)' },
-      { pageNum: 2, title: 'पुस्तक परिचय : दृष्टिकोण (About the Book)' },
-      { pageNum: 3, title: 'विषय-सूची (Table of Contents)' },
-      { pageNum: 4, title: 'खंड १ : अनुभाग १.१ (Devanagari Script)' },
-      { pageNum: 5, title: 'खंड १ : अनुभाग १.२ (Calligraphy & Stroke Order)' }
+                               { pageNum: 2, title: 'पुस्तक परिचय : दृष्टिकोण (About the Book)' },
+                               { pageNum: 3, title: 'विषय-सूची (Table of Contents)' },
+                               { pageNum: 4, title: 'खंड १ : अनुभाग १.१ (Devanagari Script)' },
+                               { pageNum: 5, title: 'खंड १ : अनुभाग १.२ (Calligraphy & Stroke Order)' }
     ],
-    themeColors: { light: '#f2f2f2', dark: '#111111' }
-  };
+    themeColors: { light: '#e9ebf1', dark: '#0d1018' }
+  });
 
   const state = {
     typstSource: '',
-    pages: [],
     activePage: 1,
     theme: 'light',
     busy: false,
-    initialized: false
+    initialized: false,
+    observer: null
   };
 
   const $ = (id) => document.getElementById(id);
@@ -53,161 +56,145 @@ import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/t
   const DOM = {
     html: document.documentElement,
     viewport: $('book-viewport'),
-    drawer: $('toc-drawer'),
-    backdrop: $('drawer-backdrop'),
-    drawerList: $('drawer-list'),
-    btnMenu: $('btn-bookmarks'),
-    btnCloseDrawer: $('btn-close-drawer'),
-    btnPdf: $('btn-download-pdf'),
-    toast: $('status-toast'),
-    toastText: $('status-text'),
-    toastSpinner: $('status-spinner'),
-    themeMeta: document.querySelector('meta[name="theme-color"]')
+ drawer: $('toc-drawer'),
+ backdrop: $('drawer-backdrop'),
+ drawerList: $('drawer-list'),
+ btnMenu: $('btn-bookmarks'),
+ btnCloseDrawer: $('btn-close-drawer'),
+ btnPdf: $('btn-download-pdf'),
+ toast: $('status-toast'),
+ toastText: $('status-text'),
+ toastSpinner: $('status-spinner'),
+ themeMeta: document.querySelector('meta[name="theme-color"]')
   };
 
   /* ==========================================================================
-   * 2. TYPST INITIALIZATION & FONT REGISTRATION
+   * 2. TYPST ENGINE
    * ========================================================================== */
 
   async function initTypstEngine() {
     if (state.initialized) return;
 
-    showToast('Typesetting ...', true);
+    $typst.setCompilerInitOptions({
+      getModule: () => ({ module_or_path: CONFIG.compilerWasm })
+    });
 
-    try {
-      // 1. Configure Web Compiler and Renderer WASM URLs from jsDelivr
-      $typst.setCompilerInitOptions({
-        getModule: () => ({
-          module_or_path: 'https://cdn.jsdelivr.net/npm/@myriaddreamin/typst-ts-web-compiler@0.7.0/pkg/typst_ts_web_compiler_bg.wasm'
-        })
-      });
+    $typst.setRendererInitOptions({
+      getModule: () => ({ module_or_path: CONFIG.rendererWasm })
+    });
 
-      $typst.setRendererInitOptions({
-        getModule: () => ({
-          module_or_path: 'https://cdn.jsdelivr.net/npm/@myriaddreamin/typst-ts-renderer@0.7.0/pkg/typst_ts_renderer_bg.wasm'
-        })
-      });
-
-      // 2. Preload fonts via typst.ts font loader
-      $typst.use({
-        key: 'access-model',
-        forRoles: ['compiler'],
+    $typst.use({
+      key: 'access-model',
+      forRoles: ['compiler'],
         provides: [loadFonts(CONFIG.fonts)]
-      });
+    });
 
-      state.initialized = true;
-    } catch (err) {
-      console.error('Typst engine initialization error:', err);
-      throw err;
-    } finally {
-      hideToast();
-    }
+    state.initialized = true;
   }
 
   /* ==========================================================================
    * 3. COMPILATION & RENDERING
    * ========================================================================== */
 
+  function createPageElement(pageNum, title) {
+    const el = document.createElement('article');
+    el.className = 'book-page book-page-typst';
+    el.id = `page-${pageNum}`;
+    el.dataset.page = pageNum;
+    el.setAttribute('aria-label', title);
+    return el;
+  }
+
+  function renderPages(svgOutput) {
+    const { width, height } = CONFIG.page;
+    const doc = new DOMParser().parseFromString(svgOutput, 'image/svg+xml');
+    const rootSvg = doc.querySelector('svg');
+    const groups = rootSvg ? Array.from(rootSvg.querySelectorAll('.typst-page')) : [];
+    const fragment = document.createDocumentFragment();
+
+    if (groups.length > 1) {
+      // Typst stacks pages vertically in one SVG. Give each page its own
+      // viewBox by shifting its group back to y = 0.
+      const shared = ['style', 'defs']
+      .flatMap((tag) => Array.from(rootSvg.querySelectorAll(tag)))
+      .map((node) => node.outerHTML)
+      .join('\n');
+
+      groups.forEach((group, idx) => {
+        const pageNum = idx + 1;
+        const entry = CONFIG.toc[idx] || { title: `Page ${pageNum}` };
+        const el = createPageElement(pageNum, entry.title);
+        el.innerHTML = `
+        <svg viewBox="0 0 ${width} ${height}" width="100%" height="100%"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:h5="http://www.w3.org/1999/xhtml">
+        ${shared}
+        <g transform="translate(0, -${idx * height})">${group.outerHTML}</g>
+        </svg>`;
+        fragment.appendChild(el);
+      });
+    } else {
+      const el = createPageElement(1, CONFIG.toc[0].title);
+      el.innerHTML = svgOutput;
+      fragment.appendChild(el);
+    }
+
+    DOM.viewport.replaceChildren(fragment);
+  }
+
   async function compileAndRender() {
-    showToast('Typesetting ...', true);
+    showToast('Typesetting …', true);
 
     try {
-      // Compile Typst source directly to SVG markup
-      const svgOutput = await $typst.svg({
-        mainContent: state.typstSource
-      });
-      console.log('Typst compiled SVG prefix:', svgOutput.slice(0, 300));
-
-      DOM.viewport.innerHTML = '';
-
-      // If svgOutput contains the complete document, render it in viewport
-      // If svgOutput already has all 5 pages vertically stacked inside one SVG:
-      // Let's create an article per page or let rootSvg render once!
-      // Extract styles and defs from root SVG
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(svgOutput, 'image/svg+xml');
-      const rootSvg = doc.querySelector('svg');
-      const styles = rootSvg ? Array.from(rootSvg.querySelectorAll('style')).map(s => s.outerHTML).join('\n') : '';
-      const defs = rootSvg ? Array.from(rootSvg.querySelectorAll('defs')).map(d => d.outerHTML).join('\n') : '';
-      const pageGroups = rootSvg ? Array.from(rootSvg.querySelectorAll('.typst-page')) : [];
-
-      console.log('pageGroups count:', pageGroups.length);
-
-      if (pageGroups.length > 1) {
-        pageGroups.forEach((g, idx) => {
-          const pageNum = idx + 1;
-          const entry = CONFIG.toc[idx] || { pageNum, title: `Page ${pageNum}` };
-          const pageEl = document.createElement('article');
-          pageEl.className = 'book-page book-page-typst';
-          pageEl.id = `page-${pageNum}`;
-          pageEl.dataset.page = pageNum;
-          pageEl.setAttribute('aria-label', entry.title);
-
-          // In Typst SVG, each .typst-page is placed at translate(0, idx * 842).
-          // We wrap it in a g with translate(0, -idx * 842) so it renders at y=0 inside this page's SVG.
-          pageEl.innerHTML = `
-            <svg viewBox="0 0 596 842" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
-              ${styles}
-              ${defs}
-              <g transform="translate(0, -${idx * 842})">
-                ${g.outerHTML}
-              </g>
-            </svg>
-          `;
-          DOM.viewport.appendChild(pageEl);
-        });
-      } else {
-        const pageEl = document.createElement('article');
-        pageEl.className = 'book-page book-page-typst';
-        pageEl.id = 'page-1';
-        pageEl.dataset.page = 1;
-        pageEl.innerHTML = svgOutput;
-        DOM.viewport.appendChild(pageEl);
-      }
-
+      const svgOutput = await $typst.svg({ mainContent: state.typstSource });
+      renderPages(svgOutput);
       renderContents();
       observePages();
     } catch (err) {
       console.error('Typst compilation failed:', err);
-      DOM.viewport.innerHTML = `<div class="book-error">Error compiling Typst document: ${escapeHtml(err.message)}</div>`;
+      showError(`Error compiling Typst document: ${err.message}`);
     } finally {
       hideToast();
     }
   }
 
+  function showError(message) {
+    const box = document.createElement('div');
+    box.className = 'book-error';
+    box.setAttribute('role', 'alert');
+    box.textContent = message;
+    DOM.viewport.replaceChildren(box);
+  }
+
   /* ==========================================================================
-   * 4. DIRECT NATIVE PDF EXPORT
+   * 4. PDF EXPORT
    * ========================================================================== */
 
   async function downloadPdf() {
     if (state.busy) return;
     state.busy = true;
     DOM.btnPdf.disabled = true;
-    showToast('Generating Native A4 PDF...', true);
+    showToast('Generating A4 PDF …', true);
 
     try {
-      // Native WASM binary PDF generation
-      const pdfBytes = await $typst.pdf({
-        mainContent: state.typstSource
-      });
-
-      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-      const url = URL.createObjectURL(blob);
+      const pdfBytes = await $typst.pdf({ mainContent: state.typstSource });
+      const url = URL.createObjectURL(new Blob([pdfBytes], { type: 'application/pdf' }));
       const link = document.createElement('a');
       link.href = url;
       link.download = CONFIG.pdfFileName;
       document.body.appendChild(link);
       link.click();
       link.remove();
-      URL.revokeObjectURL(url);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      hideToast();
     } catch (err) {
       console.error('PDF export failed:', err);
-      showToast('PDF Export error, opening print dialog...', false);
+      showToast('PDF export failed — opening print dialog', false, 3000);
       window.print();
     } finally {
       state.busy = false;
       DOM.btnPdf.disabled = false;
-      hideToast();
     }
   }
 
@@ -223,10 +210,16 @@ import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/t
       button.type = 'button';
       button.className = 'toc-item';
       button.dataset.page = entry.pageNum;
-      button.innerHTML = `
-        <span class="toc-label">${escapeHtml(entry.title)}</span>
-        <span class="toc-badge">${entry.pageNum}</span>
-      `;
+
+      const label = document.createElement('span');
+      label.className = 'toc-label';
+      label.textContent = entry.title;
+
+      const badge = document.createElement('span');
+      badge.className = 'toc-badge';
+      badge.textContent = entry.pageNum;
+
+      button.append(label, badge);
       button.addEventListener('click', () => {
         closeDrawer();
         goToPage(entry.pageNum);
@@ -241,10 +234,8 @@ import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/t
   function setActiveContents(pageNum) {
     state.activePage = pageNum;
     DOM.drawerList.querySelectorAll('.toc-item').forEach((item) => {
-      const isCurrent = Number(item.dataset.page) === pageNum;
-      if (isCurrent) {
+      if (Number(item.dataset.page) === pageNum) {
         item.setAttribute('aria-current', 'page');
-        item.scrollIntoView({ block: 'nearest' });
       } else {
         item.removeAttribute('aria-current');
       }
@@ -253,16 +244,15 @@ import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/t
 
   function observePages() {
     if (!('IntersectionObserver' in window)) return;
+    if (state.observer) state.observer.disconnect();
 
-    const observer = new IntersectionObserver((entries) => {
+    state.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveContents(Number(entry.target.dataset.page));
-        }
+        if (entry.isIntersecting) setActiveContents(Number(entry.target.dataset.page));
       });
     }, { rootMargin: '-35% 0px -55% 0px' });
 
-    DOM.viewport.querySelectorAll('.book-page').forEach((el) => observer.observe(el));
+    DOM.viewport.querySelectorAll('.book-page').forEach((el) => state.observer.observe(el));
   }
 
   function openDrawer() {
@@ -270,6 +260,8 @@ import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/t
     DOM.backdrop.classList.add('is-open');
     DOM.btnMenu.setAttribute('aria-expanded', 'true');
     DOM.btnCloseDrawer.focus({ preventScroll: true });
+    const current = DOM.drawerList.querySelector('[aria-current="page"]');
+    if (current) current.scrollIntoView({ block: 'nearest' });
   }
 
   function closeDrawer() {
@@ -283,64 +275,51 @@ import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/t
   function goToPage(pageNum) {
     const target = Math.min(Math.max(pageNum, 1), CONFIG.toc.length);
     const el = $(`page-${target}`);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setActiveContents(target);
-    }
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setActiveContents(target);
   }
 
   /* ==========================================================================
    * 6. THEME
    * ========================================================================== */
 
+  const systemQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
   function readStoredTheme() {
     try {
-      return localStorage.getItem(CONFIG.themeKey) === 'dark' ? 'dark' : 'light';
+      const stored = localStorage.getItem(CONFIG.themeKey);
+      return stored === 'dark' || stored === 'light' ? stored : null;
     } catch (e) {
-      return 'light';
+      return null;
     }
-  }
-
-  function storeTheme(theme) {
-    try {
-      localStorage.setItem(CONFIG.themeKey, theme);
-    } catch (e) { /* storage unavailable */ }
   }
 
   function applyTheme(theme) {
     state.theme = theme;
     DOM.html.dataset.theme = theme;
-    if (DOM.themeMeta) {
-      DOM.themeMeta.content = CONFIG.themeColors[theme];
-    }
-    storeTheme(theme);
+    if (DOM.themeMeta) DOM.themeMeta.content = CONFIG.themeColors[theme];
   }
 
-  function toggleTheme() {
-    applyTheme(state.theme === 'dark' ? 'light' : 'dark');
+  function initTheme() {
+    applyTheme(readStoredTheme() || (systemQuery.matches ? 'dark' : 'light'));
+    systemQuery.addEventListener('change', (event) => {
+      if (!readStoredTheme()) applyTheme(event.matches ? 'dark' : 'light');
+    });
   }
 
   /* ==========================================================================
-   * 7. UTILITIES & TOAST
+   * 7. TOAST
    * ========================================================================== */
-
-  function escapeHtml(value) {
-    return String(value)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
 
   let toastTimer = null;
 
-  function showToast(message, withSpinner) {
+  function showToast(message, withSpinner, autoHideMs) {
     clearTimeout(toastTimer);
     DOM.toastText.textContent = message;
     DOM.toastSpinner.hidden = !withSpinner;
     DOM.toast.classList.add('is-visible');
-    DOM.toast.setAttribute('role', 'status');
+    if (autoHideMs) toastTimer = setTimeout(hideToast, autoHideMs);
   }
 
   function hideToast() {
@@ -366,21 +345,23 @@ import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/t
   async function loadTypstSource() {
     const response = await fetch(CONFIG.typstUrl, { cache: 'no-cache' });
     if (!response.ok) throw new Error(`HTTP ${response.status} loading ${CONFIG.typstUrl}`);
-    return await response.text();
+    return response.text();
   }
 
   async function init() {
-    applyTheme(readStoredTheme());
+    initTheme();
     bindEvents();
+    renderContents();
 
     try {
+      showToast('Typesetting …', true);
       state.typstSource = await loadTypstSource();
       await initTypstEngine();
       await compileAndRender();
-      document.title = 'Hindi Pushtak';
     } catch (err) {
       console.error('Initialization error:', err);
-      DOM.viewport.innerHTML = `<div class="book-error">Could not initialize Typst engine: ${escapeHtml(err.message)}</div>`;
+      hideToast();
+      showError(`Could not initialize Typst engine: ${err.message}`);
     }
   }
 
