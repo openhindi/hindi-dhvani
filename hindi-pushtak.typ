@@ -148,7 +148,7 @@
 
 #par(leading: 0.60em)[
   #text(font: ("Noto Sans Devanagari", "DejaVu Sans"), size: 9.0pt, fill: rgb("#1a1a1a"))[
-    #h(14pt)Conceived as an exhaustive, multi-layered master reference (Comprehensive Magnum Opus Model), this volume encompasses the full spectrum of linguistic expression, from foundational orthography to advanced administrative documentation and literary appreciation. Rooted in a systematic, bilingual communicative approach, it charts a seamless progression through calligraphy drills, living dialogues, graded prose narratives, standard InScript keyboarding, and official government correspondence. Every concept features explicit bilingual commentary, authentic illustrative paradigms, and contextual application, empowering both independent scholars and classroom learners to assimilate the living essence of the language with poise.
+    #h(14pt)Conceived as an exhaustive, multi-layered master reference (Comprehensive Magnum Opus Model), this volume encompasses the full spectrum of linguistic expression, from foundational orthography to advanced administrative documentation and literary appreciation. Rooted in a systematic, bilingual communicative approach, it charts a seamless progression through calligraphy drills, living dialogues, graded prose narratives, standardized computer typography, and official institutional drafting. Every concept features explicit bilingual commentary, authentic illustrative paradigms, and contextual application, empowering both independent scholars and classroom learners to assimilate the living essence of the language with poise.
   ]
 ]
 
@@ -164,7 +164,7 @@
 
 #par(leading: 0.60em)[
   #text(font: ("Noto Sans Devanagari", "DejaVu Sans"), size: 9.0pt, fill: rgb("#1a1a1a"))[
-    #h(14pt)Language is not merely a vehicle for communication, but a living conduit of culture, intellect, and human sensibility. Consequently, this work connects learners not only with functional conversational fluency, but equally with standardized technical terminology, translation principles, and rich cultural heritage. Whether navigating official administrative procedures, commercial and banking operations, or the digital landscape of Indian language computing, this text serves as a dependable bridge empowering learners with genuine communicative competence and enduring mastery across all spheres.
+    #h(14pt)Language is not merely a vehicle for communication, but a living conduit of culture, intellect, and human sensibility. Consequently, this work connects learners not only with functional conversational fluency, but equally with standardized technical terminology, translation principles, and rich cultural heritage. Whether navigating institutional workflows, financial and commercial transactions, or modern digital communication in Indian languages, this text serves as a dependable bridge empowering learners with genuine communicative competence and enduring mastery across all spheres.
   ]
 ]
 
