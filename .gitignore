@@ -13,3 +13,11 @@ Thumbs.db
 *.tmp
 dist/
 build/
+
+# Python Cache & Bytecode
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.py[cod]
+*$py.class
