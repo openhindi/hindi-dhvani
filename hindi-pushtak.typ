@@ -11,7 +11,7 @@
     let left-title = if page-num == 2 {
       [पुस्तक परिचय]
     } else if page-num >= 3 and page-num <= 4 {
-      [विषय-सूची : ३० खंड]
+      [विषय-सूची]
     } else if page-num == 5 {
       [खंड १ : अनुभाग सूची]
     } else if page-num == 6 {
@@ -28,7 +28,7 @@
     let right-title = if page-num == 2 {
       [About the Book]
     } else if page-num >= 3 and page-num <= 4 {
-      [Table of Contents : 30 Parts]
+      [Table of Contents]
     } else if page-num == 5 {
       [Part 1 : Section Directory]
     } else if page-num == 6 {
