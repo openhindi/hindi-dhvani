@@ -17,6 +17,11 @@ from curriculum_tier6 import TIER_6
 
 ALL_PARTS = TIER_1 + TIER_2 + TIER_3A + TIER_3B + TIER_4 + TIER_5 + TIER_6
 
+DEV_NUMERALS = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"]
+
+def to_dev_num(n):
+    return "".join(DEV_NUMERALS[int(d)] for d in str(n))
+
 def validate():
     print(f"Total parts loaded: {len(ALL_PARTS)}")
     assert len(ALL_PARTS) == 30, f"Expected 30 parts, got {len(ALL_PARTS)}"
@@ -27,7 +32,26 @@ def validate():
     print(f"Total sections loaded: {total_sections} (30 parts * 20 sections = 600 sections)")
     print("Validation passed successfully!")
 
+def generate_markdown_master_parts(output_path):
+    """Generates a summary markdown table of just the 30 parts."""
+    lines = []
+    lines.append("# मानक हिंदी पुस्तक : ३० खंडों का विहंगावलोकन")
+    lines.append("*Master Table of Contents : 30 Parts Overview*")
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+    lines.append("| खंड (Part) | शीर्षक (Hindi Title) | English Title | कुल अनुभाग (Sections) |")
+    lines.append("| :---: | :--- | :--- | :---: |")
+    for p_num, p_dev, p_en, secs in ALL_PARTS:
+        lines.append(f"| **खंड {to_dev_num(p_num)}** ({p_num}) | {p_dev} | {p_en} | २० (20) |")
+    lines.append("")
+    content = "\n".join(lines)
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(content)
+    print(f"Generated Master Parts Markdown at: {output_path}")
+
 def generate_markdown_toc(output_path):
+    """Generates the full comprehensive 30-part, 600-section markdown file."""
     lines = []
     lines.append("# मानक हिंदी पुस्तक : संपूर्ण पाठ्यक्रम एवं विषय-सूची")
     lines.append("*Comprehensive 30-Part, 600-Section Master Curriculum & Table of Contents*")
@@ -39,10 +63,15 @@ def generate_markdown_toc(output_path):
     lines.append("")
     lines.append("---")
     lines.append("")
-
-    dev_numerals = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"]
-    def to_dev_num(n):
-        return "".join(dev_numerals[int(d)] for d in str(n))
+    lines.append("## ३० खंडों का संक्षिप्त विहंगावलोकन (Master Parts Overview)")
+    lines.append("")
+    lines.append("| खंड (Part) | शीर्षक (Hindi Title) | English Title |")
+    lines.append("| :---: | :--- | :--- |")
+    for p_num, p_dev, p_en, _ in ALL_PARTS:
+        lines.append(f"| **खंड {to_dev_num(p_num)}** ({p_num}) | {p_dev} | {p_en} |")
+    lines.append("")
+    lines.append("---")
+    lines.append("")
 
     for p_num, p_dev, p_en, secs in ALL_PARTS:
         lines.append(f"## खंड {to_dev_num(p_num)} : {p_dev}")
@@ -61,55 +90,36 @@ def generate_markdown_toc(output_path):
         f.write(content)
     print(f"Generated Markdown TOC at: {output_path}")
 
-def generate_typst_toc_block():
-    """Generates the 6 Table of Contents pages in Typst for hindi-pushtak.typ (5 parts per page)."""
-    dev_numerals = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"]
-    def to_dev_num(n):
-        return "".join(dev_numerals[int(d)] for d in str(n))
-
+def generate_typst_master_parts_block():
+    """Generates the front-matter 2 pages of 30 parts in Typst (15 parts per page)."""
     pages = []
-    for page_idx in range(6):
-        start_part = page_idx * 5
-        end_part = start_part + 5
+    
+    # Page 1 of TOC: Parts 1 to 15
+    # Page 2 of TOC: Parts 16 to 30
+    for page_idx in range(2):
+        start_part = page_idx * 15
+        end_part = start_part + 15
         current_parts = ALL_PARTS[start_part:end_part]
         p_start_num = start_part + 1
         p_end_num = end_part
 
         p_lines = []
-        p_lines.append(f"// PAGE {page_idx + 3}: खंड {to_dev_num(p_start_num)} से {to_dev_num(p_end_num)}")
+        p_lines.append(f"// --- PAGE {page_idx + 3}: विषय-सूची (खंड {to_dev_num(p_start_num)} से {to_dev_num(p_end_num)}) ---")
         p_lines.append("#v(2pt)")
         p_lines.append(f'#text(size: 16pt, weight: "bold")[विषय-सूची : भाग {to_dev_num(page_idx + 1)}] \\')
         p_lines.append(f"#en-sub[Table of Contents : Parts {p_start_num} to {p_end_num}]")
-        p_lines.append("#v(6pt)")
+        p_lines.append("#v(8pt)")
         p_lines.append("")
         p_lines.append("#table(")
-        p_lines.append("  columns: (60pt, 1fr),")
-        p_lines.append("  align: (center + top, left + top),")
-        p_lines.append('  [*खंड* \\ #en-sub[Part]], [*शीर्षक, अनुभाग एवं विषय* \\ #en-sub[Title, Sections & Topics]],')
+        p_lines.append("  columns: (54pt, 1fr),")
+        p_lines.append("  align: (center + horizon, left + horizon),")
+        p_lines.append('  [*खंड* \\ #en-sub[Part]], [*शीर्षक एवं विषय-वस्तु* \\ #en-sub[Title & Scope of Part]],')
 
-        for p_num, p_dev, p_en, secs in current_parts:
-            # First row cell: Part number
+        for p_num, p_dev, p_en, _ in current_parts:
             p_lines.append(f'  [#strong[खंड {to_dev_num(p_num)}] \\')
             p_lines.append(f'  #en-sub[Part {p_num}]],')
-
-            # Second row cell: Title + sections
-            # Show summary of key 4-5 milestone sections or compact flow of 20 sections
-            # In Typst TOC table, each part lists representative sections or all 20 sections grouped cleanly
-            sec_hindi_spans = []
-            sec_eng_spans = []
-            for s_dev_num, s_dev_title, s_en_num, s_en_title in secs:
-                sec_hindi_spans.append(f"{s_dev_num} : {s_dev_title}")
-                sec_eng_spans.append(f"{s_en_num} : {s_en_title}")
-
-            hin_summary = " #h(6pt)•#h(6pt) ".join(sec_hindi_spans[:5]) + " #h(6pt)•#h(6pt) [एवं २० विशिष्ट अनुभाग]"
-            en_summary = " #h(6pt)•#h(6pt) ".join(sec_eng_spans[:5]) + " #h(6pt)•#h(6pt) [and 20 comprehensive sections]"
-
             p_lines.append(f'  [#strong[{p_dev}] \\')
-            p_lines.append(f'  #en-sub[{p_en}] \\')
-            p_lines.append('  #v(1.5pt)')
-            p_lines.append(f'  #text(size: 8pt, fill: rgb("#333333"))[{hin_summary}] \\')
-            p_lines.append('  #v(0.5pt)')
-            p_lines.append(f'  #text(size: 7.2pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{en_summary}]],')
+            p_lines.append(f'  #en-sub[{p_en}]],')
 
         p_lines.append(")")
         p_lines.append("")
@@ -119,6 +129,45 @@ def generate_typst_toc_block():
 
     return "\n".join(pages)
 
+def generate_typst_part_opener_page(part_num, overview_hi="", overview_en=""):
+    """Generates the dedicated Part Opener page containing the complete 20-section directory table fitting on exactly 1 page."""
+    part_data = ALL_PARTS[part_num - 1]
+    p_num, p_dev, p_en, secs = part_data
+
+    lines = []
+    lines.append(f"// --- खंड {to_dev_num(p_num)} : मुखपृष्ठ एवं अनुभाग-सूची (Part {p_num} Opener) ---")
+    lines.append("#v(0pt)")
+    lines.append(f'#text(size: 15pt, weight: "bold")[खंड {to_dev_num(p_num)} : {p_dev}] \\')
+    lines.append(f'#text(size: 9.5pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Part {p_num} : {p_en}]')
+    lines.append("#v(2pt)")
+    lines.append('#line(length: 100%, stroke: 0.5pt + rgb("#cccccc"))')
+    lines.append("#v(2pt)")
+    
+    if overview_hi and overview_en:
+        lines.append(f'#text(size: 8.8pt)[{overview_hi}] \\')
+        lines.append(f'#text(size: 7.8pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{overview_en}]')
+        lines.append("#v(2pt)")
+
+    lines.append('#text(size: 10pt, weight: "bold")[अनुभाग सूची] #h(6pt) #text(size: 8.5pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Directory (20 Sections)]')
+    lines.append("#v(1pt)")
+    lines.append("#table(")
+    lines.append("  columns: (38pt, 1fr),")
+    lines.append("  inset: (x: 4pt, y: 1.8pt),")
+    lines.append("  align: (center + horizon, left + horizon),")
+    lines.append('  [*अनुभाग* \\ #text(size: 6.8pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Sec]], [*अनुभाग शीर्षक एवं अध्ययन विषय* \\ #text(size: 6.8pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Title & Scope]],')
+
+    for s_dev_num, s_dev_title, s_en_num, s_en_title in secs:
+        lines.append(f'  [#text(size: 7.8pt, weight: "bold")[{s_dev_num}] \\')
+        lines.append(f'  #text(size: 6.6pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{s_en_num}]],')
+        lines.append(f'  [#text(size: 8.2pt, weight: "bold")[{s_dev_title}] \\')
+        lines.append(f'  #text(size: 7.0pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{s_en_title}]],')
+
+    lines.append(")")
+    lines.append("")
+    lines.append("#pagebreak()")
+    lines.append("")
+    return "\n".join(lines)
+
 if __name__ == "__main__":
     validate()
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -127,4 +176,6 @@ if __name__ == "__main__":
     # Also write a complete reference markdown in source folder:
     full_spec = os.path.join(root_dir, "source", "Curriculum_30_Parts_600_Sections.md")
     generate_markdown_toc(full_spec)
+    master_parts_md = os.path.join(root_dir, "source", "Master_Parts_TOC.md")
+    generate_markdown_master_parts(master_parts_md)
     print("Done generating curriculum files.")

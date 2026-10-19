@@ -8,6 +8,43 @@
 
 ---
 
+## ३० खंडों का संक्षिप्त विहंगावलोकन (Master Parts Overview)
+
+| खंड (Part) | शीर्षक (Hindi Title) | English Title |
+| :---: | :--- | :--- |
+| **खंड १** (1) | देवनागरी लिपि-संरचना एवं सुलेख कला | Devanagari Script Architecture & Calligraphy |
+| **खंड २** (2) | स्वर, अनुस्वार एवं नासिक्य ध्वनियाँ | Vowels, Diacritics & Nasalization |
+| **खंड ३** (3) | व्यंजन-व्यवस्था एवं उच्चारण-विज्ञान | Consonant Classification & Phonetics |
+| **खंड ४** (4) | संयुक्ताक्षर, संधि एवं वर्ण-विच्छेद | Conjuncts, Sandhi & Orthographic Analysis |
+| **खंड ५** (5) | संज्ञा, लिंग-व्यवस्था एवं प्रकृति | Noun Classes & Grammatical Gender |
+| **खंड ६** (6) | वचन-विधान एवं रूपांतरण व्यवस्था | Number System & Pluralization |
+| **खंड ७** (7) | कारक-प्रणाली, परसर्ग एवं तिर्यक रूप | Case System, Postpositions & Oblique Forms |
+| **खंड ८** (8) | सर्वनाम-व्यवस्था एवं रूपावली | Pronouns, Declensions & Demonstratives |
+| **खंड ९** (9) | विशेषण, प्रविशेषण एवं तुलनात्मक अवस्थाएँ | Adjectives, Intensifiers & Comparisons |
+| **खंड १०** (10) | संख्या-पद्धति, गणना एवं मापन प्रणाली | Numerals, Counting & Measurement Systems |
+| **खंड ११** (11) | क्रिया-मूल, धातु एवं होना सहायक क्रिया | Verb Roots, Infinitives & Copula Hona |
+| **खंड १२** (12) | वर्तमान काल : सामान्य, अपूर्ण एवं संदिग्ध | Present Tenses: Simple, Continuous & Presumptive |
+| **खंड १३** (13) | भूतकाल : सामान्य, आसन्न, पूर्ण एवं संदिग्ध | Past Tenses: Simple, Immediate, Perfect & Habitual |
+| **खंड १४** (14) | ने परसर्ग नियम एवं सकर्मक भूतकाल | Ergative Ne Rule & Transitive Past Syntax |
+| **खंड १५** (15) | भविष्यत् काल, आज्ञार्थ एवं विध्यर्थ | Future Tenses, Imperatives & Optatives |
+| **खंड १६** (16) | संयुक्त क्रियाएँ एवं रंजक धातु व्यवस्था | Compound Verbs & Explicators |
+| **खंड १७** (17) | प्रेरणार्थक क्रियाएँ एवं प्रक्रियात्मक रचना | Causative Verbs & Derivations |
+| **खंड १८** (18) | पक्ष, वृत्ति एवं विवशतापरक संरचनाएँ | Verbal Aspects, Modality & Obligation |
+| **खंड १९** (19) | कृदंत, पूर्वकालिक क्रिया एवं क्रिया-विशेषण | Participles, Absolutives & Adverbs |
+| **खंड २०** (20) | वाच्य-विधान : कर्तृवाच्य, कर्मवाच्य व भाववाच्य | Voice: Active, Passive & Impersonal |
+| **खंड २१** (21) | वाक्य-रचना, भेद एवं अव्यय संयोजन | Sentence Syntax, Conjunctions & Modifiers |
+| **खंड २२** (22) | उपवाक्य, संबंधपरक रचना एवं नित्य-संबंधी | Relative Clauses & Correlative Constructions |
+| **खंड २३** (23) | दैनिक जीवन, शिष्टाचार एवं सामाजिक संवाद | Daily Life, Social Etiquette & Greetings |
+| **खंड २४** (24) | उपयोगिता, सेवाएँ, यात्रा एवं जन-संवाद | Public Utilities, Travel & Essential Services |
+| **खंड २५** (25) | प्रयोजनमूलक एवं कार्यालयीन प्रशासनिक हिंदी | Official Language Policy & Administrative Idiom |
+| **खंड २६** (26) | टिप्पण, आलेखन एवं प्रारूपण पद्धति | Noting, Drafting & Official Formats |
+| **खंड २७** (27) | बैंकिंग, वाणिज्यिक एवं वित्तीय कार्य-प्रणाली | Commercial Banking, Operations & Financial Terms |
+| **खंड २८** (28) | कंप्यूटर, यूनिकोड एवं इनस्क्रिप्ट टंकण | Computing, Unicode & InScript Touch Typing |
+| **खंड २९** (29) | अनुवाद-सिद्धांत, मुहावरे एवं मानक वर्तनी | Translation Theory, Idioms & Orthography |
+| **खंड ३०** (30) | गद्य-पाठमाला, संस्कृति एवं वृहद् शब्दकोश | Literary Readings, Cultural Heritage & Master Lexicon |
+
+---
+
 ## खंड १ : देवनागरी लिपि-संरचना एवं सुलेख कला
 **Part 1 : Devanagari Script Architecture & Calligraphy**
 
