@@ -183,3 +183,56 @@ http://localhost:8080/
 ```bash
 typst compile --font-path assets/fonts/ hindi-pushtak.typ hindi-pushtak.pdf
 ```
+
+---
+
+## ७. वर्तमान प्रगति एवं सत्र पुनरारंभ निर्देशिका (Current Progress & Resumption Guide)
+
+नया सत्र (New Session) प्रारंभ करते समय किसी भी पूर्व संदर्भ की आवश्यकता के बिना कार्य को निर्बाध रूप से आगे बढ़ाने हेतु यह आधिकारिक संदर्भ है:
+
+### १. वर्तमान पूर्ण स्थिति (Current Milestones & Geometry State)
+- **कुल मुद्रित पृष्ठ**: ठीक **९ A4 पृष्ठ** (Strictly 9 A4 Pages, `Pages: 9` verified via `typst compile` and `pdfinfo`).
+- **पृष्ठ ज्यामिति (Page Geometry)**:
+  - `paper: "a4"`
+  - `margin: (top: 30mm, bottom: 30mm, left: 20mm, right: 20mm)`
+  - `fill: rgb("#ffffff")` (शुद्ध धवल पृष्ठभूमि)
+  - `text(size: 12pt, lang: "hi")`
+  - मुख्य देवनागरी: शुद्ध जेट ब्लैक (`#000000`)
+  - अंग्रेज़ी पाठ व अनुवाद: ९०% काला (`#1a1a1a`), कोष्ठक-मुक्त, अधो-पंक्ति विन्यास
+- **निर्मित पृष्ठों की सूची**:
+  - `Page 1`: मुखपृष्ठ (❖, ३४pt हिन्दी, १३pt अंग्रेज़ी)
+  - `Page 2`: पुस्तक परिचय (About the Book, ३ विस्तृत द्विभाषिक अनुच्छेद, शून्य संख्यात्मक उल्लेख, "समग्र एवं प्रामाणिक" / "all-encompassing, definitive")
+  - `Page 3`: विषय-सूची (भाग १ : खंड १ से १५, मास्टर तालिका `y: 5.2pt`)
+  - `Page 4`: विषय-सूची (भाग २ : खंड १६ से ३०, मास्टर तालिका `y: 5.2pt`)
+  - `Page 5`: खंड १ मुखपृष्ठ (Part 1 Opener, २० अनुभागों की द्विकॉलमीय २-Column निर्देशिका तालिका, ९.८pt/८.२pt फ़ॉन्ट, `y: 5.5pt`)
+  - `Pages 6–7`: **अनुभाग १.१** (*देवनागरी लिपि का ऐतिहासिक उद्भव एवं विकास*) — सटीक २-पृष्ठ स्प्रेड
+  - `Pages 8–9`: **अनुभाग १.२** (*अक्षरात्मक प्रकृति एवं आबुगिदा व्यवस्था*) — सटीक २-पृष्ठ स्प्रेड
+
+### २. अनुभाग लेखन हेतु अनिवार्य टेम्पलेट प्रोटोकॉल (Standard Authoring Protocol)
+प्रत्येक नया अनुभाग (Section) मानक **२-पृष्ठीय स्प्रेड (Pages N & N+1)** के रूप में लिखा जाएगा:
+- **प्रथम पृष्ठ (Verso / Even Page)**:
+  1. `#section-opener(sec-num-hi, title-hi, sec-num-en, title-en)`
+  2. `#intro-para(hi-text, en-text)` (परिचयात्मक द्विभाषिक अनुच्छेद)
+  3. `#section-subheading(num-hi, title-hi, num-en, title-en)`
+  4. ३ मानक `#rule-box(title-hi, title-en, body)` (३pt ठोस काली वाम सीमा)
+  5. `#pagebreak()`
+- **द्वितीय पृष्ठ (Recto / Odd Page)**:
+  1. `#spread-header(num-hi, title-hi, num-en, title-en)` (द्वितीय पृष्ठ का शीर्ष बैनर व ०.५pt विभाजक रेखा)
+  2. सारणी १ (तालिका विन्यास, `stroke: (bottom: 0.3pt)`, `inset: (x: 5pt, y: 3.8pt)`)
+  3. `#topic-heading(num-hi, title-hi, num-en, title-en)`
+  4. सारणी २ (तुलनात्मक अथवा पारिभाषिक सारणी)
+  5. पाद में अनिवार्य `#exercise-box(title-hi, title-en, body)` (स्व-मूल्यांकन कार्यपत्र)
+  6. `#pagebreak()`
+- **डायनामिक शीर्षलेख अद्यतन**: `hindi-pushtak.typ` के `#set page(header: ...)` में नए पृष्ठ क्रमांकों हेतु `left-title` (हिन्दी) एवं `right-title` (अंग्रेज़ी) जोड़ना अनिवार्य है।
+
+### ३. अगला कार्य (Immediate Next Task for New Session)
+- **अनुभाग १.३** का लेखन प्रारंभ करें:
+  - **शीर्षक**: *शिरोरेखा के प्रामाणिक नियम एवं महत्व* (Shirorekha Rules, Importance & Alignment)
+  - **पृष्ठ आवंटन**: **पृष्ठ १० एवं ११** (Pages 10 & 11)
+  - **सामग्री व्याप्ति**:
+    - *पृष्ठ १०*: शिरोरेखा का सैद्धांतिक आधार, दृष्टि संरेखण, एवं ३ मुख्य नियम बॉक्स (अखंड शिरोरेखा का नियम, अक्षरों के आनुपातिक आयाम, कलम का प्रवाह)।
+    - *पृष्ठ ११*: शिरोरेखा के मानक अपवाद (ध, भ, थ, झ, श्र में विच्छेद) की विश्लेषणात्मक सारणी, तुलनात्मक सारणी तथा पाद में `#exercise-box` स्व-मूल्यांकन कार्यपत्र।
+  - **शीर्षलेख (Header)**:
+    - Page 10: `[अनुभाग १.३ : शिरोरेखा के नियम एवं महत्व]` | `[Section 1.3 : Shirorekha Rules & Importance]`
+    - Page 11: `[अनुभाग १.३ : विच्छेद नियम एवं अभ्यास]` | `[Section 1.3 : Broken Letters & Exercises]`
+
