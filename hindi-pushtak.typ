@@ -118,7 +118,8 @@
 
 // --- PAGE 2: पुस्तक परिचय ---
 #v(2pt)
-#text(size: 16pt, weight: "bold")[पुस्तक परिचय] #text(font: ("Noto Sans Devanagari", "DejaVu Sans"), size: 10pt, fill: rgb("#1a1a1a"))[About the Book]
+#text(size: 16pt, weight: "bold")[पुस्तक परिचय] \
+#text(font: ("Noto Sans Devanagari", "DejaVu Sans"), size: 10pt, fill: rgb("#1a1a1a"))[About the Book]
 #v(6pt)
 
 #par(leading: 0.65em)[
