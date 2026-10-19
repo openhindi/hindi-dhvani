@@ -1,25 +1,16 @@
 /**
- * Hindi Master Book — Application
+ * Hindi Master Book — Typst Browser WASM Application
  *
- * Features
- *  - Renders hindi-book.md as distinct A4-proportioned pages
- *  - Contents drawer with live active-page tracking
- *  - Light / dark theme (remembered per browser)
- *  - One-click A4 PDF export (WYSIWYG, light theme, off-screen render tree)
- *  - Offline fallback: embedded copy of the markdown inside index.html
- *
- * Structure
- *  1. Configuration
- *  2. Utilities
- *  3. Markdown parser
- *  4. Page model
- *  5. Rendering
- *  6. Contents drawer
- *  7. Theme
- *  8. PDF export
- *  9. Feedback (toast)
- * 10. Bootstrap
+ * Features:
+ *  - Native client-side Typst compilation via WebAssembly (@myriaddreamin/typst.ts from CDN)
+ *  - Full Devanagari font support (Noto Sans / Noto Serif Devanagari)
+ *  - On-screen vector SVG preview matching exact A4 page geometry
+ *  - Direct native binary PDF download ($typst.pdf) without rasterization or canvas slicing
+ *  - Interactive contents drawer with active section tracking
+ *  - Light / dark reader theme
  */
+
+import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/typst.ts/+esm';
 
 (function () {
   'use strict';
@@ -29,38 +20,44 @@
    * ========================================================================== */
 
   const CONFIG = {
-    markdownUrl: 'hindi-book.md',
+    typstUrl: 'hindi-pushtak.typ',
     themeKey: 'hindi-book-theme',
-    pdfFileName: 'hindi-master-book.pdf',
-    defaultPartLabel: 'Hindi Master Book',
-      pageBreakPattern: /<!--\s*PAGE-BREAK\s*-->/i,
-      metaPattern: /<!--\s*PAGE:\s*(\d+)\s*\|\s*TYPE:\s*([A-Za-z0-9_-]+)\s*\|\s*TITLE:\s*([^>]+?)\s*-->/i,
- themeColors: { light: '#eef1f6', dark: '#151a23' }
+    pdfFileName: 'hindi-pushtak.pdf',
+    defaultPartLabel: 'Hindi Pushtak',
+    fonts: [
+      'fonts/NotoSansDevanagari-Regular.ttf',
+      'fonts/NotoSerifDevanagari-Regular.ttf',
+      'fonts/NotoSerifDevanagari-Bold.ttf'
+    ],
+    toc: [
+      { pageNum: 1, title: 'मुखपृष्ठ (Cover)' },
+      { pageNum: 2, title: 'पुस्तक परिचय : दृष्टिकोण (About the Book)' },
+      { pageNum: 3, title: 'विषय-सूची (Table of Contents)' },
+      { pageNum: 4, title: 'खंड १ : अनुभाग १.१ (Devanagari Script)' },
+      { pageNum: 5, title: 'खंड १ : अनुभाग १.२ (Calligraphy & Stroke Order)' }
+    ],
+    themeColors: { light: '#f2f2f2', dark: '#111111' }
   };
 
-  const LIST_ITEM = /^(\s*)([-*]|\d+[.)])\s+(.*)$/;
-  const HEADING = /^(#{1,4})\s+(.+)$/;
-  const HR = /^(-{3,}|\*{3,}|_{3,})$/;
-
   const state = {
+    typstSource: '',
     pages: [],
     activePage: 1,
     theme: 'light',
-    busy: false
+    busy: false,
+    initialized: false
   };
 
   const $ = (id) => document.getElementById(id);
 
   const DOM = {
     html: document.documentElement,
-    topbarTitle: $('topbar-title'),
     viewport: $('book-viewport'),
     drawer: $('toc-drawer'),
     backdrop: $('drawer-backdrop'),
     drawerList: $('drawer-list'),
-    btnMenu: $('btn-menu'),
+    btnMenu: $('btn-bookmarks'),
     btnCloseDrawer: $('btn-close-drawer'),
-    btnTheme: $('btn-theme-toggle'),
     btnPdf: $('btn-download-pdf'),
     toast: $('status-toast'),
     toastText: $('status-text'),
@@ -69,333 +66,170 @@
   };
 
   /* ==========================================================================
-   * 2. UTILITIES
+   * 2. TYPST INITIALIZATION & FONT REGISTRATION
    * ========================================================================== */
 
-  function escapeHtml(value) {
-    return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-  }
+  async function initTypstEngine() {
+    if (state.initialized) return;
 
-  /** Inline Markdown: ***bold italic***, **bold**, *italic*, `code`. */
-  function renderInline(text) {
-    if (!text) return '';
-    return text
-    .replace(/`([^`]+)`/g, (_, code) => `<code>${escapeHtml(code)}</code>`)
-    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em>$1</em>');
-  }
+    showToast('Typesetting ...', true);
 
-  /* ==========================================================================
-   * 3. MARKDOWN PARSER
-   * Supports: headings, paragraphs, nested ul/ol, blockquotes, tables,
-   * fenced code, horizontal rules, and raw HTML lines (for the cover).
-   * ========================================================================== */
-
-  function renderTable(rows) {
-    const parsed = rows.map((row) =>
-    row.trim().replace(/^\||\|$/g, '').split('|').map((cell) => cell.trim())
-    );
-    const isSeparator = (cells) => cells.every((c) => /^:?-+:?$/.test(c));
-
-    let headerDone = false;
-    let head = '';
-    let body = '';
-
-    parsed.forEach((cells, idx) => {
-      if (isSeparator(cells)) {
-        headerDone = true;
-        return;
-      }
-      if (!headerDone && idx === 0) {
-        head += '<tr>' + cells.map((c) => `<th>${renderInline(c)}</th>`).join('') + '</tr>';
-      } else {
-        body += '<tr>' + cells.map((c) => `<td>${renderInline(c)}</td>`).join('') + '</tr>';
-      }
-    });
-
-    return `<div class="table-wrap"><table>` +
-    (head ? `<thead>${head}</thead>` : '') +
-    `<tbody>${body}</tbody></table></div>`;
-  }
-
-  /** Collects a run of list lines into a flat array of {indent, ordered, text}. */
-  function collectList(lines, start) {
-    const items = [];
-    let i = start;
-
-    while (i < lines.length) {
-      const line = lines[i];
-      const match = line.match(LIST_ITEM);
-
-      if (match) {
-        items.push({
-          indent: match[1].replace(/\t/g, '  ').length,
-                   ordered: /\d/.test(match[2]),
-                   text: match[3]
-        });
-        i++;
-        continue;
-      }
-
-      if (!line.trim()) {
-        let j = i;
-        while (j < lines.length && !lines[j].trim()) j++;
-        if (j < lines.length && LIST_ITEM.test(lines[j])) {
-          i = j;
-          continue;
-        }
-        break;
-      }
-
-      if (items.length && /^\s+/.test(line)) {
-        items[items.length - 1].text += ' ' + line.trim();
-        i++;
-        continue;
-      }
-
-      break;
-    }
-
-    return { items, next: i };
-  }
-
-  /** Renders a list level recursively, nesting deeper-indented items. */
-  function renderListLevel(items, pos, indent) {
-    const tag = items[pos].ordered ? 'ol' : 'ul';
-    let html = `<${tag}>`;
-
-    while (pos < items.length) {
-      const item = items[pos];
-      if (item.indent < indent) break;
-
-      if (item.indent > indent) {
-        const [sub, next] = renderListLevel(items, pos, item.indent);
-        html += sub;
-        pos = next;
-        continue;
-      }
-
-      html += `<li>${renderInline(item.text)}`;
-      pos++;
-
-      if (pos < items.length && items[pos].indent > indent) {
-        const [sub, next] = renderListLevel(items, pos, items[pos].indent);
-        html += sub;
-        pos = next;
-      }
-
-      html += '</li>';
-    }
-
-    return [html + `</${tag}>`, pos];
-  }
-
-  function renderList(items) {
-    let html = '';
-    let pos = 0;
-    while (pos < items.length) {
-      const [chunk, next] = renderListLevel(items, pos, items[pos].indent);
-      html += chunk;
-      pos = next;
-    }
-    return html;
-  }
-
-  function parseMarkdown(markdown) {
-    if (!markdown) return '';
-
-    const lines = markdown.split(/\r?\n/);
-    const out = [];
-    let i = 0;
-
-    while (i < lines.length) {
-      const trimmed = lines[i].trim();
-
-      // Blank line
-      if (!trimmed) { i++; continue; }
-
-      // Fenced code block
-      if (trimmed.startsWith('```')) {
-        const buffer = [];
-        i++;
-        while (i < lines.length && !lines[i].trim().startsWith('```')) {
-          buffer.push(lines[i]);
-          i++;
-        }
-        i++; // closing fence
-        out.push(`<pre><code>${escapeHtml(buffer.join('\n'))}</code></pre>`);
-        continue;
-      }
-
-      // Raw HTML block lines (used by the cover)
-      if (/^<\/?(div|p)\b/.test(trimmed)) {
-        out.push(trimmed);
-        i++;
-        continue;
-      }
-
-      // Table
-      if (trimmed.startsWith('|') && trimmed.endsWith('|')) {
-        const rows = [];
-        while (i < lines.length && lines[i].trim().startsWith('|')) {
-          rows.push(lines[i].trim());
-          i++;
-        }
-        out.push(renderTable(rows));
-        continue;
-      }
-
-      // Horizontal rule
-      if (HR.test(trimmed)) {
-        out.push('<hr />');
-        i++;
-        continue;
-      }
-
-      // Heading
-      const heading = trimmed.match(HEADING);
-      if (heading) {
-        const level = heading[1].length;
-        out.push(`<h${level}>${renderInline(heading[2])}</h${level}>`);
-        i++;
-        continue;
-      }
-
-      // Blockquote (consecutive > lines become one block)
-      if (trimmed.startsWith('>')) {
-        const buffer = [];
-        while (i < lines.length && lines[i].trim().startsWith('>')) {
-          buffer.push(lines[i].trim().replace(/^>\s?/, ''));
-          i++;
-        }
-        out.push(`<blockquote>${buffer.filter(Boolean).map(renderInline).join('<br />')}</blockquote>`);
-        continue;
-      }
-
-      // Lists
-      if (LIST_ITEM.test(lines[i])) {
-        const { items, next } = collectList(lines, i);
-        out.push(renderList(items));
-        i = next;
-        continue;
-      }
-
-      // Paragraph
-      out.push(`<p>${renderInline(trimmed)}</p>`);
-      i++;
-    }
-
-    return out.join('\n');
-  }
-
-  /* ==========================================================================
-   * 4. PAGE MODEL
-   * ========================================================================== */
-
-  function splitIntoPages(markdown) {
-    const chunks = markdown.split(CONFIG.pageBreakPattern);
-    const pages = [];
-
-    chunks.forEach((chunk, index) => {
-      let content = chunk.trim();
-      if (!content) return;
-
-      let pageNum = pages.length + 1;
-      let type = 'PAGE';
-      let title = `Page ${pageNum}`;
-
-      const meta = content.match(CONFIG.metaPattern);
-      if (meta) {
-        pageNum = parseInt(meta[1], 10) || pageNum;
-        type = meta[2].toUpperCase();
-        title = meta[3].trim();
-        content = content.replace(meta[0], '').trim();
-      }
-
-      // "Part : Section" split on the first colon
-      let partLabel = CONFIG.defaultPartLabel;
-      let sectionLabel = title;
-      const colon = title.indexOf(':');
-      if (colon !== -1) {
-        partLabel = title.slice(0, colon).trim();
-        sectionLabel = title.slice(colon + 1).trim();
-      }
-
-      pages.push({
-        pageNum,
-        type,
-        title,
-        partLabel,
-        sectionLabel,
-        html: parseMarkdown(content)
+    try {
+      // 1. Configure Web Compiler and Renderer WASM URLs from jsDelivr
+      $typst.setCompilerInitOptions({
+        getModule: () => ({
+          module_or_path: 'https://cdn.jsdelivr.net/npm/@myriaddreamin/typst-ts-web-compiler@0.7.0/pkg/typst_ts_web_compiler_bg.wasm'
+        })
       });
-    });
 
-    return pages;
+      $typst.setRendererInitOptions({
+        getModule: () => ({
+          module_or_path: 'https://cdn.jsdelivr.net/npm/@myriaddreamin/typst-ts-renderer@0.7.0/pkg/typst_ts_renderer_bg.wasm'
+        })
+      });
+
+      // 2. Preload fonts via typst.ts font loader
+      $typst.use({
+        key: 'access-model',
+        forRoles: ['compiler'],
+        provides: [loadFonts(CONFIG.fonts)]
+      });
+
+      state.initialized = true;
+    } catch (err) {
+      console.error('Typst engine initialization error:', err);
+      throw err;
+    } finally {
+      hideToast();
+    }
   }
 
   /* ==========================================================================
-   * 5. RENDERING
+   * 3. COMPILATION & RENDERING
    * ========================================================================== */
 
-  function createPageElement(page) {
-    const article = document.createElement('article');
-    article.className = `book-page book-page--${page.type.toLowerCase()}`;
-    article.id = `page-${page.pageNum}`;
-    article.dataset.page = page.pageNum;
-    article.setAttribute('aria-label', page.title);
+  async function compileAndRender() {
+    showToast('Typesetting ...', true);
 
-    article.innerHTML = `
-    <header class="page-header">
-    <span class="page-header-title">${escapeHtml(page.sectionLabel)}</span>
-    <span class="page-header-part">${escapeHtml(page.partLabel)}</span>
-    </header>
-    <div class="book-page-body">${page.html}</div>
-    <footer class="page-footer">
-    <span class="page-num">${page.pageNum}</span>
-    </footer>
-    `;
+    try {
+      // Compile Typst source directly to SVG markup
+      const svgOutput = await $typst.svg({
+        mainContent: state.typstSource
+      });
+      console.log('Typst compiled SVG prefix:', svgOutput.slice(0, 300));
 
-    return article;
-  }
+      DOM.viewport.innerHTML = '';
 
-  function renderBook() {
-    const fragment = document.createDocumentFragment();
-    state.pages.forEach((page) => fragment.appendChild(createPageElement(page)));
-    DOM.viewport.replaceChildren(fragment);
-    renderContents();
-    observePages();
-  }
+      // If svgOutput contains the complete document, render it in viewport
+      // If svgOutput already has all 5 pages vertically stacked inside one SVG:
+      // Let's create an article per page or let rootSvg render once!
+      // Extract styles and defs from root SVG
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(svgOutput, 'image/svg+xml');
+      const rootSvg = doc.querySelector('svg');
+      const styles = rootSvg ? Array.from(rootSvg.querySelectorAll('style')).map(s => s.outerHTML).join('\n') : '';
+      const defs = rootSvg ? Array.from(rootSvg.querySelectorAll('defs')).map(d => d.outerHTML).join('\n') : '';
+      const pageGroups = rootSvg ? Array.from(rootSvg.querySelectorAll('.typst-page')) : [];
 
-  function renderError(message) {
-    DOM.viewport.innerHTML = `<div class="book-error" role="alert">${escapeHtml(message)}</div>`;
+      console.log('pageGroups count:', pageGroups.length);
+
+      if (pageGroups.length > 1) {
+        pageGroups.forEach((g, idx) => {
+          const pageNum = idx + 1;
+          const entry = CONFIG.toc[idx] || { pageNum, title: `Page ${pageNum}` };
+          const pageEl = document.createElement('article');
+          pageEl.className = 'book-page book-page-typst';
+          pageEl.id = `page-${pageNum}`;
+          pageEl.dataset.page = pageNum;
+          pageEl.setAttribute('aria-label', entry.title);
+
+          // In Typst SVG, each .typst-page is placed at translate(0, idx * 842).
+          // We wrap it in a g with translate(0, -idx * 842) so it renders at y=0 inside this page's SVG.
+          pageEl.innerHTML = `
+            <svg viewBox="0 0 596 842" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+              ${styles}
+              ${defs}
+              <g transform="translate(0, -${idx * 842})">
+                ${g.outerHTML}
+              </g>
+            </svg>
+          `;
+          DOM.viewport.appendChild(pageEl);
+        });
+      } else {
+        const pageEl = document.createElement('article');
+        pageEl.className = 'book-page book-page-typst';
+        pageEl.id = 'page-1';
+        pageEl.dataset.page = 1;
+        pageEl.innerHTML = svgOutput;
+        DOM.viewport.appendChild(pageEl);
+      }
+
+      renderContents();
+      observePages();
+    } catch (err) {
+      console.error('Typst compilation failed:', err);
+      DOM.viewport.innerHTML = `<div class="book-error">Error compiling Typst document: ${escapeHtml(err.message)}</div>`;
+    } finally {
+      hideToast();
+    }
   }
 
   /* ==========================================================================
-   * 6. CONTENTS DRAWER
+   * 4. DIRECT NATIVE PDF EXPORT
+   * ========================================================================== */
+
+  async function downloadPdf() {
+    if (state.busy) return;
+    state.busy = true;
+    DOM.btnPdf.disabled = true;
+    showToast('Generating Native A4 PDF...', true);
+
+    try {
+      // Native WASM binary PDF generation
+      const pdfBytes = await $typst.pdf({
+        mainContent: state.typstSource
+      });
+
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = CONFIG.pdfFileName;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('PDF export failed:', err);
+      showToast('PDF Export error, opening print dialog...', false);
+      window.print();
+    } finally {
+      state.busy = false;
+      DOM.btnPdf.disabled = false;
+      hideToast();
+    }
+  }
+
+  /* ==========================================================================
+   * 5. CONTENTS DRAWER & NAVIGATION
    * ========================================================================== */
 
   function renderContents() {
     const fragment = document.createDocumentFragment();
 
-    state.pages.forEach((page) => {
+    CONFIG.toc.forEach((entry) => {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'toc-item';
-      button.dataset.page = page.pageNum;
+      button.dataset.page = entry.pageNum;
       button.innerHTML = `
-      <span class="toc-label">${escapeHtml(page.title)}</span>
-      <span class="toc-badge">${page.pageNum}</span>
+        <span class="toc-label">${escapeHtml(entry.title)}</span>
+        <span class="toc-badge">${entry.pageNum}</span>
       `;
       button.addEventListener('click', () => {
         closeDrawer();
-        goToPage(page.pageNum);
+        goToPage(entry.pageNum);
       });
       fragment.appendChild(button);
     });
@@ -447,7 +281,7 @@
   }
 
   function goToPage(pageNum) {
-    const target = Math.min(Math.max(pageNum, 1), state.pages.length);
+    const target = Math.min(Math.max(pageNum, 1), CONFIG.toc.length);
     const el = $(`page-${target}`);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -456,7 +290,7 @@
   }
 
   /* ==========================================================================
-   * 7. THEME
+   * 6. THEME
    * ========================================================================== */
 
   function readStoredTheme() {
@@ -470,15 +304,12 @@
   function storeTheme(theme) {
     try {
       localStorage.setItem(CONFIG.themeKey, theme);
-    } catch (e) { /* storage unavailable: theme still applies for this session */ }
+    } catch (e) { /* storage unavailable */ }
   }
 
   function applyTheme(theme) {
     state.theme = theme;
     DOM.html.dataset.theme = theme;
-    DOM.btnTheme.textContent = theme === 'dark' ? '☀️' : '🌙';
-    DOM.btnTheme.setAttribute('aria-label', theme === 'dark' ? 'Light theme' : 'Dark theme');
-    DOM.btnTheme.title = theme === 'dark' ? 'Light theme' : 'Dark theme';
     if (DOM.themeMeta) {
       DOM.themeMeta.content = CONFIG.themeColors[theme];
     }
@@ -490,66 +321,17 @@
   }
 
   /* ==========================================================================
-   * 8. PDF EXPORT
-   * Builds the same page elements off-screen, forces the light token set via
-   * the .pdf-export class, and hands them to html2pdf for A4 output.
+   * 7. UTILITIES & TOAST
    * ========================================================================== */
 
-  function buildExportTree() {
-    const host = document.createElement('div');
-    host.className = 'pdf-export';
-    host.setAttribute('aria-hidden', 'true');
-    state.pages.forEach((page) => {
-      const el = createPageElement(page);
-      el.removeAttribute('id'); // avoid duplicate IDs with the on-screen book
-      host.appendChild(el);
-    });
-    document.body.appendChild(host);
-    return host;
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
-
-  async function downloadPdf() {
-    if (state.busy) return;
-
-    if (typeof window.html2pdf === 'undefined') {
-      window.print();
-      return;
-    }
-
-    state.busy = true;
-    DOM.btnPdf.disabled = true;
-    showToast('Preparing PDF…', true);
-
-    let host = null;
-    try {
-      host = buildExportTree();
-      await window.html2pdf()
-      .set({
-        margin: 0,
-        filename: CONFIG.pdfFileName,
-        image: { type: 'jpeg', quality: 0.97 },
-        html2canvas: { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff' },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pagebreak: { mode: ['css', 'legacy'], after: '.book-page' }
-      })
-      .from(host)
-      .save();
-      showToast('PDF downloaded', false);
-    } catch (err) {
-      console.error('PDF export failed, falling back to print:', err);
-      hideToast();
-      window.print();
-    } finally {
-      if (host) host.remove();
-      state.busy = false;
-      DOM.btnPdf.disabled = false;
-      setTimeout(hideToast, 1600);
-    }
-  }
-
-  /* ==========================================================================
-   * 9. FEEDBACK (TOAST)
-   * ========================================================================== */
 
   let toastTimer = null;
 
@@ -567,14 +349,13 @@
   }
 
   /* ==========================================================================
-   * 10. BOOTSTRAP
+   * 8. BOOTSTRAP
    * ========================================================================== */
 
   function bindEvents() {
     DOM.btnMenu.addEventListener('click', openDrawer);
     DOM.btnCloseDrawer.addEventListener('click', closeDrawer);
     DOM.backdrop.addEventListener('click', closeDrawer);
-    DOM.btnTheme.addEventListener('click', toggleTheme);
     DOM.btnPdf.addEventListener('click', downloadPdf);
 
     document.addEventListener('keydown', (event) => {
@@ -582,14 +363,10 @@
     });
   }
 
-  async function loadMarkdown() {
-    try {
-      const response = await fetch(CONFIG.markdownUrl, { cache: 'no-cache' });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return await response.text();
-    } catch (error) {
-      throw new Error(`Could not load ${CONFIG.markdownUrl}: ${error.message}`);
-    }
+  async function loadTypstSource() {
+    const response = await fetch(CONFIG.typstUrl, { cache: 'no-cache' });
+    if (!response.ok) throw new Error(`HTTP ${response.status} loading ${CONFIG.typstUrl}`);
+    return await response.text();
   }
 
   async function init() {
@@ -597,15 +374,13 @@
     bindEvents();
 
     try {
-      const markdown = await loadMarkdown();
-      state.pages = splitIntoPages(markdown);
-      if (!state.pages.length) throw new Error('No pages found');
-      DOM.topbarTitle.textContent = state.pages[0].partLabel;
-      document.title = state.pages[0].partLabel;
-      renderBook();
+      state.typstSource = await loadTypstSource();
+      await initTypstEngine();
+      await compileAndRender();
+      document.title = 'Hindi Pushtak';
     } catch (err) {
-      console.error('Initialisation error:', err);
-      renderError('The book could not be loaded. Please reload the page.');
+      console.error('Initialization error:', err);
+      DOM.viewport.innerHTML = `<div class="book-error">Could not initialize Typst engine: ${escapeHtml(err.message)}</div>`;
     }
   }
 
