@@ -204,6 +204,19 @@ This section serves as the definitive reference for resuming work in a clean, fr
   - `Pages 8–9`: **Section 1.2** (*Syllabic Architecture & Abugida Structural System*) — 2-page spread
   - `Pages 10–11`: **Section 1.3** (*Shirorekha Rules, Importance & Alignment*) — 2-page spread
 
+### 2. Web Reader & Section Download Architecture
+- **Standardized Navigation Drawer Title**:
+  - The drawer and toggle button use the single standard Hindi word **'Vishay-Suchi'** (*Contents* in English subtitle), completely removing mixed slash labels.
+- **Section-Oriented Manifest (`manifest.json`)**:
+  - The drawer items are driven dynamically from `manifest.json`, mapping each section entry to its exact starting and ending physical page numbers (`startPage`, `endPage`), part affiliation (`part_label`), section title, and standardized download filename.
+- **Three-Tier Typography in Drawer Items**:
+  - **Tier 1 (Hindi Title)**: Displayed prominently at 0.82rem bold in Devanagari script.
+  - **Tier 2 (English Title)**: Positioned directly beneath Hindi in 0.70rem regular font.
+  - **Tier 3 (Part & Section Metadata)**: Positioned underneath English in 0.62rem font with a subtle badge showing the Part and Section numbers along with page ranges.
+- **Section-Specific PDF Download**:
+  - Each item in the drawer features a right-aligned download icon button vertically aligned with the 3-tier text.
+  - Clicking this button extracts and downloads only the pages pertaining to that specific section into an individual PDF file using client-side `pdf-lib` slicing without re-downloading the entire book.
+
 ### 2. Standard Section Authoring Protocol
 Every new section must be authored as a strict **2-page spread (Pages N & N+1)**:
 - **Page 1 (Verso / Even Page)**:

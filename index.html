@@ -15,9 +15,9 @@
   <a class="skip-link" href="#stage">मुख्य सामग्री पर जाएँ (Skip to content)</a>
 
   <button id="btn-bookmarks" class="icon-btn btn-bookmarks" type="button"
-          aria-label="बुकमार्क / विषय-सूची (Bookmarks / Contents)"
+          aria-label="विषय-सूची (Contents)"
           aria-controls="toc-drawer" aria-expanded="false"
-          title="बुकमार्क / विषय-सूची (Bookmarks / Contents)">
+          title="विषय-सूची (Contents)">
     <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
     </svg>
@@ -41,9 +41,9 @@
   </div>
 
   <div id="drawer-backdrop" class="drawer-backdrop"></div>
-  <aside id="toc-drawer" class="toc-drawer" aria-label="बुकमार्क / विषय-सूची (Bookmarks / Contents)">
+  <aside id="toc-drawer" class="toc-drawer" aria-label="विषय-सूची (Contents)">
     <div class="drawer-top">
-      <h2 class="drawer-title">बुकमार्क / विषय-सूची <span>Bookmarks</span></h2>
+      <h2 class="drawer-title">विषय-सूची <span>Contents</span></h2>
       <div class="drawer-actions">
         <button id="btn-close-drawer" class="icon-btn icon-btn--ghost" type="button" aria-label="बंद करें (Close)">
           <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -53,13 +53,14 @@
         </button>
       </div>
     </div>
-    <nav id="drawer-list" class="drawer-list" aria-label="Pages"></nav>
+    <nav id="drawer-list" class="drawer-list" aria-label="Sections"></nav>
   </aside>
 
   <main id="stage" class="stage" tabindex="-1">
     <div id="book-viewport" class="book"></div>
   </main>
 
+  <script src="assets/pdf-lib.min.js"></script>
   <script type="module" src="assets/app.js"></script>
 </body>
 </html>

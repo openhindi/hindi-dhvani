@@ -1,0 +1,97 @@
+{
+  "book": {
+    "title_hi": "हिन्दी पुस्तक",
+    "title_en": "Hindi Pushtak",
+    "totalPages": 11
+  },
+  "sections": [
+    {
+      "id": "cover",
+      "type": "preliminary",
+      "title_hi": "मुखपृष्ठ",
+      "title_en": "Cover Page",
+      "part_label": "प्रारंभिक",
+      "section_label": "मुखपृष्ठ (पृष्ठ १)",
+      "filename": "hindi-pushtak-cover.pdf",
+      "startPage": 1,
+      "endPage": 1
+    },
+    {
+      "id": "about",
+      "type": "preliminary",
+      "title_hi": "पुस्तक परिचय",
+      "title_en": "About the Book",
+      "part_label": "प्रारंभिक",
+      "section_label": "परिचय (पृष्ठ २)",
+      "filename": "hindi-pushtak-about.pdf",
+      "startPage": 2,
+      "endPage": 2
+    },
+    {
+      "id": "toc-part-1-15",
+      "type": "preliminary",
+      "title_hi": "विषय-सूची (भाग १–१५)",
+      "title_en": "Master TOC (Parts 1–15)",
+      "part_label": "प्रारंभिक",
+      "section_label": "सूची-१ (पृष्ठ ३)",
+      "filename": "hindi-pushtak-toc-1.pdf",
+      "startPage": 3,
+      "endPage": 3
+    },
+    {
+      "id": "toc-part-16-30",
+      "type": "preliminary",
+      "title_hi": "विषय-सूची (भाग १६–३०)",
+      "title_en": "Master TOC (Parts 16–30)",
+      "part_label": "प्रारंभिक",
+      "section_label": "सूची-२ (पृष्ठ ४)",
+      "filename": "hindi-pushtak-toc-2.pdf",
+      "startPage": 4,
+      "endPage": 4
+    },
+    {
+      "id": "part-1-opener",
+      "type": "part_opener",
+      "title_hi": "देवनागरी लिपि एवं वर्तनी संरचना",
+      "title_en": "Devanagari Script & Orthography",
+      "part_label": "भाग १",
+      "section_label": "प्रस्तावना (पृष्ठ ५)",
+      "filename": "hindi-pushtak-part-1-opener.pdf",
+      "startPage": 5,
+      "endPage": 5
+    },
+    {
+      "id": "sec-1-1",
+      "type": "section",
+      "title_hi": "लिपि का उद्भव एवं विकास",
+      "title_en": "Origin & Evolution Lineage",
+      "part_label": "भाग १",
+      "section_label": "अनुभाग १.१ (पृष्ठ ६–७)",
+      "filename": "hindi-pushtak-section-1.1.pdf",
+      "startPage": 6,
+      "endPage": 7
+    },
+    {
+      "id": "sec-1-2",
+      "type": "section",
+      "title_hi": "अक्षरात्मक प्रकृति व आबुगिदा",
+      "title_en": "Abugida Architecture & System",
+      "part_label": "भाग १",
+      "section_label": "अनुभाग १.२ (पृष्ठ ८–९)",
+      "filename": "hindi-pushtak-section-1.2.pdf",
+      "startPage": 8,
+      "endPage": 9
+    },
+    {
+      "id": "sec-1-3",
+      "type": "section",
+      "title_hi": "शिरोरेखा के नियम एवं महत्व",
+      "title_en": "Shirorekha Rules & Alignment",
+      "part_label": "भाग १",
+      "section_label": "अनुभाग १.३ (पृष्ठ १०–११)",
+      "filename": "hindi-pushtak-section-1.3.pdf",
+      "startPage": 10,
+      "endPage": 11
+    }
+  ]
+}

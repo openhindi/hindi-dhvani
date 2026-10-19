@@ -5,7 +5,8 @@
  *  - Devanagari font loading (Noto Sans / Noto Serif Devanagari)
  *  - Vector SVG preview of each A4 page
  *  - Native binary PDF download ($typst.pdf)
- *  - Contents drawer with active-page tracking
+ *  - Section-based navigation & section-specific PDF slice extraction via pdf-lib
+ *  - Single Hindi word 'विषय-सूची' standard contents drawer
  *  - Light / dark theme (stored choice, else system preference)
  */
 
@@ -20,6 +21,7 @@ import { $typst, loadFonts } from './typst.bundle.js';
 
   const CONFIG = Object.freeze({
     typstUrl: 'hindi-pushtak.typ',
+    manifestUrl: 'manifest.json',
     themeKey: 'hindi-book-theme',
     pdfFileName: 'hindi-pushtak.pdf',
     compilerWasm: 'assets/wasm/typst_ts_web_compiler_bg.wasm',
@@ -30,23 +32,97 @@ import { $typst, loadFonts } from './typst.bundle.js';
       'assets/fonts/NotoSerifDevanagari-Regular.ttf',
       'assets/fonts/NotoSerifDevanagari-Bold.ttf'
     ],
-    toc: [
-      { pageNum: 1, title: 'मुखपृष्ठ • Cover' },
-      { pageNum: 2, title: 'पुस्तक परिचय • About the Book' },
-      { pageNum: 3, title: 'विषय-सूची भाग १ • Table of Contents (1-5)' },
-      { pageNum: 4, title: 'विषय-सूची भाग २ • Table of Contents (6-10)' },
-      { pageNum: 5, title: 'विषय-सूची भाग ३ • Table of Contents (11-15)' },
-      { pageNum: 6, title: 'विषय-सूची भाग ४ • Table of Contents (16-20)' },
-      { pageNum: 7, title: 'खंड १ : अनुभाग १.१ • Devanagari Script' },
-      { pageNum: 8, title: 'अनुभाग १.१ : स्वर तालिका • Vowels Table' },
-      { pageNum: 9, title: 'अनुभाग १.२ : सुलेख व स्ट्रोक • Calligraphy' }
+    fallbackSections: [
+      {
+        id: 'cover',
+        title_hi: 'मुखपृष्ठ',
+        title_en: 'Cover Page',
+        part_label: 'प्रारंभिक',
+        section_label: 'मुखपृष्ठ (पृष्ठ १)',
+        filename: 'hindi-pushtak-cover.pdf',
+        startPage: 1,
+        endPage: 1
+      },
+      {
+        id: 'about',
+        title_hi: 'पुस्तक परिचय',
+        title_en: 'About the Book',
+        part_label: 'प्रारंभिक',
+        section_label: 'परिचय (पृष्ठ २)',
+        filename: 'hindi-pushtak-about.pdf',
+        startPage: 2,
+        endPage: 2
+      },
+      {
+        id: 'toc-part-1-15',
+        title_hi: 'विषय-सूची (भाग १–१५)',
+        title_en: 'Master TOC (Parts 1–15)',
+        part_label: 'प्रारंभिक',
+        section_label: 'सूची-१ (पृष्ठ ३)',
+        filename: 'hindi-pushtak-toc-1.pdf',
+        startPage: 3,
+        endPage: 3
+      },
+      {
+        id: 'toc-part-16-30',
+        title_hi: 'विषय-सूची (भाग १६–३०)',
+        title_en: 'Master TOC (Parts 16–30)',
+        part_label: 'प्रारंभिक',
+        section_label: 'सूची-२ (पृष्ठ ४)',
+        filename: 'hindi-pushtak-toc-2.pdf',
+        startPage: 4,
+        endPage: 4
+      },
+      {
+        id: 'part-1-opener',
+        title_hi: 'देवनागरी लिपि एवं वर्तनी संरचना',
+        title_en: 'Devanagari Script & Orthography',
+        part_label: 'भाग १',
+        section_label: 'प्रस्तावना (पृष्ठ ५)',
+        filename: 'hindi-pushtak-part-1-opener.pdf',
+        startPage: 5,
+        endPage: 5
+      },
+      {
+        id: 'sec-1-1',
+        title_hi: 'लिपि का उद्भव एवं विकास',
+        title_en: 'Origin & Evolution Lineage',
+        part_label: 'भाग १',
+        section_label: 'अनुभाग १.१ (पृष्ठ ६–७)',
+        filename: 'hindi-pushtak-section-1.1.pdf',
+        startPage: 6,
+        endPage: 7
+      },
+      {
+        id: 'sec-1-2',
+        title_hi: 'अक्षरात्मक प्रकृति व आबुगिदा',
+        title_en: 'Abugida Architecture & System',
+        part_label: 'भाग १',
+        section_label: 'अनुभाग १.२ (पृष्ठ ८–९)',
+        filename: 'hindi-pushtak-section-1.2.pdf',
+        startPage: 8,
+        endPage: 9
+      },
+      {
+        id: 'sec-1-3',
+        title_hi: 'शिरोरेखा के नियम एवं महत्व',
+        title_en: 'Shirorekha Rules & Alignment',
+        part_label: 'भाग १',
+        section_label: 'अनुभाग १.३ (पृष्ठ १०–११)',
+        filename: 'hindi-pushtak-section-1.3.pdf',
+        startPage: 10,
+        endPage: 11
+      }
     ],
     themeColors: { light: '#e9ebf1', dark: '#0d1018' }
   });
 
   const state = {
     typstSource: '',
+    sections: [],
     activePage: 1,
+    activeSectionIndex: 0,
+    fullPdfBlob: null,
     theme: 'light',
     busy: false,
     initialized: false,
@@ -58,16 +134,16 @@ import { $typst, loadFonts } from './typst.bundle.js';
   const DOM = {
     html: document.documentElement,
     viewport: $('book-viewport'),
- drawer: $('toc-drawer'),
- backdrop: $('drawer-backdrop'),
- drawerList: $('drawer-list'),
- btnMenu: $('btn-bookmarks'),
- btnCloseDrawer: $('btn-close-drawer'),
- btnPdf: $('btn-download-pdf'),
- toast: $('status-toast'),
- toastText: $('status-text'),
- toastSpinner: $('status-spinner'),
- themeMeta: document.querySelector('meta[name="theme-color"]')
+    drawer: $('toc-drawer'),
+    backdrop: $('drawer-backdrop'),
+    drawerList: $('drawer-list'),
+    btnMenu: $('btn-bookmarks'),
+    btnCloseDrawer: $('btn-close-drawer'),
+    btnPdf: $('btn-download-pdf'),
+    toast: $('status-toast'),
+    toastText: $('status-text'),
+    toastSpinner: $('status-spinner'),
+    themeMeta: document.querySelector('meta[name="theme-color"]')
   };
 
   /* ==========================================================================
@@ -88,7 +164,7 @@ import { $typst, loadFonts } from './typst.bundle.js';
     $typst.use({
       key: 'access-model',
       forRoles: ['compiler'],
-        provides: [loadFonts(CONFIG.fonts)]
+      provides: [loadFonts(CONFIG.fonts)]
     });
 
     state.initialized = true;
@@ -115,29 +191,32 @@ import { $typst, loadFonts } from './typst.bundle.js';
     const fragment = document.createDocumentFragment();
 
     if (groups.length > 1) {
-      // Typst stacks pages vertically in one SVG. Give each page its own
-      // viewBox by shifting its group back to y = 0.
       const shared = ['style', 'defs']
-      .flatMap((tag) => Array.from(rootSvg.querySelectorAll(tag)))
-      .map((node) => node.outerHTML)
-      .join('\n');
+        .flatMap((tag) => Array.from(rootSvg.querySelectorAll(tag)))
+        .map((node) => node.outerHTML)
+        .join('\n');
 
       groups.forEach((group, idx) => {
         const pageNum = idx + 1;
-        const entry = CONFIG.toc[idx] || { title: `Page ${pageNum}` };
-        const el = createPageElement(pageNum, entry.title);
+        const matchedSec = state.sections.find(
+          (s) => pageNum >= s.startPage && pageNum <= s.endPage
+        );
+        const title = matchedSec
+          ? `${matchedSec.title_hi} (Page ${pageNum})`
+          : `Page ${pageNum}`;
+        const el = createPageElement(pageNum, title);
         el.innerHTML = `
-        <svg viewBox="0 0 ${width} ${height}" width="100%" height="100%"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        xmlns:h5="http://www.w3.org/1999/xhtml">
-        ${shared}
-        <g transform="translate(0, -${idx * height})">${group.outerHTML}</g>
-        </svg>`;
+          <svg viewBox="0 0 ${width} ${height}" width="100%" height="100%"
+               xmlns="http://www.w3.org/2000/svg"
+               xmlns:xlink="http://www.w3.org/1999/xlink"
+               xmlns:h5="http://www.w3.org/1999/xhtml">
+            ${shared}
+            <g transform="translate(0, -${idx * height})">${group.outerHTML}</g>
+          </svg>`;
         fragment.appendChild(el);
       });
     } else {
-      const el = createPageElement(1, CONFIG.toc[0].title);
+      const el = createPageElement(1, 'Page 1');
       el.innerHTML = svgOutput;
       fragment.appendChild(el);
     }
@@ -151,7 +230,7 @@ import { $typst, loadFonts } from './typst.bundle.js';
     try {
       const svgOutput = await $typst.svg({ mainContent: state.typstSource });
       renderPages(svgOutput);
-      renderContents();
+      renderSectionsList();
       observePages();
     } catch (err) {
       console.error('Typst compilation failed:', err);
@@ -170,25 +249,38 @@ import { $typst, loadFonts } from './typst.bundle.js';
   }
 
   /* ==========================================================================
-   * 4. PDF EXPORT
+   * 4. PDF EXPORT & SECTION EXTRACTION
    * ========================================================================== */
+
+  async function getFullPdfBytes() {
+    if (state.fullPdfBlob) {
+      return new Uint8Array(await state.fullPdfBlob.arrayBuffer());
+    }
+    const pdfBytes = await $typst.pdf({ mainContent: state.typstSource });
+    state.fullPdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+    return pdfBytes;
+  }
+
+  function triggerDownload(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
 
   async function downloadPdf() {
     if (state.busy) return;
     state.busy = true;
     DOM.btnPdf.disabled = true;
-    showToast('Generating A4 PDF …', true);
+    showToast('Generating full A4 PDF …', true);
 
     try {
-      const pdfBytes = await $typst.pdf({ mainContent: state.typstSource });
-      const url = URL.createObjectURL(new Blob([pdfBytes], { type: 'application/pdf' }));
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = CONFIG.pdfFileName;
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      const bytes = await getFullPdfBytes();
+      triggerDownload(new Blob([bytes], { type: 'application/pdf' }), CONFIG.pdfFileName);
       hideToast();
     } catch (err) {
       console.error('PDF export failed:', err);
@@ -200,59 +292,168 @@ import { $typst, loadFonts } from './typst.bundle.js';
     }
   }
 
+  async function downloadSectionPdf(section, triggerBtn) {
+    if (state.busy) return;
+    state.busy = true;
+    if (triggerBtn) triggerBtn.disabled = true;
+    showToast(`Preparing ${section.title_hi} PDF …`, true);
+
+    try {
+      const fullPdfBytes = await getFullPdfBytes();
+
+      if (window.PDFLib && window.PDFLib.PDFDocument) {
+        // Precise extraction using pdf-lib
+        const srcDoc = await window.PDFLib.PDFDocument.load(fullPdfBytes);
+        const subDoc = await window.PDFLib.PDFDocument.create();
+
+        const totalPages = srcDoc.getPageCount();
+        const start = Math.max(1, section.startPage);
+        const end = Math.min(totalPages, section.endPage);
+
+        const pageIndices = [];
+        for (let p = start; p <= end; p++) {
+          pageIndices.push(p - 1);
+        }
+
+        const copiedPages = await subDoc.copyPages(srcDoc, pageIndices);
+        copiedPages.forEach((p) => subDoc.addPage(p));
+
+        const subPdfBytes = await subDoc.save();
+        triggerDownload(
+          new Blob([subPdfBytes], { type: 'application/pdf' }),
+          section.filename || `section-${section.id}.pdf`
+        );
+        showToast(`Downloaded ${section.title_hi}`, false, 2500);
+      } else {
+        // Fallback: download full PDF if pdf-lib is unavailable
+        triggerDownload(
+          new Blob([fullPdfBytes], { type: 'application/pdf' }),
+          section.filename || `section-${section.id}.pdf`
+        );
+        showToast(`Downloaded ${section.title_hi}`, false, 2500);
+      }
+    } catch (err) {
+      console.error('Section PDF extraction failed:', err);
+      showToast(`Download failed: ${err.message}`, false, 3000);
+    } finally {
+      state.busy = false;
+      if (triggerBtn) triggerBtn.disabled = false;
+    }
+  }
+
   /* ==========================================================================
-   * 5. CONTENTS DRAWER & NAVIGATION
+   * 5. SECTIONS DRAWER & NAVIGATION
    * ========================================================================== */
 
-  function renderContents() {
+  function renderSectionsList() {
     const fragment = document.createDocumentFragment();
 
-    CONFIG.toc.forEach((entry) => {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'toc-item';
-      button.dataset.page = entry.pageNum;
+    state.sections.forEach((sec, idx) => {
+      const row = document.createElement('div');
+      row.className = 'toc-item-row';
+      row.dataset.sectionIndex = idx;
+      row.dataset.startPage = sec.startPage;
+      row.dataset.endPage = sec.endPage;
 
-      const label = document.createElement('span');
-      label.className = 'toc-label';
-      label.textContent = entry.title;
+      // Clickable body for navigation
+      const navBtn = document.createElement('button');
+      navBtn.type = 'button';
+      navBtn.className = 'toc-item';
+      navBtn.setAttribute(
+        'aria-label',
+        `${sec.title_hi} — ${sec.title_en} (${sec.part_label}, ${sec.section_label})`
+      );
 
-      const badge = document.createElement('span');
-      badge.className = 'toc-badge';
-      badge.textContent = entry.pageNum;
+      // Line 1: Hindi title
+      const hiSpan = document.createElement('span');
+      hiSpan.className = 'toc-label-hi';
+      hiSpan.textContent = sec.title_hi;
 
-      button.append(label, badge);
-      button.addEventListener('click', () => {
+      // Line 2: English title (smaller font)
+      const enSpan = document.createElement('span');
+      enSpan.className = 'toc-label-en';
+      enSpan.textContent = sec.title_en;
+
+      // Line 3: Part & Section metadata (still smaller)
+      const metaSpan = document.createElement('span');
+      metaSpan.className = 'toc-label-meta';
+
+      const partBadge = document.createElement('span');
+      partBadge.className = 'toc-label-part';
+      partBadge.textContent = sec.part_label;
+
+      const secBadge = document.createElement('span');
+      secBadge.className = 'toc-label-sec';
+      secBadge.textContent = sec.section_label;
+
+      metaSpan.append(partBadge, secBadge);
+      navBtn.append(hiSpan, enSpan, metaSpan);
+
+      navBtn.addEventListener('click', () => {
         closeDrawer();
-        goToPage(entry.pageNum);
+        goToPage(sec.startPage);
       });
-      fragment.appendChild(button);
+
+      // Right-aligned Section Download Button
+      const dlBtn = document.createElement('button');
+      dlBtn.type = 'button';
+      dlBtn.className = 'toc-dl-btn';
+      dlBtn.setAttribute('aria-label', `डाउनलोड ${sec.title_hi} (Download PDF)`);
+      dlBtn.setAttribute('title', `डाउनलोड करें: ${sec.title_hi} (${sec.section_label})`);
+      dlBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      `;
+      dlBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        downloadSectionPdf(sec, dlBtn);
+      });
+
+      row.append(navBtn, dlBtn);
+      fragment.appendChild(row);
     });
 
     DOM.drawerList.replaceChildren(fragment);
-    setActiveContents(state.activePage);
+    setActiveSectionByPage(state.activePage);
   }
 
-  function setActiveContents(pageNum) {
+  function setActiveSectionByPage(pageNum) {
     state.activePage = pageNum;
-    DOM.drawerList.querySelectorAll('.toc-item').forEach((item) => {
-      if (Number(item.dataset.page) === pageNum) {
-        item.setAttribute('aria-current', 'page');
+    let foundIndex = -1;
+
+    DOM.drawerList.querySelectorAll('.toc-item-row').forEach((row, idx) => {
+      const start = Number(row.dataset.startPage);
+      const end = Number(row.dataset.endPage);
+      if (pageNum >= start && pageNum <= end) {
+        row.setAttribute('aria-current', 'section');
+        foundIndex = idx;
       } else {
-        item.removeAttribute('aria-current');
+        row.removeAttribute('aria-current');
       }
     });
+
+    if (foundIndex !== -1) {
+      state.activeSectionIndex = foundIndex;
+    }
   }
 
   function observePages() {
     if (!('IntersectionObserver' in window)) return;
     if (state.observer) state.observer.disconnect();
 
-    state.observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) setActiveContents(Number(entry.target.dataset.page));
-      });
-    }, { rootMargin: '-35% 0px -55% 0px' });
+    state.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSectionByPage(Number(entry.target.dataset.page));
+          }
+        });
+      },
+      { rootMargin: '-35% 0px -55% 0px' }
+    );
 
     DOM.viewport.querySelectorAll('.book-page').forEach((el) => state.observer.observe(el));
   }
@@ -262,7 +463,7 @@ import { $typst, loadFonts } from './typst.bundle.js';
     DOM.backdrop.classList.add('is-open');
     DOM.btnMenu.setAttribute('aria-expanded', 'true');
     DOM.btnCloseDrawer.focus({ preventScroll: true });
-    const current = DOM.drawerList.querySelector('[aria-current="page"]');
+    const current = DOM.drawerList.querySelector('[aria-current="section"]');
     if (current) current.scrollIntoView({ block: 'nearest' });
   }
 
@@ -275,11 +476,10 @@ import { $typst, loadFonts } from './typst.bundle.js';
   }
 
   function goToPage(pageNum) {
-    const target = Math.min(Math.max(pageNum, 1), CONFIG.toc.length);
-    const el = $(`page-${target}`);
+    const el = $(`page-${pageNum}`);
     if (!el) return;
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setActiveContents(target);
+    setActiveSectionByPage(pageNum);
   }
 
   /* ==========================================================================
@@ -344,6 +544,18 @@ import { $typst, loadFonts } from './typst.bundle.js';
     });
   }
 
+  async function loadManifest() {
+    try {
+      const response = await fetch(CONFIG.manifestUrl, { cache: 'no-cache' });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      state.sections = data.sections || CONFIG.fallbackSections;
+    } catch (e) {
+      console.warn('Could not load manifest.json, using fallback configuration:', e);
+      state.sections = CONFIG.fallbackSections;
+    }
+  }
+
   async function loadTypstSource() {
     const response = await fetch(CONFIG.typstUrl, { cache: 'no-cache' });
     if (!response.ok) throw new Error(`HTTP ${response.status} loading ${CONFIG.typstUrl}`);
@@ -353,7 +565,8 @@ import { $typst, loadFonts } from './typst.bundle.js';
   async function init() {
     initTheme();
     bindEvents();
-    renderContents();
+    await loadManifest();
+    renderSectionsList();
 
     try {
       showToast('Typesetting …', true);
