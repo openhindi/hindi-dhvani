@@ -108,10 +108,11 @@ def generate_typst_master_parts_block():
         p_lines.append("#v(2pt)")
         p_lines.append(f'#text(size: 16pt, weight: "bold")[विषय-सूची : भाग {to_dev_num(page_idx + 1)}] \\')
         p_lines.append(f"#en-sub[Table of Contents : Parts {p_start_num} to {p_end_num}]")
-        p_lines.append("#v(8pt)")
+        p_lines.append("#v(4pt)")
         p_lines.append("")
         p_lines.append("#table(")
         p_lines.append("  columns: (54pt, 1fr),")
+        p_lines.append("  inset: (x: 5pt, y: 5.2pt),")
         p_lines.append("  align: (center + horizon, left + horizon),")
         p_lines.append('  [*खंड* \\ #en-sub[Part]], [*शीर्षक एवं विषय-वस्तु* \\ #en-sub[Title & Scope of Part]],')
 
@@ -136,23 +137,22 @@ def generate_typst_part_opener_page(part_num, overview_hi="", overview_en=""):
 
     lines = []
     lines.append(f"// --- खंड {to_dev_num(p_num)} : मुखपृष्ठ एवं अनुभाग-सूची (Part {p_num} Opener) ---")
-    lines.append("#v(0pt)")
-    lines.append(f'#text(size: 15pt, weight: "bold")[खंड {to_dev_num(p_num)} : {p_dev}] \\')
-    lines.append(f'#text(size: 9.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Part {p_num} : {p_en}]')
-    lines.append("#v(2pt)")
+    lines.append(f'#text(size: 14pt, weight: "bold")[खंड {to_dev_num(p_num)} : {p_dev}] \\')
+    lines.append(f'#text(size: 9.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Part {p_num} : {p_en}]')
+    lines.append("#v(1.5pt)")
     lines.append('#line(length: 100%, stroke: 0.5pt + rgb("#000000"))')
-    lines.append("#v(2pt)")
+    lines.append("#v(1.5pt)")
     
     if overview_hi and overview_en:
-        lines.append(f'#text(size: 8.8pt)[{overview_hi}] \\')
-        lines.append(f'#text(size: 7.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{overview_en}]')
-        lines.append("#v(2pt)")
+        lines.append(f'#text(size: 8.5pt)[{overview_hi}] \\')
+        lines.append(f'#text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{overview_en}]')
+        lines.append("#v(1.5pt)")
 
-    lines.append('#text(size: 10pt, weight: "bold")[अनुभाग सूची] #h(6pt) #text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Directory (20 Sections)]')
-    lines.append("#v(1pt)")
+    lines.append('#text(size: 9.5pt, weight: "bold")[अनुभाग सूची] #h(6pt) #text(size: 8.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Directory (20 Sections)]')
+    lines.append("#v(0.5pt)")
     lines.append("#table(")
     lines.append("  columns: (38pt, 1fr),")
-    lines.append("  inset: (x: 4pt, y: 2.8pt),")
+    lines.append("  inset: (x: 4pt, y: 3.3pt),")
     lines.append("  align: (center + horizon, left + horizon),")
     lines.append('  [*अनुभाग* \\ #text(size: 6.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Sec]], [*अनुभाग शीर्षक एवं अध्ययन विषय* \\ #text(size: 6.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Title & Scope]],')
 

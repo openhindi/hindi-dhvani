@@ -172,14 +172,14 @@
 #set table(
   stroke: (x, y) => if y == 0 { (bottom: 1pt + rgb("#000000"), top: 1pt + rgb("#000000")) } else { (bottom: 0.3pt + rgb("#000000")) },
   fill: (x, y) => if y == 0 { rgb("#ffffff") } else { none },
-  inset: (x: 5pt, y: 4.2pt)
+  inset: (x: 5pt, y: 5.2pt)
 )
 
 // --- PAGE 3: विषय-सूची (खंड १ से १५) ---
 #v(2pt)
 #text(size: 16pt, weight: "bold")[विषय-सूची : भाग १] \
 #en-sub[Table of Contents : Parts 1 to 15]
-#v(8pt)
+#v(4pt)
 
 #table(
   columns: (54pt, 1fr),
@@ -253,7 +253,7 @@
 #v(2pt)
 #text(size: 16pt, weight: "bold")[विषय-सूची : भाग २] \
 #en-sub[Table of Contents : Parts 16 to 30]
-#v(8pt)
+#v(4pt)
 
 #table(
   columns: (54pt, 1fr),
@@ -325,20 +325,19 @@
 
 // --- PAGE 5: खंड १ मुखपृष्ठ एवं २० अनुभाग सूची ---
 // --- खंड १ : मुखपृष्ठ एवं अनुभाग-सूची (Part 1 Opener) ---
-#v(0pt)
-#text(size: 15pt, weight: "bold")[खंड १ : देवनागरी लिपि-संरचना एवं सुलेख कला] \
-#text(size: 9.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Part 1 : Devanagari Script Architecture & Calligraphy]
-#v(2pt)
+#text(size: 14pt, weight: "bold")[खंड १ : देवनागरी लिपि-संरचना एवं सुलेख कला] \
+#text(size: 9.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Part 1 : Devanagari Script Architecture & Calligraphy]
+#v(1.5pt)
 #line(length: 100%, stroke: 0.5pt + rgb("#000000"))
-#v(2pt)
-#text(size: 8.8pt)[इस खंड में देवनागरी लिपि के ऐतिहासिक उद्भव, वैज्ञानिक संरचना, अक्षरात्मक व्यवस्था, शिरोरेखा के प्रामाणिक नियम तथा सुलेख कला का सर्वांगीण अध्ययन प्रस्तुत किया गया है।] \
-#text(size: 7.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[This part presents a comprehensive study of the historical origin of Devanagari script, its scientific architecture, syllabic abugida system, authentic shirorekha rules, and calligraphy.]
-#v(2pt)
-#text(size: 10pt, weight: "bold")[अनुभाग सूची] #h(6pt) #text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Directory (20 Sections)]
-#v(1pt)
+#v(1.5pt)
+#text(size: 8.5pt)[इस खंड में देवनागरी लिपि के ऐतिहासिक उद्भव, वैज्ञानिक संरचना, अक्षरात्मक व्यवस्था, शिरोरेखा के प्रामाणिक नियम तथा सुलेख कला का सर्वांगीण अध्ययन प्रस्तुत किया गया है।] \
+#text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[This part presents a comprehensive study of the historical origin of Devanagari script, its scientific architecture, syllabic abugida system, authentic shirorekha rules, and calligraphy.]
+#v(1.5pt)
+#text(size: 9.5pt, weight: "bold")[अनुभाग सूची] #h(6pt) #text(size: 8.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Directory (20 Sections)]
+#v(0.5pt)
 #table(
   columns: (38pt, 1fr),
-  inset: (x: 4pt, y: 2.8pt),
+  inset: (x: 4pt, y: 3.3pt),
   align: (center + horizon, left + horizon),
   [*अनुभाग* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Sec]], [*अनुभाग शीर्षक एवं अध्ययन विषय* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Title & Scope]],
   [#text(size: 7.8pt, weight: "bold")[१.१] \
