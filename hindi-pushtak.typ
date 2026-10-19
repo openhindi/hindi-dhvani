@@ -123,7 +123,7 @@
 
 #par(leading: 0.65em)[
   #text(size: 10.8pt)[
-    #h(14pt)हिन्दी पुस्तक भाषा के सर्वांगीण, वैज्ञानिक एवं सोपानवत अध्ययन हेतु प्रस्तुत एक प्रामाणिक संदर्भ ग्रंथ है। इस ग्रंथ की मूल संकल्पना देवनागरी लिपि के आंतरिक सौंदर्य, सुदृढ़ ध्वनिविज्ञान, समृद्ध शब्द-भंडार तथा व्यावहारिक व्याकरणिक संरचना को स्वाभाविक और तर्कसंगत रूप से सुगम बनाने पर आधारित है। आधुनिक युग में भाषा-अधिगम केवल नियमों को कंठस्थ करने तक सीमित नहीं रह सकता; अतः यह पुस्तक शिक्षार्थी को लिपि-विज्ञान के मूलाधारों से जोड़ते हुए अक्षरों के सटीक आलेखन, शिरोरेखा के संतुलन, उच्चारण-स्थानों की सूक्ष्म भिन्नताओं तथा मानक वर्तनी के अनिवार्य नियमों से परिचित कराती है। शिक्षार्थियों के भीतर भाषा के प्रति स्वाभाविक रुचि और विश्लेषणात्मक समझ विकसित करना ही इस ग्रंथ का मुख्य प्रयोजन है।
+    #h(14pt)हिन्दी पुस्तक भाषा के सर्वांगीण, वैज्ञानिक एवं सोपानवत अध्ययन हेतु प्रस्तुत एक समग्र एवं प्रामाणिक संदर्भ ग्रंथ है। इस ग्रंथ की मूल संकल्पना देवनागरी लिपि के आंतरिक सौंदर्य, सुदृढ़ ध्वनिविज्ञान, समृद्ध शब्द-भंडार तथा व्यावहारिक व्याकरणिक संरचना को स्वाभाविक और तर्कसंगत रूप से सुगम बनाने पर आधारित है। आधुनिक युग में भाषा-अधिगम केवल नियमों को कंठस्थ करने तक सीमित नहीं रह सकता; अतः यह पुस्तक शिक्षार्थी को लिपि-विज्ञान के मूलाधारों से जोड़ते हुए अक्षरों के सटीक आलेखन, शिरोरेखा के संतुलन, उच्चारण-स्थानों की सूक्ष्म भिन्नताओं तथा मानक वर्तनी के अनिवार्य नियमों से परिचित कराती है। शिक्षार्थियों के भीतर भाषा के प्रति स्वाभाविक रुचि और विश्लेषणात्मक समझ विकसित करना ही इस ग्रंथ का मुख्य प्रयोजन है।
   ]
 ]
 
@@ -131,7 +131,7 @@
 
 #par(leading: 0.60em)[
   #text(font: ("Noto Sans Devanagari", "DejaVu Sans"), size: 9.0pt, fill: rgb("#1a1a1a"))[
-    #h(14pt)Hindi Pushtak is an authoritative reference work designed for the comprehensive, scientific, and graded study of the Hindi language. The foundational concept makes the intrinsic aesthetic beauty, rigorous phonetics, rich vocabulary, and practical grammatical architecture of the Devanagari script accessible in a natural and rational manner. Moving beyond mechanical rote memorization, it connects learners directly with the core foundations of script science, acquainting them with the precise stroke formation of characters, horizontal balance of the headline, subtle distinctions of articulation points, and essential conventions of standard orthography. Cultivating a genuine affinity and analytical understanding of the language remains the principal objective of this endeavour.
+    #h(14pt)Hindi Pushtak is an all-encompassing, definitive reference work designed for the comprehensive, scientific, and graded study of the Hindi language. The foundational concept makes the intrinsic aesthetic beauty, rigorous phonetics, rich vocabulary, and practical grammatical architecture of the Devanagari script accessible in a natural and rational manner. Moving beyond mechanical rote memorization, it connects learners directly with the core foundations of script science, acquainting them with the precise stroke formation of characters, horizontal balance of the headline, subtle distinctions of articulation points, and essential conventions of standard orthography. Cultivating a genuine affinity and analytical understanding of the language remains the principal objective of this endeavour.
   ]
 ]
 
@@ -139,7 +139,7 @@
 
 #par(leading: 0.65em)[
   #text(size: 10.8pt)[
-    #h(14pt)इस ग्रंथ की अध्ययन पद्धति पूर्णतः क्रमिक, द्विभाषिक एवं व्यावहारिक अनुप्रयोगात्मक उपागम पर अवलंबित है, जिसमें आधारभूत वर्णमाला परिचय एवं सुलेख-अभ्यास से लेकर दैनंदिन जीवन के जीवंत संवादों, साहित्यिक गद्य-पाठों, मानक इनस्क्रिप्ट टंकण तथा उच्चस्तरीय प्रशासनिक व विधिक भाषा-प्रयोग तक की यात्रा निर्बाध रूप से संपन्न होती है। प्रत्येक व्याकरणिक एवं व्यावहारिक संकल्पना के साथ स्पष्ट द्विभाषिक विवेचन, प्रामाणिक उदाहरण और व्यावहारिक संदर्भ प्रस्तुत किए गए हैं, ताकि स्वयं अध्ययन करने वाले अध्येता तथा कक्षा-कक्ष के विद्यार्थी दोनों ही समान सहजता से भाषा के मर्म को आत्मसात कर सकें और शुद्ध अभिव्यक्ति का आत्मविश्वास अर्जित कर सकें।
+    #h(14pt)एक सर्वसमावेशी वृहद् संदर्भ ग्रंथ (मैग्नम ओपस मॉडल) के रूप में संरचित यह कृति प्राथमिक वर्ण-ज्ञान से लेकर उच्चस्तरीय प्रशासनिक एवं साहित्यिक अभिव्यक्तियों तक की समस्त विधाओं को अपनी विस्तृत परिधि में समेटती है। अध्ययन पद्धति पूर्णतः क्रमिक, द्विभाषिक एवं व्यावहारिक अनुप्रयोगात्मक उपागम पर अवलंबित है, जिसमें सुलेख-अभ्यास, दैनंदिन जीवन के जीवंत संवाद, साहित्यिक गद्य-पाठ, इनस्क्रिप्ट टंकण तथा आधिकारिक पत्राचार का सोपानवत अनुशीलन होता है। प्रत्येक संकल्पना के साथ सुस्पष्ट द्विभाषिक विवेचन, प्रामाणिक उदाहरण और व्यावहारिक संदर्भ समाहित हैं, ताकि स्वतंत्र अध्येता एवं कक्षा-कक्ष के विद्यार्थी दोनों ही समान सहजता से भाषा के मर्म को आत्मसात कर सकें।
   ]
 ]
 
@@ -147,7 +147,7 @@
 
 #par(leading: 0.60em)[
   #text(font: ("Noto Sans Devanagari", "DejaVu Sans"), size: 9.0pt, fill: rgb("#1a1a1a"))[
-    #h(14pt)The pedagogical methodology of this text is rooted in a systematic, bilingual, and functional communicative approach, charting a seamless progression from fundamental alphabet anatomy and calligraphy drills to vibrant daily dialogues, graded prose narratives, standard InScript keyboard typing, and advanced official drafting. Every pedagogical concept is accompanied by explicit bilingual commentary, authentic illustrative examples, and practical usage contexts, empowering both independent self-taught scholars and classroom students to assimilate the living spirit of the language with confidence and express themselves with precision.
+    #h(14pt)Conceived as an exhaustive, multi-layered master reference (Comprehensive Magnum Opus Model), this volume encompasses the full spectrum of linguistic expression, from foundational orthography to advanced administrative documentation and literary appreciation. Rooted in a systematic, bilingual communicative approach, it charts a seamless progression through calligraphy drills, living dialogues, graded prose narratives, standard InScript keyboarding, and official government correspondence. Every concept features explicit bilingual commentary, authentic illustrative paradigms, and contextual application, empowering both independent scholars and classroom learners to assimilate the living essence of the language with poise.
   ]
 ]
 
@@ -155,7 +155,7 @@
 
 #par(leading: 0.65em)[
   #text(size: 10.8pt)[
-    #h(14pt)भाषा केवल संप्रेषण का माध्यम नहीं, अपितु संस्कृति, चिंतन और मानवीय संवेदना की संवाहिका भी है। अतः यह ग्रंथ शिक्षार्थियों को व्यावहारिक संवाद-कौशल के साथ-साथ मानक पारिभाषिक शब्दावली, अनुवाद-सिद्धांत तथा समृद्ध साहित्यिक धरोहर से भी जोड़ता है। चाहे कार्यालयीन कार्य-व्यवहार हो, बैंकिंग एवं वाणिज्यिक गतिविधियाँ हों, अथवा सूचना प्रौद्योगिकी के अंतर्गत भारतीय भाषाओं का डिजिटल अनुप्रयोग, यह पुस्तक प्रत्येक क्षेत्र में भाषा की व्यावहारिक सक्षमता प्रदान करने हेतु एक सुदृढ़ सेतु की भूमिका निभाती है।
+    #h(14pt)भाषा केवल संप्रेषण का माध्यम नहीं, अपितु संस्कृति, चिंतन और मानवीय संवेदना की संवाहिका भी है। अतः यह ग्रंथ शिक्षार्थियों को व्यावहारिक संवाद-कौशल के साथ-साथ मानक पारिभाषिक शब्दावली, अनुवाद-सिद्धांत तथा समृद्ध सांस्कृतिक धरोहर से जोड़ता है। चाहे कार्यालयीन कार्य-व्यवहार हो, बैंकिंग एवं वाणिज्यिक गतिविधियाँ हों, अथवा सूचना प्रौद्योगिकी के अंतर्गत भारतीय भाषाओं का डिजिटल अनुप्रयोग, यह ग्रंथ प्रत्येक क्षेत्र में भाषा की व्यावहारिक सक्षमता एवं प्रामाणिक प्रवीणता प्रदान करने हेतु एक सुदृढ़ सेतु की भूमिका निभाता है।
   ]
 ]
 
@@ -163,7 +163,7 @@
 
 #par(leading: 0.60em)[
   #text(font: ("Noto Sans Devanagari", "DejaVu Sans"), size: 9.0pt, fill: rgb("#1a1a1a"))[
-    #h(14pt)Language is not merely a vehicle for communication, but a living conduit of culture, intellect, and human sensibility. Consequently, this work connects learners not only with functional conversational fluency, but equally with standardized technical terminology, translation principles, and rich cultural heritage. Whether navigating official administrative procedures, commercial and banking operations, or the digital landscape of Indian language computing, this text serves as a dependable bridge empowering learners with genuine communicative competence across all spheres.
+    #h(14pt)Language is not merely a vehicle for communication, but a living conduit of culture, intellect, and human sensibility. Consequently, this work connects learners not only with functional conversational fluency, but equally with standardized technical terminology, translation principles, and rich cultural heritage. Whether navigating official administrative procedures, commercial and banking operations, or the digital landscape of Indian language computing, this text serves as a dependable bridge empowering learners with genuine communicative competence and enduring mastery across all spheres.
   ]
 ]
 
