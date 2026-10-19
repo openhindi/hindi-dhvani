@@ -337,90 +337,63 @@
 #text(size: 9.5pt, weight: "bold")[अनुभाग सूची] #h(6pt) #text(size: 8.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Directory (20 Sections)]
 #v(0.5pt)
 #table(
-  columns: (38pt, 1fr),
-  inset: (x: 4pt, y: 3.3pt),
-  align: (center + horizon, left + horizon),
-  [*अनुभाग* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Sec]], [*अनुभाग शीर्षक एवं अध्ययन विषय* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Title & Scope]],
-  [#text(size: 7.8pt, weight: "bold")[१.१] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.1]],
-  [#text(size: 8.2pt, weight: "bold")[देवनागरी लिपि का ऐतिहासिक उद्भव एवं विकास] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Historical Origin & Evolution of Devanagari]],
-  [#text(size: 7.8pt, weight: "bold")[१.२] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.2]],
-  [#text(size: 8.2pt, weight: "bold")[अक्षरात्मक प्रकृति एवं आबुगिदा व्यवस्था] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Syllabic Nature & Abugida Architecture]],
-  [#text(size: 7.8pt, weight: "bold")[१.३] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.3]],
-  [#text(size: 8.2pt, weight: "bold")[शिरोरेखा के प्रामाणिक नियम एवं महत्व] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Shirorekha Rules, Importance & Alignment]],
-  [#text(size: 7.8pt, weight: "bold")[१.४] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.4]],
-  [#text(size: 8.2pt, weight: "bold")[खड़ी पाई वाले वर्णों की मानक संरचना] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Characters with Vertical Stem (Khadi Pai)]],
-  [#text(size: 7.8pt, weight: "bold")[१.५] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.5]],
-  [#text(size: 8.2pt, weight: "bold")[बिना पाई एवं गोलाकार वर्णों की संरचना] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Non-Stemmed & Circular Character Anatomy]],
-  [#text(size: 7.8pt, weight: "bold")[१.६] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.6]],
-  [#text(size: 8.2pt, weight: "bold")[सुलेख स्ट्रोक क्रम एवं कलम संचालन] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Calligraphic Stroke Order & Pen Flow]],
-  [#text(size: 7.8pt, weight: "bold")[१.७] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.7]],
-  [#text(size: 8.2pt, weight: "bold")[अक्षरों का अनुपातिक एवं ज्यामितीय संतुलन] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Geometric Balance & Proportional Spacing]],
-  [#text(size: 7.8pt, weight: "bold")[१.८] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.8]],
-  [#text(size: 8.2pt, weight: "bold")[ध, भ, थ, झ, श्र में शिरोरेखा विच्छेद] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Shirorekha Breaks in Broken-Loop Letters]],
-  [#text(size: 7.8pt, weight: "bold")[१.९] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.9]],
-  [#text(size: 8.2pt, weight: "bold")[र वर्ण के विविध सुलेख रूप (रेफ़ व पदेन)] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Allographs of Ra (Reph & Paden)]],
-  [#text(size: 7.8pt, weight: "bold")[१.१०] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.10]],
-  [#text(size: 8.2pt, weight: "bold")[ह्रस्व व दीर्घ मात्राओं का आलेखन] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Placement Geometry of Short & Long Matras]],
-  [#text(size: 7.8pt, weight: "bold")[१.११] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.11]],
-  [#text(size: 8.2pt, weight: "bold")[ऊर्ध्व मात्राओं (े, ै, ो, औ) का संयोजन] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Top Diacritic Connections & Angles]],
-  [#text(size: 7.8pt, weight: "bold")[१.१२] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.12]],
-  [#text(size: 8.2pt, weight: "bold")[अधो मात्राओं (ु, ू, ृ) का सुलेखन] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Bottom Diacritics (u, uu, ri) Placement]],
-  [#text(size: 7.8pt, weight: "bold")[१.१३] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.13]],
-  [#text(size: 8.2pt, weight: "bold")[हस्तलेख सुधार प्रविधियाँ एवं अभ्यास] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Handwriting Drills & Stroke Consistency]],
-  [#text(size: 7.8pt, weight: "bold")[१.१४] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.14]],
-  [#text(size: 8.2pt, weight: "bold")[देवनागरी अंक संरचना (० से ९) एवं स्ट्रोक] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Devanagari Numerals (0-9) Stroke Sequence]],
-  [#text(size: 7.8pt, weight: "bold")[१.१५] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.15]],
-  [#text(size: 8.2pt, weight: "bold")[मानक लिपि संकेत एवं विराम चिह्नों का अंकन] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Punctuation Marks & Orthographic Signs]],
-  [#text(size: 7.8pt, weight: "bold")[१.१६] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.16]],
-  [#text(size: 8.2pt, weight: "bold")[केंद्रीय हिंदी निदेशालय के मानकीकृत वर्ण] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[CHD Standardized Character Variants]],
-  [#text(size: 7.8pt, weight: "bold")[१.१७] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.17]],
-  [#text(size: 8.2pt, weight: "bold")[भ्रामक वर्ण-युग्मों में दृश्य अंतर (ख/रव, घ/ध)] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Visually Similar Letters & Distinctions]],
-  [#text(size: 7.8pt, weight: "bold")[१.१८] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.18]],
-  [#text(size: 8.2pt, weight: "bold")[कैलीग्राफी निब एवं स्याही तकनीक] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Calligraphy Nibs, Ink Flow & Paper Angle]],
-  [#text(size: 7.8pt, weight: "bold")[१.१९] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.19]],
-  [#text(size: 8.2pt, weight: "bold")[द्रुत लिपि एवं त्वरित हस्तलेखन अभ्यास] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Cursive Speed Writing & Legibility]],
-  [#text(size: 7.8pt, weight: "bold")[१.२०] \
-  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.20]],
-  [#text(size: 8.2pt, weight: "bold")[वर्ण सुलेख स्व-मूल्यांकन एवं परिशोधन] \
-  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Lettering Self-Evaluation & Correction]],
+  columns: (28pt, 1fr, 28pt, 1fr),
+  inset: (x: 4pt, y: 5.5pt),
+  align: (center + horizon, left + horizon, center + horizon, left + horizon),
+  [*अनु.* \ #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Sec]],
+  [*अनुभाग शीर्षक एवं विषय* \ #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Title & Scope]],
+  [*अनु.* \ #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Sec]],
+  [*अनुभाग शीर्षक एवं विषय* \ #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Title & Scope]],
+
+  [#text(size: 9.8pt, weight: "bold")[१.१] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.1]],
+  [#text(size: 9.8pt, weight: "bold")[देवनागरी लिपि का ऐतिहासिक उद्भव] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Historical Origin & Evolution of Devanagari]],
+  [#text(size: 9.8pt, weight: "bold")[१.११] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.11]],
+  [#text(size: 9.8pt, weight: "bold")[ऊर्ध्व मात्राओं (े, ै, ो, औ) का संयोजन] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Top Diacritic Connections & Angles]],
+
+  [#text(size: 9.8pt, weight: "bold")[१.२] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.2]],
+  [#text(size: 9.8pt, weight: "bold")[अक्षरात्मक प्रकृति एवं आबुगिदा व्यवस्था] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Syllabic Nature & Abugida Architecture]],
+  [#text(size: 9.8pt, weight: "bold")[१.१२] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.12]],
+  [#text(size: 9.8pt, weight: "bold")[अधो मात्राओं (ु, ू, ृ) का सुलेखन] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Bottom Diacritics (u, uu, ri) Placement]],
+
+  [#text(size: 9.8pt, weight: "bold")[१.३] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.3]],
+  [#text(size: 9.8pt, weight: "bold")[शिरोरेखा के प्रामाणिक नियम एवं महत्व] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Shirorekha Rules, Importance & Alignment]],
+  [#text(size: 9.8pt, weight: "bold")[१.१३] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.13]],
+  [#text(size: 9.8pt, weight: "bold")[हस्तलेख सुधार प्रविधियाँ एवं अभ्यास] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Handwriting Drills & Stroke Consistency]],
+
+  [#text(size: 9.8pt, weight: "bold")[१.४] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.4]],
+  [#text(size: 9.8pt, weight: "bold")[खड़ी पाई वाले वर्णों की मानक संरचना] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Characters with Vertical Stem (Khadi Pai)]],
+  [#text(size: 9.8pt, weight: "bold")[१.१४] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.14]],
+  [#text(size: 9.8pt, weight: "bold")[देवनागरी अंक संरचना (० से ९) एवं स्ट्रोक] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Devanagari Numerals (0-9) Stroke Sequence]],
+
+  [#text(size: 9.8pt, weight: "bold")[१.५] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.5]],
+  [#text(size: 9.8pt, weight: "bold")[बिना पाई एवं गोलाकार वर्णों की संरचना] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Non-Stemmed & Circular Character Anatomy]],
+  [#text(size: 9.8pt, weight: "bold")[१.१५] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.15]],
+  [#text(size: 9.8pt, weight: "bold")[मानक लिपि संकेत एवं विराम चिह्नों का अंकन] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Punctuation Marks & Orthographic Signs]],
+
+  [#text(size: 9.8pt, weight: "bold")[१.६] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.6]],
+  [#text(size: 9.8pt, weight: "bold")[सुलेख स्ट्रोक क्रम एवं कलम संचालन] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Calligraphic Stroke Order & Pen Flow]],
+  [#text(size: 9.8pt, weight: "bold")[१.१६] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.16]],
+  [#text(size: 9.8pt, weight: "bold")[केंद्रीय हिंदी निदेशालय के मानकीकृत वर्ण] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[CHD Standardized Character Variants]],
+
+  [#text(size: 9.8pt, weight: "bold")[१.७] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.7]],
+  [#text(size: 9.8pt, weight: "bold")[अक्षरों का अनुपातिक एवं ज्यामितीय संतुलन] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Geometric Balance & Proportional Spacing]],
+  [#text(size: 9.8pt, weight: "bold")[१.१७] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.17]],
+  [#text(size: 9.8pt, weight: "bold")[भ्रामक वर्ण-युग्मों में दृश्य अंतर (ख/रव, घ/ध)] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Visually Similar Letters & Distinctions]],
+
+  [#text(size: 9.8pt, weight: "bold")[१.८] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.8]],
+  [#text(size: 9.8pt, weight: "bold")[ध, भ, थ, झ, श्र में शिरोरेखा विच्छेद] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Shirorekha Breaks in Broken-Loop Letters]],
+  [#text(size: 9.8pt, weight: "bold")[१.१८] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.18]],
+  [#text(size: 9.8pt, weight: "bold")[कैलीग्राफी निब एवं स्याही तकनीक] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Calligraphy Nibs, Ink Flow & Paper Angle]],
+
+  [#text(size: 9.8pt, weight: "bold")[१.९] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.9]],
+  [#text(size: 9.8pt, weight: "bold")[र वर्ण के विविध सुलेख रूप (रेफ़ व पदेन)] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Allographs of Ra (Reph & Paden)]],
+  [#text(size: 9.8pt, weight: "bold")[१.१९] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.19]],
+  [#text(size: 9.8pt, weight: "bold")[द्रुत लिपि एवं त्वरित हस्तलेखन अभ्यास] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Cursive Speed Writing & Legibility]],
+
+  [#text(size: 9.8pt, weight: "bold")[१.१०] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.10]],
+  [#text(size: 9.8pt, weight: "bold")[ह्रस्व व दीर्घ मात्राओं का आलेखन] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Placement Geometry of Short & Long Matras]],
+  [#text(size: 9.8pt, weight: "bold")[१.२०] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1.20]],
+  [#text(size: 9.8pt, weight: "bold")[वर्ण सुलेख स्व-मूल्यांकन एवं परिशोधन] \ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Lettering Self-Evaluation & Correction]],
 )
 
 #pagebreak()

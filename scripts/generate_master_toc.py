@@ -151,16 +151,21 @@ def generate_typst_part_opener_page(part_num, overview_hi="", overview_en=""):
     lines.append('#text(size: 9.5pt, weight: "bold")[अनुभाग सूची] #h(6pt) #text(size: 8.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Directory (20 Sections)]')
     lines.append("#v(0.5pt)")
     lines.append("#table(")
-    lines.append("  columns: (38pt, 1fr),")
-    lines.append("  inset: (x: 4pt, y: 3.3pt),")
-    lines.append("  align: (center + horizon, left + horizon),")
-    lines.append('  [*अनुभाग* \\ #text(size: 6.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Sec]], [*अनुभाग शीर्षक एवं अध्ययन विषय* \\ #text(size: 6.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Title & Scope]],')
+    lines.append("  columns: (28pt, 1fr, 28pt, 1fr),")
+    lines.append("  inset: (x: 4pt, y: 5.5pt),")
+    lines.append("  align: (center + horizon, left + horizon, center + horizon, left + horizon),")
+    lines.append('  [*अनु.* \\ #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Sec]],')
+    lines.append('  [*अनुभाग शीर्षक एवं विषय* \\ #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Title & Scope]],')
+    lines.append('  [*अनु.* \\ #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Sec]],')
+    lines.append('  [*अनुभाग शीर्षक एवं विषय* \\ #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Title & Scope]],')
 
-    for s_dev_num, s_dev_title, s_en_num, s_en_title in secs:
-        lines.append(f'  [#text(size: 7.8pt, weight: "bold")[{s_dev_num}] \\')
-        lines.append(f'  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{s_en_num}]],')
-        lines.append(f'  [#text(size: 8.2pt, weight: "bold")[{s_dev_title}] \\')
-        lines.append(f'  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{s_en_title}]],')
+    left_secs = secs[:10]
+    right_secs = secs[10:]
+    for (l_dev_num, l_dev_title, l_en_num, l_en_title), (r_dev_num, r_dev_title, r_en_num, r_en_title) in zip(left_secs, right_secs):
+        lines.append(f'  [#text(size: 9.8pt, weight: "bold")[{l_dev_num}] \\ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{l_en_num}]],')
+        lines.append(f'  [#text(size: 9.8pt, weight: "bold")[{l_dev_title}] \\ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{l_en_title}]],')
+        lines.append(f'  [#text(size: 9.8pt, weight: "bold")[{r_dev_num}] \\ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{r_en_num}]],')
+        lines.append(f'  [#text(size: 9.8pt, weight: "bold")[{r_dev_title}] \\ #text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{r_en_title}]],')
 
     lines.append(")")
     lines.append("")
