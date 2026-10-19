@@ -72,17 +72,50 @@
 #let en-line(it) = block(spacing: 5pt, text(font: ("Noto Sans Devanagari", "DejaVu Sans"), size: 10pt, fill: rgb("#1a1a1a"))[#it])
 #let en-para(it) = block(above: 12pt, below: 12pt, text(font: ("Noto Sans Devanagari", "DejaVu Sans"), size: 10.2pt, fill: rgb("#1a1a1a"))[#h(16pt)#it])
 
-// Standardized Core Components
-#let rule-box(title-hi, title-en, body) = block(
+// Standardized Core Typst Templates
+#let section-opener(sec-num-hi, title-hi, sec-num-en, title-en) = [
+  #v(2pt)
+  #text(size: 15pt, weight: "bold")[अनुभाग #sec-num-hi : #title-hi] \
+  #text(size: 9.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section #sec-num-en : #title-en]
+  #v(4pt)
+  #line(length: 100%, stroke: 0.5pt + rgb("#000000"))
+  #v(6pt)
+]
+
+#let section-subheading(num-hi, title-hi, num-en, title-en) = [
+  #v(6pt)
+  #text(size: 12.5pt, weight: "bold")[#num-hi. #title-hi] \
+  #text(size: 8.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[#num-en. #title-en]
+  #v(5pt)
+]
+
+#let intro-para(hi-text, en-text) = [
+  #par(leading: 0.65em)[#hi-text]
+  #v(2.5pt)
+  #par(leading: 0.60em)[#text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[#en-text]]
+]
+
+#let spread-header(num-hi, title-hi, num-en, title-en) = [
+  #v(2pt)
+  #text(size: 14pt, weight: "bold")[#num-hi. #title-hi] #text(size: 8.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[#num-en. #title-en]
+  #v(4pt)
+  #line(length: 100%, stroke: 0.5pt + rgb("#000000"))
+  #v(5pt)
+]
+
+#let topic-heading(num-hi, title-hi, num-en, title-en) = [
+  #v(6pt)
+  #text(size: 13pt, weight: "bold")[#num-hi. #title-hi] #text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[#num-en. #title-en]
+  #v(3pt)
+]
+
+#let rule-box(title-hi, title-en, body) = rect(
   width: 100%,
   stroke: (left: 3pt + rgb("#000000")),
-  inset: (x: 10pt, top: 6pt, bottom: 6pt),
-  fill: rgb("#ffffff"),
-  spacing: 7pt
+  inset: (left: 8pt, y: 5pt),
+  fill: rgb("#ffffff")
 )[
-  #strong[#title-hi] \
-  #text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[#title-en] \
-  #v(1pt)
+  #strong[#title-hi] #h(6pt) #en-sub[#title-en] #v(1pt)
   #body
 ]
 
@@ -398,47 +431,47 @@
 
 #pagebreak()
 // --- PAGE 6: अनुभाग १.१ : देवनागरी लिपि का ऐतिहासिक उद्भव एवं विकास (भाग १) ---
-#v(2pt)
-#text(size: 15pt, weight: "bold")[अनुभाग १.१ : देवनागरी लिपि का ऐतिहासिक उद्भव एवं विकास] \
-#text(size: 9.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section 1.1 : Historical Origin & Structural Evolution of Devanagari Script]
-#v(4pt)
-#line(length: 100%, stroke: 0.5pt + rgb("#000000"))
-#v(6pt)
+#section-opener(
+  [१.१], [देवनागरी लिपि का ऐतिहासिक उद्भव एवं विकास],
+  [1.1], [Historical Origin & Structural Evolution of Devanagari Script]
+)
 
-देवनागरी विश्व की सर्वाधिक वैज्ञानिक, व्यवस्थित एवं ध्वन्यात्मक लिपियों में से एक है। इसका विकास प्राचीन ब्राह्मी लिपि की उत्तरी धारा से हुआ है। यह लिपि बाएँ से दाएँ लिखी जाती है तथा इसकी सबसे बड़ी विशेषता यह है कि प्रत्येक वर्ण का उच्चारण उसके लिखित रूप के सर्वथा अनुरूप होता है। #v(2.5pt)
-#text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Devanagari is one of the most scientific, systematic, and phonetic scripts in the world, having evolved from the northern branch of ancient Brahmi. Written from left to right, its defining hallmark is absolute phonetic correspondence—every character is pronounced exactly as it is written.]
+#intro-para(
+  [देवनागरी विश्व की सर्वाधिक वैज्ञानिक, व्यवस्थित एवं ध्वन्यात्मक लिपियों में से एक है। इसका विकास प्राचीन ब्राह्मी लिपि की उत्तरी धारा से हुआ है। यह लिपि बाएँ से दाएँ लिखी जाती है तथा इसकी सबसे बड़ी विशेषता यह है कि प्रत्येक वर्ण का उच्चारण उसके लिखित रूप के सर्वथा अनुरूप होता है।],
+  [Devanagari is one of the most scientific, systematic, and phonetic scripts in the world, having evolved from the northern branch of ancient Brahmi. Written from left to right, its defining hallmark is absolute phonetic correspondence—every character is pronounced exactly as it is written.]
+)
 
-#v(6pt)
-#text(size: 12.5pt, weight: "bold")[१. लिपि की आधारभूत विशेषताएँ] \
-#text(size: 8.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1. Fundamental Characteristics of the Script Architecture]
-#v(5pt)
+#section-subheading(
+  [१], [लिपि की आधारभूत विशेषताएँ],
+  [1], [Fundamental Characteristics of the Script Architecture]
+)
 
-#rect(width: 100%, stroke: (left: 3pt + rgb("#000000")), inset: (left: 8pt, y: 5pt), fill: rgb("#ffffff"))[
-  #strong[१. अक्षरात्मक प्रकृति]   #en-sub[1. Syllabic Nature / Abugida Architecture]   #v(1pt)
-  देवनागरी विशुद्ध वर्णात्मक नहीं अपितु अक्षरात्मक है। प्रत्येक व्यंजन वर्ण में अंतर्निहित 'अ' स्वर स्वाभाविक रूप से सम्मिलित रहता है (जैसे: क् + अ = क)। स्वर के अभाव को दर्शाने हेतु हलंत चिह्न (्) का प्रयोग किया जाता है।   #en-line[Devanagari is an abugida rather than a pure alphabet. Every consonant possesses an inherent schwa vowel 'a' (e.g. k + a = ka). The virama / halant sign is employed when a consonant is devoid of its inherent vowel.]
-]
-
-#v(5pt)
-
-#rect(width: 100%, stroke: (left: 3pt + rgb("#000000")), inset: (left: 8pt, y: 5pt), fill: rgb("#ffffff"))[
-  #strong[२. शिरोरेखा का संरचनात्मक महत्व]   #en-sub[2. Structural Equilibrium of the Shirorekha]   #v(1pt)
-  अक्षरों के ऊपर खींची जाने वाली क्षैतिज रेखा 'शिरोरेखा' कहलाती है। यह शब्दों को एक सुदृढ़ दृश्य सूत्र में बाँधती है, पृष्ठ पर पाठ को अनुशासित संरेखण प्रदान करती है तथा लिपि को विशिष्ट कलात्मक पहचान देती है।   #en-line[The continuous horizontal top line is termed Shirorekha. It unifies individual letter forms into cohesive word units, provides disciplined optical alignment across the page, and confers distinctive typographic identity.]
-]
+#rule-box(
+  [१. अक्षरात्मक प्रकृति],
+  [1. Syllabic Nature / Abugida Architecture],
+  [देवनागरी विशुद्ध वर्णात्मक नहीं अपितु अक्षरात्मक है। प्रत्येक व्यंजन वर्ण में अंतर्निहित 'अ' स्वर स्वाभाविक रूप से सम्मिलित रहता है (जैसे: क् + अ = क)। स्वर के अभाव को दर्शाने हेतु हलंत चिह्न (्) का प्रयोग किया जाता है। #en-line[Devanagari is an abugida rather than a pure alphabet. Every consonant possesses an inherent schwa vowel 'a' (e.g. k + a = ka). The virama / halant sign is employed when a consonant is devoid of its inherent vowel.]]
+)
 
 #v(5pt)
+#rule-box(
+  [२. शिरोरेखा का संरचनात्मक महत्व],
+  [2. Structural Equilibrium of the Shirorekha],
+  [अक्षरों के ऊपर खींची जाने वाली क्षैतिज रेखा 'शिरोरेखा' कहलाती है। यह शब्दों को एक सुदृढ़ दृश्य सूत्र में बाँधती है, पृष्ठ पर पाठ को अनुशासित संरेखण प्रदान करती है तथा लिपि को विशिष्ट कलात्मक पहचान देती है। #en-line[The continuous horizontal top line is termed Shirorekha. It unifies individual letter forms into cohesive word units, provides disciplined optical alignment across the page, and confers distinctive typographic identity.]]
+)
 
-#rect(width: 100%, stroke: (left: 3pt + rgb("#000000")), inset: (left: 8pt, y: 5pt), fill: rgb("#ffffff"))[
-  #strong[३. ज्यामितीय एवं रूपात्मक संतुलन]   #en-sub[3. Geometric Harmony and Proportional Spacing]   #v(1pt)
-  देवनागरी वर्णमाला ऊर्ध्व रेखाओं (खड़ी पाई), वृत्तों, अर्धवृत्तों तथा पाशों के अनुपातिक समन्वय पर आधारित है। लंबवत खड़ी पाई सदैव ९० अंश पर लंबवत होनी चाहिए ताकि अक्षरों में स्वाभाविक संतुलन बना रहे।   #en-line[The Devanagari graphic repertoire is harmoniously constructed from vertical standing stems (Khadi Pai), circular nodes, semicircles, and loops. Vertical stems are strictly perpendicular at 90 degrees for visual equilibrium.]
-]
+#v(5pt)
+#rule-box(
+  [३. ज्यामितीय एवं रूपात्मक संतुलन],
+  [3. Geometric Harmony and Proportional Spacing],
+  [देवनागरी वर्णमाला ऊर्ध्व रेखाओं (खड़ी पाई), वृत्तों, अर्धवृत्तों तथा पाशों के अनुपातिक समन्वय पर आधारित है। लंबवत खड़ी पाई सदैव ९० अंश पर लंबवत होनी चाहिए ताकि अक्षरों में स्वाभाविक संतुलन बना रहे। #en-line[The Devanagari graphic repertoire is harmoniously constructed from vertical standing stems (Khadi Pai), circular nodes, semicircles, and loops. Vertical stems are strictly perpendicular at 90 degrees for visual equilibrium.]]
+)
 #pagebreak()
 
 // --- PAGE 7: अनुभाग १.१ : लिपि-विकास, पारिभाषिक शब्दावली एवं अभ्यास ---
-#v(2pt)
-#text(size: 14pt, weight: "bold")[२. लिपि-उद्भव एवं विकास परंपरा] #text(size: 8.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[2. Historical Origin & Evolution Lineage]
-#v(4pt)
-#line(length: 100%, stroke: 0.5pt + rgb("#000000"))
-#v(5pt)
+#spread-header(
+  [२], [लिपि-उद्भव एवं विकास परंपरा],
+  [2], [Historical Origin & Evolution Lineage]
+)
 
 भारतीय लिपियों की जननी प्राचीन 'ब्राह्मी लिपि' (ईसा पूर्व तीसरी सदी) मानी जाती है। ब्राह्मी से गुप्त लिपि, तत्पश्चात कुटिल (सिद्धमातृका) लिपि और उससे १०वीं-११वीं शताब्दी में नागरी (देवनागरी) लिपि का प्रादुर्भाव हुआ: #v(2pt)
 #text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Ancient Brahmi (3rd century BCE) is the mother of Indian scripts. From Brahmi evolved the Gupta script, followed by Kutila (Siddhamatrika), eventually culminating in Devanagari around the 10th-11th century CE.]
@@ -455,9 +488,10 @@
   [#strong[१०वीं सदी-] \ #text(size: 6.8pt)[#text(fill: rgb("#1a1a1a"))[10th C. CE+]]], [#strong[प्राचीन देवनागरी] \ #text(size: 6.8pt)[#text(fill: rgb("#1a1a1a"))[Early Devanagari]]], [सतत शिरोरेखा, खड़ी पाई तथा वर्तमान वर्ण-रूपों का परिपाक। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Continuous shirorekha, vertical stems, modern letters.]]
 )
 
-#v(6pt)
-#text(size: 13pt, weight: "bold")[३. प्रमुख पारिभाषिक शब्दावली] #text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[3. Core Technical Terms & Orthographic Concepts]
-#v(3pt)
+#topic-heading(
+  [३], [प्रमुख पारिभाषिक शब्दावली],
+  [3], [Core Technical Terms & Orthographic Concepts]
+)
 
 #table(
   columns: (80pt, 85pt, 1fr),
@@ -485,44 +519,45 @@
 #pagebreak()
 
 // --- PAGE 8: अनुभाग १.२ : अक्षरात्मक प्रकृति एवं आबुगिदा व्यवस्था (भाग १) ---
-#v(2pt)
-#text(size: 15pt, weight: "bold")[अनुभाग १.२ : अक्षरात्मक प्रकृति एवं आबुगिदा व्यवस्था] \
-#text(size: 9.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section 1.2 : Syllabic Architecture & Abugida Structural System]
-#v(4pt)
-#line(length: 100%, stroke: 0.5pt + rgb("#000000"))
-#v(6pt)
+#section-opener(
+  [१.२], [अक्षरात्मक प्रकृति एवं आबुगिदा व्यवस्था],
+  [1.2], [Syllabic Architecture & Abugida Structural System]
+)
 
-देवनागरी लिपि की मूल संरचना 'अक्षरात्मक' (Abugida / Alphasyllabary) है। पश्चिमी वर्णमालाओं (जैसे लैटिन) के विपरीत जहाँ स्वर और व्यंजन स्वतंत्र एवं समान रूप से पृथक लिखे जाते हैं, देवनागरी में प्रत्येक स्वतंत्र व्यंजन वर्ण में 'अ' (ह्रस्व अ) का स्वर स्वाभाविक रूप से अंतर्निहित रहता है। #v(2.5pt)
-#text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[The fundamental architecture of Devanagari is an abugida (alphasyllabary). Unlike Western alphabets (such as Latin) where vowels and consonants are written as separate, independent letters of equal standing, every baseline consonant in Devanagari inherently incorporates the neutral vowel 'a' (schwa).]
+#intro-para(
+  [देवनागरी लिपि की मूल संरचना 'अक्षरात्मक' (Abugida / Alphasyllabary) है। पश्चिमी वर्णमालाओं (जैसे लैटिन) के विपरीत जहाँ स्वर और व्यंजन स्वतंत्र एवं समान रूप से पृथक लिखे जाते हैं, देवनागरी में प्रत्येक स्वतंत्र व्यंजन वर्ण में 'अ' (ह्रस्व अ) का स्वर स्वाभाविक रूप से अंतर्निहित रहता है।],
+  [The fundamental architecture of Devanagari is an abugida (alphasyllabary). Unlike Western alphabets (such as Latin) where vowels and consonants are written as separate, independent letters of equal standing, every baseline consonant in Devanagari inherently incorporates the neutral vowel 'a' (schwa).]
+)
 
-#v(6pt)
-#text(size: 12.5pt, weight: "bold")[१. आबुगिदा व्यवस्था के मूलभूत घटक] \
-#text(size: 8.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[1. Primary Constituents of the Abugida System]
-#v(5pt)
+#section-subheading(
+  [१], [आबुगिदा व्यवस्था के मूलभूत घटक],
+  [1], [Primary Constituents of the Abugida System]
+)
 
-#rect(width: 100%, stroke: (left: 3pt + rgb("#000000")), inset: (left: 8pt, y: 5pt), fill: rgb("#ffffff"))[
-  #strong[१. अंतर्निहित 'अ' स्वर (Inherent Schwa Vowel)]   #en-sub[Inherent Schwa Principle]   #v(1pt)
-  जब हम 'क' लिखते हैं, तो उसका उच्चारण केवल 'क्' नहीं अपितु 'क् + अ' होता है। इसे सस्वर व्यंजन या पूर्ण अक्षर कहा जाता है। बिना किसी अतिरिक्त मात्रा चिह्न के व्यंजन अपनी स्वाभाविक सस्वर अवस्था में रहता है।   #en-line[When we write the grapheme 'क', its phonetic realization is not merely the plosive /k/ but /kə/ (k + a). This constitutes a full syllabic unit. Consonants exist in this inherent vocalic state by default.]
-]
-
-#v(5pt)
-
-#rect(width: 100%, stroke: (left: 3pt + rgb("#000000")), inset: (left: 8pt, y: 5pt), fill: rgb("#ffffff"))[
-  #strong[२. मात्रा-विधान एवं स्वर-संयोजन (Vowel Diacritics)]   #en-sub[Diacritic Matra Modification]   #v(1pt)
-  जब व्यंजन के साथ 'अ' के अतिरिक्त किसी अन्य स्वर (आ, इ, ई, उ, ऊ, ऋ, ए, ऐ, ओ, औ) का मेल होता है, तब स्वर अपने मूल रूप में न आकर संबंधित 'मात्रा' चिह्न के रूप में व्यंजन के चारों ओर जुड़ता है।   #en-line[When a consonant combines with any vowel other than inherent 'a', the vowel is rendered not as an independent letter but as a secondary diacritic glyph (Matra) attaching to the consonant.]
-]
+#rule-box(
+  [१. अंतर्निहित 'अ' स्वर (Inherent Schwa Vowel)],
+  [Inherent Schwa Principle],
+  [जब हम 'क' लिखते हैं, तो उसका उच्चारण केवल 'क्' नहीं अपितु 'क् + अ' होता है। इसे सस्वर व्यंजन या पूर्ण अक्षर कहा जाता है। बिना किसी अतिरिक्त मात्रा चिह्न के व्यंजन अपनी स्वाभाविक सस्वर अवस्था में रहता है। #en-line[When we write the grapheme 'क', its phonetic realization is not merely the plosive /k/ but /kə/ (k + a). This constitutes a full syllabic unit. Consonants exist in this inherent vocalic state by default.]]
+)
 
 #v(5pt)
+#rule-box(
+  [२. मात्रा-विधान एवं स्वर-संयोजन (Vowel Diacritics)],
+  [Diacritic Matra Modification],
+  [जब व्यंजन के साथ 'अ' के अतिरिक्त किसी अन्य स्वर (आ, इ, ई, उ, ऊ, ऋ, ए, ऐ, ओ, औ) का मेल होता है, तब स्वर अपने मूल रूप में न आकर संबंधित 'मात्रा' चिह्न के रूप में व्यंजन के चारों ओर जुड़ता है। #en-line[When a consonant combines with any vowel other than inherent 'a', the vowel is rendered not as an independent letter but as a secondary diacritic glyph (Matra) attaching to the consonant.]]
+)
 
-#rect(width: 100%, stroke: (left: 3pt + rgb("#000000")), inset: (left: 8pt, y: 5pt), fill: rgb("#ffffff"))[
-  #strong[३. हलंत / विसर्ग चिह्न द्वारा स्वर-विलोपन (Virama / Halant Function)]   #en-sub[Vowel Suppression via Halant]   #v(1pt)
-  व्यंजन से अंतर्निहित 'अ' स्वर को पूर्णतः समाप्त करने हेतु उसके नीचे हलंत चिह्न (्) लगाया जाता है (उदा. क्, त्, म्)। हलंत युक्त वर्ण 'विशुद्ध व्यंजन' (Pure Consonant) का प्रतिनिधित्व करता है।   #en-line[To suppress or remove the inherent vowel from a consonant, a subscript diagonal stroke known as Halant (Virama) is appended beneath the stem. Halant characters represent pure consonantal codas.]
-]
+#v(5pt)
+#rule-box(
+  [३. हलंत / विसर्ग चिह्न द्वारा स्वर-विलोपन (Virama / Halant Function)],
+  [Vowel Suppression via Halant],
+  [व्यंजन से अंतर्निहित 'अ' स्वर को पूर्णतः समाप्त करने हेतु उसके नीचे हलंत चिह्न (्) लगाया जाता है (उदा. क्, त्, म्)। हलंत युक्त वर्ण 'विशुद्ध व्यंजन' (Pure Consonant) का प्रतिनिधित्व करता है। #en-line[To suppress or remove the inherent vowel from a consonant, a subscript diagonal stroke known as Halant (Virama) is appended beneath the stem. Halant characters represent pure consonantal codas.]]
+)
 
-#v(6pt)
-#text(size: 12.5pt, weight: "bold")[२. क वर्ण का संपूर्ण मात्रा-संयोजन (बारहखड़ी स्वरूप)] \
-#text(size: 8.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[2. Master Diacritic Paradigm of Consonant 'Ka' (Barakhadi Series)]
-#v(3pt)
+#topic-heading(
+  [२], [क वर्ण का संपूर्ण मात्रा-संयोजन (बारहखड़ी स्वरूप)],
+  [2], [Master Diacritic Paradigm of Consonant 'Ka' (Barakhadi Series)]
+)
 
 #table(
   columns: (38pt, 38pt, 38pt, 38pt, 38pt, 38pt, 38pt, 38pt, 38pt, 38pt, 38pt, 38pt),
@@ -546,11 +581,10 @@
 #pagebreak()
 
 // --- PAGE 9: अनुभाग १.२ : वर्ण-विच्छेद, आबुगिदा विश्लेषण एवं अभ्यास (भाग २) ---
-#v(2pt)
-#text(size: 14pt, weight: "bold")[३. वर्ण-विच्छेद एवं ध्वन्यात्मक विश्लेषण] #text(size: 8.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[3. Phonetic Deconstruction & Orthographic Analysis]
-#v(4pt)
-#line(length: 100%, stroke: 0.5pt + rgb("#000000"))
-#v(5pt)
+#spread-header(
+  [३], [वर्ण-विच्छेद एवं ध्वन्यात्मक विश्लेषण],
+  [3], [Phonetic Deconstruction & Orthographic Analysis]
+)
 
 देवनागरी में किसी शब्द के प्रत्येक स्वर और विशुद्ध व्यंजन को पृथक-पृथक कर प्रदर्शित करने की प्रक्रिया को 'वर्ण-विच्छेद' कहा जाता है। यह आबुगिदा व्यवस्था की गहन समझ और शुद्ध वर्तनी के अधिगम हेतु सर्वाधिक प्रभावी प्रविधि है: #v(2pt)
 #text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[The process of disassembling a written word into its constituent pure consonants and independent vowels is known as Varna-Vichhed (orthographic analysis). It forms the pedagogical foundation of Devanagari literacy.]
@@ -567,8 +601,10 @@
   [#strong[देवनागरी] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[devanaagarii]], [द् + ए + व् + अ + न् + आ + ग् + अ + र् + ई], [ऊर्ध्व 'ए' मात्रा, पार्श्व 'आ' मात्रा एवं दीर्घ 'ई' मात्रा। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Top diacritic 'e', lateral 'aa', and terminal long 'ee'.]]
 )
 
-#v(6pt)
-#text(size: 13pt, weight: "bold")[४. आबुगिदा एवं वर्णमाला प्रणाली की तुलना] #text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[4. Abugida vs Full Alphabet Comparison]
+#topic-heading(
+  [४], [आबुगिदा एवं वर्णमाला प्रणाली की तुलना],
+  [4], [Abugida vs Full Alphabet Comparison]
+)
 #v(3pt)
 
 #table(
