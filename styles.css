@@ -106,13 +106,13 @@ body {
   z-index: 1000;
   box-shadow: var(--shadow-md);
   background: var(--surface);
-  font-size: 16px;
 }
 
 .icon-btn {
   appearance: none;
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
+  padding: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -122,15 +122,25 @@ body {
   background: var(--surface);
   color: var(--text);
   font: inherit;
-  font-size: 15px;
-  line-height: 1;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.15s var(--ease), background-color 0.2s var(--ease), border-color 0.2s var(--ease);
+  transition: transform 0.15s var(--ease), background-color 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease);
   user-select: none;
 }
 
-.icon-btn:hover { border-color: var(--accent); }
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.icon-btn:hover {
+  border-color: var(--accent);
+  background: var(--surface);
+  color: var(--accent);
+}
 .icon-btn:active { transform: scale(0.92); }
 
 .icon-btn:disabled {
@@ -143,10 +153,13 @@ body {
   background: transparent;
   box-shadow: none;
   color: var(--muted);
-  font-size: 18px;
 }
 
-.icon-btn--ghost:hover { color: var(--text); border-color: transparent; background: var(--accent-soft); }
+.icon-btn--ghost:hover {
+  color: var(--text);
+  border-color: transparent;
+  background: var(--accent-soft);
+}
 
 .bottom-controls {
   position: fixed;
