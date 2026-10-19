@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#eef1f6">
+  <title>Hindi Master Book</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <button id="btn-menu" class="icon-btn" type="button" aria-label="Contents" aria-controls="toc-drawer" aria-expanded="false" title="Contents">☰</button>
+    <div id="topbar-title" class="topbar-title"></div>
+    <div class="topbar-end">
+      <button id="btn-theme-toggle" class="icon-btn" type="button" aria-label="Dark theme" title="Dark theme">🌙</button>
+      <button id="btn-download-pdf" class="icon-btn" type="button" aria-label="Download A4 PDF" title="Download A4 PDF">📥</button>
+    </div>
+  </header>
+
+  <div id="status-toast" class="status-toast" role="status" aria-live="polite">
+    <span id="status-spinner" class="spinner" hidden></span>
+    <span id="status-text"></span>
+  </div>
+
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+  <aside id="toc-drawer" class="toc-drawer" aria-label="Contents">
+    <div class="drawer-top">
+      <h2 class="drawer-title">Contents</h2>
+      <button id="btn-close-drawer" class="icon-btn icon-btn--ghost" type="button" aria-label="Close">&times;</button>
+    </div>
+    <nav id="drawer-list" class="drawer-list"></nav>
+  </aside>
+
+  <main id="stage" class="stage">
+    <div id="book-viewport" class="book"></div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="app.js"></script>
+</body>
+</html>
