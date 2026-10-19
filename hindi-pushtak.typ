@@ -615,11 +615,10 @@
   [४], [आबुगिदा एवं वर्णमाला प्रणाली की तुलना],
   [4], [Abugida vs Full Alphabet Comparison]
 )
-#v(2pt)
 
 #table(
   columns: (110pt, 1fr, 1fr),
-  inset: (x: 5pt, y: 2.8pt),
+  inset: (x: 5pt, y: 4.5pt),
   align: (left + horizon, left + horizon, left + horizon),
   [*तुलनात्मक बिंदु* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Comparative Parameter]], [*देवनागरी (आबुगिदा)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Devanagari (Abugida)]], [*रोमन / अंग्रेज़ी (वर्णमाला)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Roman / English (Alphabet)]],
   [#strong[मूल वर्ण की प्रकृति] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Basic Character Nature]], [अक्षरात्मक (व्यंजन + अंतर्निहित स्वर)। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Syllabic (Consonant + Inherent Schwa).]], [शुद्ध ध्वन्यात्मक (स्वर-रहित व्यंजन)। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Segmental phoneme without vowels.]],
@@ -627,7 +626,7 @@
   [#strong[उच्चारण अनुरूपता] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Grapheme-Phoneme Match]], [शत-प्रतिशत प्रत्यक्ष एवं नियमित। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Strict 100% phonetic correspondence.]], [अप्रत्यक्ष एवं परिवर्तनशील (Silent letters). \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Irregular spelling with silent letters.]]
 )
 
-#v(3pt)
+#v(1.5pt)
 
 #exercise-box(
   [अनुभाग १.२ स्व-मूल्यांकन अभ्यास],
@@ -709,7 +708,7 @@
 
 #table(
   columns: (110pt, 1fr, 1fr),
-  inset: (x: 5pt, y: 3.2pt),
+  inset: (x: 5pt, y: 3.8pt),
   align: (left + horizon, left + horizon, left + horizon),
   [*तुलनात्मक बिंदु* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Comparative Aspect]], [*देवनागरी (शिरोरेखा युक्त)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Devanagari (Headlined)]], [*गुजराती / लैटिन (शिरोरेखा रहित)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Gujarati / Latin (Headline-Free)]],
   [#strong[दृश्य संरेखण एवं गति] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Visual Alignment & Flow]], [शीर्ष रेखा त्वरित क्षैतिज दृष्टि-प्रवाह देती है। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Continuous top edge accelerates reading speed.]], [अक्षरों की भिन्न ऊंचाइयों से गति तय होती है। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Speed guided by ascenders and descenders.]],
@@ -717,7 +716,7 @@
   [#strong[हस्तलेखन गति] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Handwriting Speed]], [प्रत्येक शब्द के अंत में अतिरिक्त स्ट्रोक अनिवार्य। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Requires a conscious terminal stroke per word.]], [शीर्ष रेखा न होने से त्वरित घसीट लेखन संभव। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Faster cursive writing without top bar.]]
 )
 
-#v(4pt)
+#v(2pt)
 
 #exercise-box(
   [अनुभाग १.३ स्व-मूल्यांकन अभ्यास],
