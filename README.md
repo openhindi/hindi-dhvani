@@ -206,7 +206,7 @@ This section serves as the definitive reference for resuming work in a clean, fr
 
 ### 2. Web Reader & Section Download Architecture
 - **Standardized Navigation Drawer Title**:
-  - The drawer and toggle button use the single standard Hindi word **'Vishay-Suchi'** (*Contents* in English subtitle), completely removing mixed slash labels.
+  - The drawer header and toggle button use the single standard Hindi word **'Pustakchihna'** (*bookmarks* in English subtitle with smaller font), completely removing mixed slash labels.
 - **Section-Oriented Manifest (`manifest.json`)**:
   - The drawer items are driven dynamically from `manifest.json`, mapping each curriculum section to its exact starting and ending physical page numbers (`startPage`, `endPage`), part affiliation (`part_label`), section title, and standardized download filename.
   - **Book About**: Downloads pages 1 and 2 as `hindi-pushtak-about.pdf`.
