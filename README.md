@@ -1,238 +1,218 @@
-# हिन्दी पुस्तक (Hindi Pushtak)
+# Hindi Pushtak
 
-एक सुरुचिपूर्ण, प्रामाणिक एवं मुद्रित-ग्रंथ शैली में निर्मित डिजिटल एवं A4 मुद्रण-योग्य हिन्दी अध्ययन पुस्तक।
-
-An elegant, page-aware, print-accurate digital Hindi book designed with authentic printed-book typography, clean high-contrast monochrome aesthetics (white background, pure black Hindi text, 90% black English text), mobile-first responsive reading, and direct A4 PDF export.
+An elegant, page-aware, print-accurate digital Hindi reference book designed with authentic printed-book typography, clean high-contrast monochrome aesthetics (white background, pure black Hindi text, 90% black English text), mobile-first responsive reading, and direct A4 PDF export.
 
 ---
 
-## १. परियोजना अवलोकन एवं दर्शन (Project Overview & Philosophy)
+## 1. Project Overview & Philosophy
 
-'हिन्दी पुस्तक' (Hindi Pushtak) का उद्देश्य शिक्षार्थियों, शोधार्थियों तथा भाषा-प्रेमियों को हिन्दी भाषा, व्याकरण, संभाषण तथा आधिकारिक पत्राचार का एक समग्र, सोपानवत एवं प्रामाणिक संदर्भ प्रदान करना है।
+The objective of **Hindi Pushtak** is to provide learners, scholars, and language enthusiasts with an exhaustive, systematic, and authoritative reference work covering Hindi orthography, phonetics, grammar, spoken conversation, official administration, banking, and computing.
 
-### प्रमुख मार्गदर्शक सिद्धांत एवं डिज़ाइन निर्णय (Guiding Principles & Design Decisions)
-1. **कोष्ठक-रहित द्विभाषिक अधो-पंक्ति विन्यास (No English in Brackets — Always Interlinear Beneath Hindi)**:
-   - किसी भी हिन्दी वाक्य, अनुच्छेद, शीर्षक, उप-शीर्षक अथवा स्वतंत्र शब्द के साथ अंग्रेज़ी अनुवाद को कोष्ठक (brackets) में नहीं लिखा जाता है।
-   - **वाक्य स्तर पर**: प्रत्येक हिन्दी वाक्य के ठीक नीचे उसका सम्पूर्ण अंग्रेज़ी अनुवाद अपेक्षाकृत छोटे व सुरुचिपूर्ण फ़ॉन्ट (`#en-line`, ९०% काला `#1a1a1a`) में प्रस्तुत किया जाता है।
-   - **अनुच्छेद स्तर पर**: प्रत्येक हिन्दी अनुच्छेद के ठीक नीचे सम्पूर्ण अंग्रेज़ी अनुच्छेद स्पष्ट ऊर्ध्वाधर अंतराल एवं प्रथम पंक्ति टैब इंडेंट के साथ छोटे फ़ॉन्ट (`#en-para`, ९०% काला `#1a1a1a`) में दिया जाता है।
-   - **शब्द व पद स्तर पर**: तालिका, शीर्षकों एवं एकल शब्दों में भी अंग्रेज़ी अर्थ कोष्ठक के स्थान पर ठीक नीचे लघु-फ़ॉन्ट (`#en-sub`, `#1a1a1a`) में प्रस्तुत किया जाता है।
-2. **सुरुचिपूर्ण श्याम-श्वेत एवं ९०% काला द्विभाषिक रंग-विधान (White Background, Black Hindi, 90% Black English)**:
-   - **पृष्ठ पृष्ठभूमि**: संपूर्ण पुस्तक की पृष्ठभूमि पूर्णतः शुद्ध धवल (Pure White `#ffffff`) निर्धारित है (`#set page(fill: rgb("#ffffff"), ...)`).
-   - **मूल हिन्दी पाठ**: समस्त मुख्य हिन्दी पाठ, शीर्षक, उपशीर्षक, तालिका हेडर एवं मुख्य सामग्री शुद्ध जेट ब्लैक (`#000000`) में है।
-   - **अंग्रेज़ी अनुवाद एवं टिप्पणियाँ**: सभी अंग्रेज़ी अनुवाद, रोमन लिप्यंतरण, उप-शीर्षक तथा संदर्भ टिप्पणियाँ **९०% काले** (`#1a1a1a`) में सुस्पष्ट पठनीयता के साथ प्रस्तुत हैं।
-   - **कंटेनर व रेखाएँ**: सभी विभाजक रेखाएँ, तालिका किनारे एवं कॉलआउट बॉक्स बॉर्डर्स शुद्ध काले (`#000000`) में हैं, जबकि बॉक्स की आंतरिक पृष्ठभूमि शुद्ध श्वेत (`#ffffff`) है।
-3. **मुद्रित पुस्तक प्रारूप एवं प्रिंटर-अनुकूल ज्यामिति (Authentic Book Layout & Geometry)**:
-   - यह इंटरफ़ेस किसी सामान्य वेबपेज की तरह नहीं दिखता, बल्कि एक वास्तविक मुद्रित A4 पुस्तक (Printed Book) की भाँति पृष्ठ-दर-पृष्ठ (Page-Aware) संरचित है।
-   - शीर्ष एवं पाद हाशिए (Top & Bottom Margins) को सुरुचिपूर्ण मुद्रण सुविधा हेतु `30mm` तथा पार्श्व हाशिए को `20mm` पर निर्धारित किया गया है, जिससे सभी डेस्कटॉप व औद्योगिक प्रिंटर्स पर पर्याप्त श्वास-स्थान और बिना कटे सुगम व स्वच्छ प्रिंटिंग प्राप्त होती है।
-   - **द्विभाषिक शीर्षलेख (Bilingual Running Header)**: शीर्षलेख में बायाँ भाग पूर्णतः हिन्दी (शुद्ध काला `#000000`) तथा दायाँ भाग पूर्णतः अंग्रेज़ी (९०% काला `#1a1a1a`) में ठोस क्षैतिज विभाजक रेखा के साथ प्रदर्शित होता है।
-   - **पैराग्राफ संरेखण**: अनुच्छेदों के प्रथम वाक्य में मानक `14pt` का टैब इंडेंट दिया गया है, जबकि स्वतंत्र वाक्यों को अवांछित टैब से मुक्त रखा गया है।
-   - पृष्ठ संख्याएँ सरल रूप में नीचे दाईं ओर संरेखित (`1`, `2`, `3` ...) ठोस क्षैतिज विभाजक रेखा के साथ प्रदर्शित होती हैं।
-4. **३० खंड एवं ६०० अनुभागों का वृहद् पाठ्यक्रम (30 Parts & 600 Sections Architecture)**:
-   - संपूर्ण पाठ्यक्रम को **३० सुस्पष्ट खंडों (Parts)** में विभाजित किया गया है, और प्रत्येक खंड में ठीक **२० अनुभाग (Sections)** समाहित हैं (कुल ६०० अनुभाग)।
-   - **अनुभाग पृष्ठ बजट (Page Budget per Section: 2 to 4 Pages)**: प्रत्येक अनुभाग के लिए अनुमत पृष्ठ सीमा **२ से ४ पृष्ठ (2 to 4 pages per section)** निर्धारित की गई है। कोई भी अनुभाग २ पृष्ठों से कम नहीं होगा और ४ पृष्ठों से अधिक नहीं होगा।
-   - **मैग्नम ओपस व्याप्ति मॉडल (Comprehensive Magnum Opus Coverage Model)**:
-     - यह ग्रंथ केवल प्रारंभिक या सतही गाइड नहीं है, बल्कि भारत सरकार के संपूर्ण प्रामाणिक कॉर्पस (प्रबोध, प्रवीण, प्रज्ञा, पारंगत एवं बैंकिंग प्रज्ञा — कुल ~८.४ लाख शब्द) को समाहित करने वाला एक **सर्वसमावेशी वृहद् संदर्भ ग्रंथ (Magnum Opus)** है।
-     - **विस्तार अनुमान**: ६०० अनुभागों को २ से ४ पृष्ठों के गहन कवरेज (औसत ~२.५ से ३.५ पृष्ठ प्रति अनुभाग) में प्रस्तुत करने पर ग्रंथ का कुल आकार **१,५०० से २,२००+ पृष्ठों (१,२०० से २,४०० पृष्ठ सीमा के भीतर)** होगा, जो कई खंडों/जिल्दों (Multi-Volume Masterwork) के रूप में मुद्रण-योग्य रहेगा।
-     - **अनुभाग संरचना**:
-       - *२-पृष्ठीय आधारभूत प्रारूप*: सैद्धांतिक नियम, रूपात्मक तालिकाएँ, प्रामाणिक उदाहरण एवं स्व-मूल्यांकन कार्यपत्र।
-       - *३-पृष्ठीय गहन प्रारूप*: विस्तृत रूपांतरण सारणियाँ, काल/कारक समन्वय, व्यावहारिक संवाद एवं सामान्य अशुद्धि-निवारण।
-       - *४-पृष्ठीय मैग्नम प्रारूप*: पूर्ण प्रशासनिक प्रारूपण (Drafting/Noting), बैंकिंग व विधिक विलेख, साहित्यिक समीक्षा एवं वृहद् द्विभाषिक संदर्भ शब्दावली।
-   - **प्रारंभिक विषय-सूची (Master TOC)**: पुस्तक के आरंभ में (पृष्ठ ३ एवं ४) केवल ३० खंडों की सूची प्रस्तुत की जाती है (१५ खंड प्रति पृष्ठ), जिससे पाठक को संपूर्ण ग्रंथ का विहंगम दृश्य प्राप्त होता है।
-   - **खंड-मुखपृष्ठ एवं अनुभाग-तालिका (Part Opener Pages)**: प्रत्येक खंड के प्रारंभ में एक समर्पित १-पृष्ठीय मुखपृष्ठ (Part Opener) होता है, जिसमें खंड का शीर्षक, द्विभाषिक सार-संक्षेप तथा उस खंड के सभी २० अनुभागों की संपूर्ण निर्देशिका तालिका समाहित होती है।
-   - **तालिका पैडिंग अनुकूलन**: २० अनुभागों की तालिका को पृष्ठ ५ पर २-स्तंभीय विन्यास में पूर्णतः १ पृष्ठ के भीतर संतुलित एवं सुपाठ्य रूप से संरेखित रखने हेतु ऊर्ध्वाधर पैडिंग `y: 5.5pt` निर्धारित की गई है।
-5. **अनिवार्य एवं मानकीकृत टाइप्स्ट टेम्पलेट वास्तुकला (Strict Standardized Typst Templates Rule — Zero Surprises)**:
-   - यह ग्रंथ भविष्य में १,५०० से २,२००+ पृष्ठों का एक विशाल संदर्भ ग्रंथ बनेगा। अतः पृष्ठ-अतिप्रवाह (page-overflow), शीर्षकों के अवांछित विखंडन या दृश्य असंगतियों (surprises) से बचने के लिए **यह एक अनुल्लंघनीय नियम (Strict Non-Negotiable Rule)** है कि प्रत्येक पृष्ठ एवं अनुभाग केवल और केवल पूर्व-निर्धारित टाइप्स्ट टेम्पलेट्स एवं मानकीकृत घटकों के माध्यम से ही निर्मित होगा:
-     - **`#section-opener(sec-num-hi, title-hi, sec-num-en, title-en)`**: अनुभाग के प्रथम पृष्ठ का मानक शीर्ष बैनर, द्विभाषिक शीर्षक, विभाजक रेखा एवं सटीक ऊर्ध्वाधर अंतराल।
-     - **`#intro-para(hi-text, en-text)`**: अनुभाग के परिचयात्मक अनुच्छेद का मानक द्विभाषिक विन्यास (`#v(2.5pt)` अंतराल, `8.5pt` ९०% काला `#1a1a1a` अंग्रेज़ी)।
-     - **`#section-subheading(num-hi, title-hi, num-en, title-en)`**: अनुभाग के भीतर मुख्य सैद्धांतिक उप-शीर्षक (१२.५pt बोल्ड देवनागरी, ८.८pt अंग्रेज़ी)।
-     - **`#spread-header(num-hi, title-hi, num-en, title-en)`**: अनुभाग के द्वितीय पृष्ठ (Spread Page 2) का शीर्ष हेडर एवं ०.५pt विभाजक रेखा।
-     - **`#topic-heading(num-hi, title-hi, num-en, title-en)`**: द्वितीय पृष्ठ पर सारणियों एवं उप-विषयों का मानक हेडर (१३pt बोल्ड देवनागरी, ८.५pt अंग्रेज़ी)।
-     - **`#rule-box(title-hi, title-en, body)`**: वाम-संरेखित ३pt ठोस काली सीमा रेखा, धवल पृष्ठभूमि एवं आंतरिक द्विभाषिक अंतर वाला मानक नियम बॉक्स।
-     - **`#exercise-box(title-hi, title-en, body)`**: प्रत्येक अनुभाग के द्वितीय पृष्ठ के पाद में स्थित मानक स्व-मूल्यांकन कार्यपत्र (०.६pt बॉक्स, विभाजक रेखा, बहुविकल्पीय व रिक्त स्थान प्रश्न)।
-     - **`#kbd(key)`**: कम्प्यूटर, इनस्क्रिप्ट टंकण एवं कुंजीपटल निर्देशों हेतु मानक कीकैप बॉक्स।
-     - **मानकीकृत सारणी विन्यास**: निश्चित स्तंभ चौड़ाई (जैसे `(70pt, 120pt, 1fr)` अथवा `(110pt, 1fr, 1fr)`), `4.5pt` से `4.8pt` ऊर्ध्वाधर पैडिंग तथा `stroke: (bottom: 0.3pt)`।
-     - **पृष्ठ-विच्छेद अनुशासन (`#pagebreak()`)**: प्रत्येक अनुभाग सम पृष्ठ (वाम/Verso) से प्रारंभ होकर ठीक विषम पृष्ठ (दक्षिण/Recto) पर समाप्त होगा और उसके अंत में अनिवार्य `#pagebreak()` होगा। कोई भी विषय वस्तु २-पृष्ठीय सीमा को पार नहीं करेगी।
+### Mandatory Language Policy for Project Documentation
+- **Strict English-Only README Rule**: The project README and developer-facing documentation must be maintained exclusively in English (zero Hindi characters or devanagari script in markdown prose). All references to Hindi terms, sections, and titles within the documentation must use standardized English transliterations or translations alongside clear ASCII/English identifiers. This guarantees universal tooling support, unambiguous markdown diffing, and seamless context-switching across sessions.
+
+### Core Guiding Principles & Design Decisions
+
+1. **No English in Brackets — Always Interlinear Beneath Hindi**:
+   - English translations, glosses, and transliterations are never placed in parentheses or brackets inline with Hindi text.
+   - **Sentence Level**: The complete English translation appears directly underneath the Hindi sentence in a smaller, elegant font (`#en-line`, 90% black `#1a1a1a`) with `#v(2.5pt)` vertical jump.
+   - **Paragraph Level**: The full English paragraph is placed directly beneath the Hindi paragraph with standard vertical spacing and indentation (`#en-para`, 90% black `#1a1a1a`).
+   - **Table & Word Level**: Column headers, terms, and individual vocabulary items place English glosses directly beneath the Hindi text (`#en-sub`, 90% black `#1a1a1a`).
+
+2. **Monochrome High-Contrast Palette (White Background, Pure Black Hindi, 90% Black English)**:
+   - **Page Background**: Pure white (`#ffffff`) throughout the entire document (`#set page(fill: rgb("#ffffff"), ...)`).
+   - **Primary Hindi Text**: Pure jet black (`#000000`) for all Devanagari text, headings, table headers, and primary content.
+   - **English Annotations**: 90% black (`#1a1a1a`) for all English translations, roman transliterations, subtitles, and footnotes. This provides optical contrast without appearing washed-out like gray, establishing a distinct visual hierarchy.
+   - **Borders & Dividers**: Solid black (`#000000`) rules and box outlines; container fills remain pure white (`#ffffff`).
+
+3. **Authentic Book Geometry & Margins**:
+   - The book is engineered as a true page-aware A4 printed volume rather than a scrolling web document.
+   - **Page Margins**: Top and bottom margins are set to **`30mm`** (`margin: (top: 30mm, bottom: 30mm, left: 20mm, right: 20mm)`), providing generous breathing room for running headers, footers, and clean desktop/commercial printing.
+   - **Bilingual Running Header**: Displays Devanagari on the left (pure black `#000000`) and English on the right (90% black `#1a1a1a`), anchored by a 0.5pt solid horizontal dividing rule.
+   - **Running Footer**: Simple page number right-aligned (`1`, `2`, `3` ...) with a 0.5pt solid top divider rule.
+
+4. **30 Parts & 600 Sections Architecture (Comprehensive Magnum Opus Model)**:
+   - The entire curriculum is structured into **30 Parts**, each containing exactly **20 Sections** (600 Sections total).
+   - **Page Budget per Section: 2 to 4 Pages**: Every section has a mandatory budget of **2 to 4 pages**. No section may be under 2 pages or exceed 4 pages.
+   - **Master Extent**: Covering the complete authoritative corpus of the Government of India (~840,000 words across Prabodh, Praveen, Pragya, Parangat, and Banking Pragya), the projected finished masterwork spans **1,500 to 2,200+ pages** (within the 1,200 to 2,400 page architectural boundary) suited for multi-volume editions.
+   - **Spread Format**: Standard baseline sections use a **2-page facing spread** (Page 1: Theory and Core Rules; Page 2: Tables, Comparative Analysis, and Review Worksheet).
+   - **Master TOC (Pages 3 & 4)**: Lists the 30 Parts across 2 pages (15 parts per page) with comfortable vertical padding (`y: 5.2pt`).
+   - **Part Opener Pages**: Each part begins with a dedicated 1-page opener featuring a part overview and a **2-column layout (10 rows × 2 columns)** section directory table with normal font size (9.8pt bold / 8.2pt English) and `y: 5.5pt` padding.
+
+5. **Strict Standardized Typst Template Architecture (Zero Surprises Rule)**:
+   - To prevent page overflow, accidental heading separation, or visual inconsistencies across hundreds of sections, all pages must strictly use predefined Typst templates and standardized components:
+     - **`#section-opener(sec-num-hi, title-hi, sec-num-en, title-en)`**: Opening banner on Page 1 of each section spread with title, subtitle, divider, and spacing.
+     - **`#intro-para(hi-text, en-text)`**: Introductory bilingual paragraph with calibrated `#v(2.5pt)` jump and 8.5pt 90% black English.
+     - **`#section-subheading(num-hi, title-hi, num-en, title-en)`**: Primary conceptual section headings (12.5pt bold Devanagari, 8.8pt English).
+     - **`#spread-header(num-hi, title-hi, num-en, title-en)`**: Top banner on Page 2 of each section spread with 0.5pt divider rule.
+     - **`#topic-heading(num-hi, title-hi, num-en, title-en)`**: Topic / table headings on Page 2 (13pt bold Devanagari, 8.5pt English).
+     - **`#rule-box(title-hi, title-en, body)`**: Left-accented 3pt solid black border callout box for core rules and principles.
+     - **`#exercise-box(title-hi, title-en, body)`**: Standardized 0.6pt enclosed Comprehension & Review Worksheet at the base of Page 2.
+     - **`#kbd(key)`**: Keycap box for computer, InScript typing, and keyboard shortcuts.
+     - **Standard Table Configuration**: Explicit column widths (e.g. `(70pt, 120pt, 1fr)` or `(110pt, 1fr, 1fr)`), `3.6pt` to `3.8pt` vertical cell padding, and `stroke: (bottom: 0.3pt)`.
+     - **Strict Page-Break Discipline (`#pagebreak()`)**: Every section begins on an even page (left/verso) and concludes on an odd page (right/recto) with a mandatory `#pagebreak()`. Content must not bleed across section boundaries.
 
 ---
 
-## २. ग्रंथ की वर्तमान संरचना (Current Book Structure)
+## 2. Current Document Structure
 
-पुस्तक में वर्तमान में नौ A4 पृष्ठ पूर्ण संतुलन एवं गणितीय परिशुद्धता के साथ नियोजित हैं (अनुभाग १.१ एवं १.२ प्रत्येक सटीक २ पृष्ठों के मानक बजट में):
+The document currently compiles to **exactly 9 A4 pages** with mathematical precision and zero overflow:
 
 ```
-[ पृष्ठ १ (Page 1) ] : मुखपृष्ठ (Title Page)
-  └── सुरुचिपूर्ण दायाँ-संरेखित प्रारूप:
-      - मांगलिक प्रतीक: ❖ (#000000)
-      - मुख्य शीर्षक: हिन्दी पुस्तक (34pt, bold, #000000)
-      - अधो-पंक्ति अनुवाद: Hindi Pushtak (13pt, 90% black #1a1a1a)
+[ Page 1 ] : Title Page (Cover)
+  └── Minimalist right-aligned layout:
+      - Emblem: ❖ (#000000)
+      - Main Title: Hindi Pushtak (34pt, bold, #000000)
+      - English Subtitle: Hindi Pushtak (13pt, 90% black #1a1a1a)
 
-[ पृष्ठ २ (Page 2) ] : पुस्तक परिचय (About the Book)
-  ├── शीर्षलेख: [वाम: पुस्तक परिचय] | [दक्षिण: About the Book]
-  └── शिक्षण पद्धति एवं दार्शनिक दृष्टिकोण पर तीन विस्तृत, परिमार्जित द्विभाषिक अनुच्छेद (कोई संख्यात्मक उल्लेख नहीं, विस्तृत शब्द-भंडार, 10.8pt देवनागरी एवं 9.0pt अंग्रेज़ी #1a1a1a)
+[ Page 2 ] : About the Book
+  ├── Running Header: [Left: Pustak Parichay] | [Right: About the Book]
+  └── Three bilingual paragraphs detailing the Comprehensive Magnum Opus Model, philosophy, standard computer typography, and institutional communication (Zero numerical counts, advanced vocabulary, 10.8pt Devanagari / 9.0pt English #1a1a1a)
 
-[ पृष्ठ ३ (Page 3) ] : विषय-सूची : भाग १ (Table of Contents : Parts 1 to 15)
-  ├── शीर्षलेख: [वाम: विषय-सूची] | [दक्षिण: Table of Contents]
-  └── खंड १ से १५ की सुव्यवस्थित मास्टर तालिका (54pt क्रमांक स्तंभ, द्विभाषिक शीर्षक एवं संक्षिप्त व्याप्ति)
+[ Page 3 ] : Table of Contents : Part 1 (Parts 1 to 15)
+  ├── Running Header: [Left: Vishay-Suchi] | [Right: Table of Contents]
+  └── Master Table of Parts 1 to 15 (54pt part number column, bilingual titles, y: 5.2pt cell inset)
 
-[ पृष्ठ ४ (Page 4) ] : विषय-सूची : भाग २ (Table of Contents : Parts 16 to 30)
-  ├── शीर्षलेख: [वाम: विषय-सूची] | [दक्षिण: Table of Contents]
-  └── खंड १६ से ३० की सुव्यवस्थित मास्टर तालिका (54pt क्रमांक स्तंभ, द्विभाषिक शीर्षक एवं संक्षिप्त व्याप्ति)
+[ Page 4 ] : Table of Contents : Part 2 (Parts 16 to 30)
+  ├── Running Header: [Left: Vishay-Suchi] | [Right: Table of Contents]
+  └── Master Table of Parts 16 to 30 (54pt part number column, bilingual titles, y: 5.2pt cell inset)
 
-[ पृष्ठ ५ (Page 5) ] : खंड १ मुखपृष्ठ एवं अनुभाग-सूची (Part 1 Opener : 20 Sections Directory)
-  ├── शीर्षलेख: [वाम: खंड १ : अनुभाग सूची] | [दक्षिण: Part 1 : Section Directory]
-  ├── खंड १ मुख्य शीर्षक, द्विभाषिक संक्षेप विवरण एवं अनुभाग सूची हेडर
-  └── २० अनुभागों (१.१ से १.२०) की द्विकॉलमीय (2-Column) निर्देशिका तालिका (१० पंक्तियाँ × २ स्तंभ, सामान्य ९.८pt/८.२pt फ़ॉन्ट, ऊर्ध्वाधर पैडिंग y: 5.5pt, शुद्ध १-पृष्ठ विन्यास)
+[ Page 5 ] : Part 1 Opener : Section Directory (20 Sections)
+  ├── Running Header: [Left: Khand 1 : Anubhag Suchi] | [Right: Part 1 : Section Directory]
+  ├── Part 1 title banner, bilingual scope summary, and Section Directory header
+  └── 2-Column Section Directory Table (10 rows × 2 columns, normal 9.8pt/8.2pt font, y: 5.5pt padding, strictly 1 page)
 
-[ पृष्ठ ६ (Page 6) ] : अनुभाग १.१ : देवनागरी लिपि का ऐतिहासिक उद्भव एवं विकास (भाग १)
-  ├── शीर्षलेख: [वाम: अनुभाग १.१ : लिपि का उद्भव] | [दक्षिण: Section 1.1 : Origin of Devanagari]
-  ├── देवनागरी लिपि का ऐतिहासिक व वैज्ञानिक परिचय अनुच्छेद (#v(2.5pt), ९०% काला अंग्रेज़ी)
-  └── ३ प्रमुख आधारभूत विशेषताएँ (अक्षरात्मक प्रकृति, शिरोरेखा का संरचनात्मक महत्व, ज्यामितीय संतुलन) - स्वच्छ कॉलआउट बॉक्स
+[ Page 6 ] : Section 1.1 : Historical Origin & Structural Evolution of Devanagari Script (Page 1)
+  ├── Running Header: [Left: Anubhag 1.1 : Lipi ka Udbhav] | [Right: Section 1.1 : Origin & Evolution]
+  ├── Standard section opener, introductory bilingual paragraph (#v(2.5pt) jump)
+  └── 3 Core Architectural Rule Boxes (Abugida Nature, Shirorekha Importance, Geometric Equilibrium)
 
-[ पृष्ठ ७ (Page 7) ] : अनुभाग १.१ : लिपि-विकास, पारिभाषिक शब्दावली एवं अभ्यास (भाग २)
-  ├── शीर्षलेख: [वाम: अनुभाग १.१ : लिपि-विकास एवं अभ्यास] | [दक्षिण: Section 1.1 : Evolution & Review Drills]
-  ├── लिपि-उद्भव परंपरा तालिका (अशोककालीन ब्राह्मी → गुप्त → कुटिल → प्राचीन देवनागरी)
-  ├── ३ प्रमुख पारिभाषिक पद तालिका (शिरोरेखा, खड़ी पाई, हलंत)
-  └── स्व-मूल्यांकन अभ्यास बॉक्स (बहुविकल्पीय एवं रिक्त स्थान प्रश्न)
+[ Page 7 ] : Section 1.1 : Evolution Lineage, Technical Terms & Review Drills (Page 2)
+  ├── Running Header: [Left: Anubhag 1.1 : Lipi-Vikas Parampara evam Abhyas] | [Right: Section 1.1 : Evolution & Review Drills]
+  ├── Script Evolution Lineage Table (Ashokan Brahmi -> Gupta -> Kutila -> Early Devanagari)
+  ├── Core Technical Terms Table (Shirorekha, Khadi Pai, Halant)
+  └── Self-Evaluation Worksheet Box (Multiple choice and fill-in-the-blank questions)
 
-[ पृष्ठ ८ (Page 8) ] : अनुभाग १.२ : अक्षरात्मक प्रकृति एवं आबुगिदा व्यवस्था (भाग १)
-  ├── शीर्षलेख: [वाम: अनुभाग १.२ : अक्षरात्मक प्रकृति] | [दक्षिण: Section 1.2 : Syllabic Architecture]
-  ├── आबुगिदा (अक्षरात्मक) प्रणाली का सैद्धांतिक परिचय एवं अंतर्निहित 'अ' स्वर का नियम
-  ├── वर्णमाला के संरचनात्मक घटक (स्वर, व्यंजन, मात्रा, हलंत) की प्रामाणिक तुलना
-  └── अक्षरात्मक वर्ण संघटन सारणी (क, का, कि, की, कु, कू, कृ, के, कै, को, कौ, कं, कः)
+[ Page 8 ] : Section 1.2 : Syllabic Architecture & Abugida Structural System (Page 1)
+  ├── Running Header: [Left: Anubhag 1.2 : Aksharatmak Prakriti] | [Right: Section 1.2 : Abugida Architecture]
+  ├── Theoretical abugida introduction and inherent schwa principle
+  ├── 3 Rule Boxes (Inherent Schwa, Diacritic Matra Modification, Halant Function)
+  └── Master 12-Column Barakhadi Diacritic Table for Consonant 'Ka'
 
-[ पृष्ठ ९ (Page 9) ] : अनुभाग १.२ : आबुगिदा विश्लेषण, वर्ण-विच्छेद एवं कार्यपत्र (भाग २)
-  ├── शीर्षलेख: [वाम: अनुभाग १.२ : वर्ण-विच्छेद एवं अभ्यास] | [दक्षिण: Section 1.2 : Abugida Analysis & Drills]
-  ├── व्यंजन-स्वर वियोजन एवं हलंत के अनुप्रयोग (शुद्ध व्यंजन बनाम सस्वर अक्षर)
-  ├── मानक वर्ण-विच्छेद तालिका (कमल, भारत, विद्या, पुस्तक, देवनागरी)
-  └── स्व-मूल्यांकन अभ्यास बॉक्स (आबुगिदा विश्लेषण एवं वर्ण-विच्छेद अभ्यास प्रश्न)
+[ Page 9 ] : Section 1.2 : Orthographic Analysis, Varna-Vichhed & Drills (Page 2)
+  ├── Running Header: [Left: Anubhag 1.2 : Varna-Vichhed evam Abhyas] | [Right: Section 1.2 : Orthographic Analysis & Drills]
+  ├── Orthographic analysis introduction (Varna-Vichhed)
+  ├── Standard Varna-Vichhed Table (kamal, bhaarat, pustak, devanaagarii)
+  ├── Comparative Table: Abugida vs Alphabet System
+  └── Self-Evaluation Worksheet Box (Abugida comprehension and varna-vichhed exercise)
 ```
 
 ---
 
-## ३. प्रमुख खोजें, तकनीकी अंतर्दृष्टियाँ एवं समाधान (Discoveries, Insights & Decisions)
+## 3. Key Design Insights & Technical Decisions
 
-1. **सटीक द्विभाषिक कंट्रास्ट अनुपात (90% Black for English Subtitles)**:
-   - अंग्रेज़ी अनुवाद को मुख्य हिन्दी पाठ से दृश्य रूप से अलग दिखाने के लिए शुद्ध काले (`#000000`) के स्थान पर ९०% काला (`#1a1a1a`) सर्वोत्तम संतुलन प्रदान करता है। यह धूसर (grey) जैसा फीका नहीं दिखता, बल्कि गहरा, सुरुचिपूर्ण एवं मुद्रण-योग्य रहता है और साथ ही मुख्य देवनागरी पाठ को प्राथमिक दृश्य गुरुत्व (visual hierarchy) प्रदान करता है।
-2. **अनुभाग तालिका का द्विकॉलमीय सुरुचिपूर्ण विन्यास एवं सामान्य फ़ॉन्ट आकार (2-Column Sections Layout with Normal Font Size)**:
-   - **द्विकॉलमीय संरचना**: खंड मुखपृष्ठ (Page 5) पर २० अनुभागों की निर्देशिका तालिका को एक-स्तंभीय (२० पंक्तियों) के स्थान पर **२-कॉलम विन्यास (१० पंक्तियाँ × २ समानांतर स्तंभ)** में पुनर्गठित किया गया है:
-     - बायाँ भाग: अनुभाग १.१ से १.१०
-     - दायाँ भाग: अनुभाग १.११ से १.२०
-   - **सामान्य व सुस्पष्ट फ़ॉन्ट आकार (Normal Font Size)**:
-     - अत्यधिक छोटे फ़ॉन्ट के स्थान पर अब मुख्य देवनागरी शीर्षक **९.८pt बोल्ड** तथा अंग्रेज़ी उपशीर्षक **८.२pt (९०% काला `#1a1a1a`)** के सामान्य व सुपाठ्य आकार में प्रदर्शित हैं।
-   - **आदर्श ऊर्ध्वाधर पैडिंग**:
-     - पंक्तियों की संख्या २० से घटकर १० हो जाने के कारण ऊर्ध्वाधर पैडिंग को बढ़ाकर **`y: 5.5pt`** किया गया है, जिससे प्रत्येक प्रविष्टि को पर्याप्त दृश्य विस्तार और श्वास-स्थान मिलता है, और संपूर्ण तालिका बिना किसी छलकाव के पूर्णतः पृष्ठ ५ में समाहित रहती है।
-3. **खंड मास्टर तालिका का ऊर्ध्वाधर संतुलन (Master Parts Table Padding: 5.2pt)**:
-   - पृष्ठ ३ एवं ४ पर १५ खंड प्रति पृष्ठ की मास्टर तालिका की ऊर्ध्वाधर पैडिंग को **`y: 5.2pt`** पर निर्धारित किया गया है, जो पुस्तक के उच्चस्तरीय मुद्रित सौंदर्य को सुदृढ़ करता है।
-3. **कॉलआउट बॉक्स घटकों का मानकीकरण (Standardized Component Styling)**:
-   - कॉलआउट बॉक्स को अनावश्यक बैकग्राउंड टिंट्स के स्थान पर शुद्ध धवल पृष्ठभूमि (`#ffffff`) तथा वाम-संरेखित ३ अंक ठोस काली सीमा रेखा (`stroke: (left: 3pt + rgb("#000000"))`) पर मानकीकृत किया गया है।
-   - उपशीर्षकों के बीच का ऊर्ध्वाधर अंतर न्यूनतम (`v(1pt)`) रखकर सुसंबद्धता सुनिश्चित की गई है।
-4. **अनुच्छेद एवं द्विभाषिक अधो-पंक्ति अंतराल मानकीकरण (Standardized Paragraph & Bilingual Vertical Spacing)**:
-   - पृष्ठ ६ के परिचयात्मक अनुच्छेद को पृष्ठ ७ के परिमार्जित विन्यास के अनुरूप मानकीकृत किया गया है:
-     - हिन्दी अनुच्छेद के ठीक नीचे अंग्रेज़ी अनुवाद हेतु सूक्ष्म संतुलित अंतर `#v(2.5pt)`।
-     - अंग्रेज़ी अनुवाद का फ़ॉन्ट आकार `8.5pt` तथा रंग ९०% काला (`#1a1a1a`)।
-     - अनुच्छेद समूह के ऊपर विभाजक रेखा से `#v(6pt)` तथा नीचे उपशीर्षक से पूर्व `#v(6pt)` का पर्याप्त श्वास-स्थान (sufficient vertical breathing room)।
-   - यह विन्यास पूरे ग्रंथ में अनुभागों के परिचयात्मक अनुच्छेदों के लिए एकसमान मानक के रूप में स्थापित किया गया है।
-5. **पाठ्यक्रम उत्पादन ऑटोमेशन (Automated Curriculum Synchronization)**:
-   - `scripts/curriculum_tier1.py` से `tier6.py` तथा `scripts/generate_master_toc.py` के माध्यम से सभी ३० खंडों और ६०० अनुभागों का सत्यापन तथा मास्टर मार्कडाउन व टाइप्स्ट कोड का स्वतः उत्पादन किया जाता है।
+1. **Exact 90% Black Contrast Ratio (`#1a1a1a`)**:
+   - Setting English text to 90% black (`#1a1a1a`) achieves the optimal optical hierarchy: it is dark enough to remain crisp and print-ready while clearly subordinating secondary English translations beneath primary Devanagari headings and text.
+2. **2-Column Section Directory on Part Openers**:
+   - Organizing the 20 sections into a 2-column format (10 rows × 2 parallel sections) on Page 5 allows normal, highly readable font sizes (9.8pt bold Devanagari, 8.2pt English) with generous `y: 5.5pt` cell padding, completely eliminating awkward miniaturized text while staying strictly on 1 page.
+3. **Parts Master Table Padding (`y: 5.2pt`)**:
+   - The master TOC tables across Pages 3 and 4 maintain 15 parts per page with `y: 5.2pt` vertical cell padding for comfortable reading.
+4. **Standardized Typst Component Architecture**:
+   - Callout rule boxes are standardized with pure white fill, left-accented 3pt solid black borders, and uniform vertical padding.
+   - Headers and subheaders utilize dedicated template macros to prevent drift.
+5. **30mm Top & Bottom Margins**:
+   - Top and bottom margins are established at `30mm`, creating balanced page geometry for formal publishing. All inner page tables are calibrated so that content fits neatly without overflow.
 
 ---
 
-## ४. तकनीकी स्थापत्य एवं सुविधाएँ (Technical Architecture & Features)
+## 4. Technical Architecture
 
-- **ब्राउज़र-आधारित टाइप्स्ट वॉस्म संकलन (Browser-Side Typst WebAssembly)**:
-  - `@myriaddreamin/typst.ts` के माध्यम से स्थानीय वॉस्म कंपाइलर एवं रेंडरर सीधे ब्राउज़र मेमोरी में चलता है।
-  - किसी बाह्य बैकएंड सर्वर की आवश्यकता नहीं है; शुद्ध वेक्टर A4 पृष्ठ सीधे स्क्रीन पर प्रस्तुत होते हैं।
-- **देवनागरी फ़ॉन्ट अंतःस्थापन (Devanagari Font Injection in WASM)**:
-  - `assets/fonts/` निर्देशिका से *Noto Serif Devanagari* एवं *Noto Sans Devanagari* ट्रू-टाइप फ़ॉन्ट बफ़र्स लोड किए जाते हैं।
-  - देवनागरी के सभी संयुक्ताक्षर, शिरोरेखा, मात्राएँ एवं अर्ध-वर्ण शत-प्रतिशत शुद्ध रूप में प्रस्तुत होते हैं।
-- **सीधा बाइनरी पीडीएफ एक्सपोर्ट (Direct Native Binary A4 PDF Export)**:
-  - टाइप्स्ट कंपाइलर सीधे ब्राउज़र में शुद्ध वेक्टर A4 बाइनरी पीडीएफ जनरेट करता है।
-  - पाठ संपादन योग्य, चयन योग्य (Selectable) एवं वास्तविक मुद्रण मानकों के अनुरूप रहता है।
+- **In-Browser Typst WebAssembly Compilation**:
+  - Powered by `@myriaddreamin/typst.ts`, the local WASM compiler and renderer executes directly inside browser memory. No backend server is required; pure vector A4 pages render immediately.
+- **Devanagari Font Injection**:
+  - Embedded TrueType font buffers (*Noto Serif Devanagari* and *Noto Sans Devanagari*) are loaded from the `assets/fonts/` directory, ensuring 100% accurate conjunct rendering, shirorekha alignment, and matra positioning.
+- **Native Binary A4 PDF Export**:
+  - Generates high-fidelity, searchable, selectable vector A4 binary PDFs matching print specifications directly from the Typst engine.
 
 ---
 
-## ५. फ़ाइल निर्देशिका (Project File Structure)
+## 5. Repository File Structure
 
-| फ़ाइल / निर्देशिका (File / Directory) | विवरण (Description) |
+| File / Directory | Description |
 | :--- | :--- |
-| [`index.html`](file:///home/zenhome/Projects/hindi-pushtak/index.html) | मुख्य पुस्तक वेब इंटरफ़ेस, इनलाइन एसवीजी फेविकॉन, स्थानीय मॉड्यूल स्क्रिप्ट एवं नियंत्रण बटन |
-| [`hindi-pushtak.typ`](file:///home/zenhome/Projects/hindi-pushtak/hindi-pushtak.typ) | पुस्तक का मुख्य समर्पित टाइप्स्ट दस्तावेज़ (A4 पृष्ठ प्रारूप, तालिकाएँ, द्विभाषिक टिप्पणियाँ) |
-| [`scripts/generate_master_toc.py`](file:///home/zenhome/Projects/hindi-pushtak/scripts/generate_master_toc.py) | ३० खंडों एवं ६०० अनुभागों की मास्टर विषय-सूची तथा टाइप्स्ट मुखपृष्ठ जनरेटर स्क्रिप्ट |
-| [`scripts/curriculum_tier*.py`](file:///home/zenhome/Projects/hindi-pushtak/scripts/) | टियर १ से ६ तक के ३० खंडों एवं ६०० अनुभागों का संपूर्ण पाठ्यक्रम डेटाबेस |
-| [`assets/`](file:///home/zenhome/Projects/hindi-pushtak/assets/) | संपत्ति निर्देशिका: सीएसएस, जावास्क्रिप्ट, स्थानीय ट्रू-टाइप फ़ॉन्ट्स एवं टाइप्स्ट वॉस्म बाइनरी |
-| [`source/`](file:///home/zenhome/Projects/hindi-pushtak/source/) | ६८ प्रामाणिक संदर्भ ग्रंथ, टंकण पाठ्य, व्याकरण व अभ्यास सामग्री तथा मास्टर टीओसी मार्कडाउन फ़ाइलें |
+| [`index.html`](file:///home/zenhome/Projects/hindi-pushtak/index.html) | Main web reader application with embedded SVG favicon, modules, and viewer controls |
+| [`hindi-pushtak.typ`](file:///home/zenhome/Projects/hindi-pushtak/hindi-pushtak.typ) | Master Typst document (A4 geometry, templates, 30mm margins, bilingual content) |
+| [`scripts/generate_master_toc.py`](file:///home/zenhome/Projects/hindi-pushtak/scripts/generate_master_toc.py) | Generator script for 30 parts, master TOC, and part opener layouts |
+| [`scripts/curriculum_tier*.py`](file:///home/zenhome/Projects/hindi-pushtak/scripts/) | Database modules defining all 30 Parts and 600 Sections across Tiers 1 through 6 |
+| [`assets/`](file:///home/zenhome/Projects/hindi-pushtak/assets/) | Web assets, CSS styles, JavaScript runtime, Noto fonts, and Typst WASM binaries |
+| [`source/`](file:///home/zenhome/Projects/hindi-pushtak/source/) | Reference texts, curriculum documentation, and master TOC markdown files |
 
 ---
 
-## ६. स्थानीय परीक्षण एवं चालन (Running Locally)
+## 6. Local Testing & Execution
 
-यह परियोजना पूर्णतः आत्मनिर्भर (100% self-contained & offline-ready) है।
+This repository is 100% self-contained and operates completely offline.
 
-स्थानीय रूप से पुस्तक को देखने के लिए किसी भी वेब सर्वर का उपयोग करें:
-
+To run the local web reader:
 ```bash
 python3 -m http.server 8080
 ```
-
-ब्राउज़र में निम्न यूआरएल खोलें:
+Open in browser:
 ```
 http://localhost:8080/
 ```
 
-कमांड-लाइन से सीधा पीडीएफ संकलन:
+To compile the native PDF from command line:
 ```bash
 typst compile --font-path assets/fonts/ hindi-pushtak.typ hindi-pushtak.pdf
 ```
 
 ---
 
-## ७. वर्तमान प्रगति एवं सत्र पुनरारंभ निर्देशिका (Current Progress & Resumption Guide)
+## 7. Current Progress & Resumption Guide
 
-नया सत्र (New Session) प्रारंभ करते समय किसी भी पूर्व संदर्भ की आवश्यकता के बिना कार्य को निर्बाध रूप से आगे बढ़ाने हेतु यह आधिकारिक संदर्भ है:
+This section serves as the definitive reference for resuming work in a clean, fresh session without needing past conversation history:
 
-### १. वर्तमान पूर्ण स्थिति (Current Milestones & Geometry State)
-- **कुल मुद्रित पृष्ठ**: ठीक **९ A4 पृष्ठ** (Strictly 9 A4 Pages, `Pages: 9` verified via `typst compile` and `pdfinfo`).
-- **पृष्ठ ज्यामिति (Page Geometry)**:
-  - `paper: "a4"`
-  - `margin: (top: 30mm, bottom: 30mm, left: 20mm, right: 20mm)`
-  - `fill: rgb("#ffffff")` (शुद्ध धवल पृष्ठभूमि)
-  - `text(size: 12pt, lang: "hi")`
-  - मुख्य देवनागरी: शुद्ध जेट ब्लैक (`#000000`)
-  - अंग्रेज़ी पाठ व अनुवाद: ९०% काला (`#1a1a1a`), कोष्ठक-मुक्त, अधो-पंक्ति विन्यास
-- **निर्मित पृष्ठों की सूची**:
-  - `Page 1`: मुखपृष्ठ (❖, ३४pt हिन्दी, १३pt अंग्रेज़ी)
-  - `Page 2`: पुस्तक परिचय (About the Book, ३ विस्तृत द्विभाषिक अनुच्छेद, शून्य संख्यात्मक उल्लेख, "समग्र एवं प्रामाणिक" / "all-encompassing, definitive")
-  - `Page 3`: विषय-सूची (भाग १ : खंड १ से १५, मास्टर तालिका `y: 5.2pt`)
-  - `Page 4`: विषय-सूची (भाग २ : खंड १६ से ३०, मास्टर तालिका `y: 5.2pt`)
-  - `Page 5`: खंड १ मुखपृष्ठ (Part 1 Opener, २० अनुभागों की द्विकॉलमीय २-Column निर्देशिका तालिका, ९.८pt/८.२pt फ़ॉन्ट, `y: 5.5pt`)
-  - `Pages 6–7`: **अनुभाग १.१** (*देवनागरी लिपि का ऐतिहासिक उद्भव एवं विकास*) — सटीक २-पृष्ठ स्प्रेड
-  - `Pages 8–9`: **अनुभाग १.२** (*अक्षरात्मक प्रकृति एवं आबुगिदा व्यवस्था*) — सटीक २-पृष्ठ स्प्रेड
+### 1. Current State & Geometry
+- **Total Compiled Pages**: Exactly **9 A4 pages** (`Pages: 9` verified via `typst compile` and `pdfinfo`).
+- **Page Configuration**:
+  - Paper: `"a4"`
+  - Margins: `(top: 30mm, bottom: 30mm, left: 20mm, right: 20mm)`
+  - Background fill: `#ffffff` (pure white)
+  - Text: `12pt`, Devanagari pure black `#000000`, English 90% black `#1a1a1a`, interlinear beneath Hindi
+- **Implemented Pages**:
+  - `Page 1`: Title Cover
+  - `Page 2`: About the Book (Pustak Parichay, 3 bilingual paragraphs, 0 numbers, "all-encompassing, definitive")
+  - `Page 3`: Table of Contents : Part 1 (Parts 1 to 15, `y: 5.2pt`)
+  - `Page 4`: Table of Contents : Part 2 (Parts 16 to 30, `y: 5.2pt`)
+  - `Page 5`: Part 1 Opener (2-column section directory table, `y: 5.5pt`)
+  - `Pages 6–7`: **Section 1.1** (*Historical Origin & Structural Evolution of Devanagari Script*) — 2-page spread
+  - `Pages 8–9`: **Section 1.2** (*Syllabic Architecture & Abugida Structural System*) — 2-page spread
 
-### २. अनुभाग लेखन हेतु अनिवार्य टेम्पलेट प्रोटोकॉल (Standard Authoring Protocol)
-प्रत्येक नया अनुभाग (Section) मानक **२-पृष्ठीय स्प्रेड (Pages N & N+1)** के रूप में लिखा जाएगा:
-- **प्रथम पृष्ठ (Verso / Even Page)**:
+### 2. Standard Section Authoring Protocol
+Every new section must be authored as a strict **2-page spread (Pages N & N+1)**:
+- **Page 1 (Verso / Even Page)**:
   1. `#section-opener(sec-num-hi, title-hi, sec-num-en, title-en)`
-  2. `#intro-para(hi-text, en-text)` (परिचयात्मक द्विभाषिक अनुच्छेद)
+  2. `#intro-para(hi-text, en-text)`
   3. `#section-subheading(num-hi, title-hi, num-en, title-en)`
-  4. ३ मानक `#rule-box(title-hi, title-en, body)` (३pt ठोस काली वाम सीमा)
+  4. 3 standard `#rule-box(title-hi, title-en, body)` blocks
   5. `#pagebreak()`
-- **द्वितीय पृष्ठ (Recto / Odd Page)**:
-  1. `#spread-header(num-hi, title-hi, num-en, title-en)` (द्वितीय पृष्ठ का शीर्ष बैनर व ०.५pt विभाजक रेखा)
-  2. सारणी १ (तालिका विन्यास, `stroke: (bottom: 0.3pt)`, `inset: (x: 5pt, y: 3.8pt)`)
+- **Page 2 (Recto / Odd Page)**:
+  1. `#spread-header(num-hi, title-hi, num-en, title-en)`
+  2. Table 1 (`inset: (x: 5pt, y: 3.8pt)`, `stroke: (bottom: 0.3pt)`)
   3. `#topic-heading(num-hi, title-hi, num-en, title-en)`
-  4. सारणी २ (तुलनात्मक अथवा पारिभाषिक सारणी)
-  5. पाद में अनिवार्य `#exercise-box(title-hi, title-en, body)` (स्व-मूल्यांकन कार्यपत्र)
+  4. Table 2 (Comparative or technical terminology table, `inset: (x: 5pt, y: 3.6pt)`)
+  5. Anchored `#exercise-box(title-hi, title-en, body)` at page bottom
   6. `#pagebreak()`
-- **डायनामिक शीर्षलेख अद्यतन**: `hindi-pushtak.typ` के `#set page(header: ...)` में नए पृष्ठ क्रमांकों हेतु `left-title` (हिन्दी) एवं `right-title` (अंग्रेज़ी) जोड़ना अनिवार्य है।
+- **Header Update**: Add the page number range to `#set page(header: ...)` in `hindi-pushtak.typ` for `left-title` (Hindi) and `right-title` (English).
 
-### ३. अगला कार्य (Immediate Next Task for New Session)
-- **अनुभाग १.३** का लेखन प्रारंभ करें:
-  - **शीर्षक**: *शिरोरेखा के प्रामाणिक नियम एवं महत्व* (Shirorekha Rules, Importance & Alignment)
-  - **पृष्ठ आवंटन**: **पृष्ठ १० एवं ११** (Pages 10 & 11)
-  - **सामग्री व्याप्ति**:
-    - *पृष्ठ १०*: शिरोरेखा का सैद्धांतिक आधार, दृष्टि संरेखण, एवं ३ मुख्य नियम बॉक्स (अखंड शिरोरेखा का नियम, अक्षरों के आनुपातिक आयाम, कलम का प्रवाह)।
-    - *पृष्ठ ११*: शिरोरेखा के मानक अपवाद (ध, भ, थ, झ, श्र में विच्छेद) की विश्लेषणात्मक सारणी, तुलनात्मक सारणी तथा पाद में `#exercise-box` स्व-मूल्यांकन कार्यपत्र।
-  - **शीर्षलेख (Header)**:
-    - Page 10: `[अनुभाग १.३ : शिरोरेखा के नियम एवं महत्व]` | `[Section 1.3 : Shirorekha Rules & Importance]`
-    - Page 11: `[अनुभाग १.३ : विच्छेद नियम एवं अभ्यास]` | `[Section 1.3 : Broken Letters & Exercises]`
-
+### 3. Immediate Next Task
+- Author **Section 1.3**:
+  - **Title**: *Shirorekha Rules, Importance & Alignment* (शिरोरेखा के प्रामाणिक नियम एवं महत्व)
+  - **Allocated Pages**: **Pages 10 & 11**
+  - **Content Scope**:
+    - *Page 10*: Theoretical basis of Shirorekha, optical horizontal alignment, and 3 rule boxes (continuous shirorekha rule, proportional letter dimensions, pen flow and stroke order).
+    - *Page 11*: Shirorekha breaks in broken-loop letters (dha, bha, tha, jha, shra), comparative table, and self-evaluation review worksheet box.
+  - **Running Header Configuration**:
+    - Page 10: `left-title: [अनुभाग १.३ : शिरोरेखा के नियम एवं महत्व]`, `right-title: [Section 1.3 : Shirorekha Rules & Importance]`
+    - Page 11: `left-title: [अनुभाग १.३ : विच्छेद नियम एवं अभ्यास]`, `right-title: [Section 1.3 : Broken Letters & Exercises]`
