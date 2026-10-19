@@ -36,6 +36,7 @@ The objective of **Hindi Pushtak** is to provide learners, scholars, and languag
    - **Page Budget per Section: 2 to 4 Pages**: Every section has a mandatory budget of **2 to 4 pages**. No section may be under 2 pages or exceed 4 pages.
    - **Master Extent**: Covering the complete authoritative corpus of the Government of India (~840,000 words across Prabodh, Praveen, Pragya, Parangat, and Banking Pragya), the projected finished masterwork spans **1,500 to 2,200+ pages** (within the 1,200 to 2,400 page architectural boundary) suited for multi-volume editions.
    - **Source-Driven Reorganization & Authoring**: All 30 Parts and 600 Sections are systematically synthesized, restructured, reorganized, and authored directly from the official corpus housed in [`source/`](file:///home/zenhome/Projects/hindi-pushtak/source/) (comprising over 50 foundational texts including *Prabodh*, *Praveen*, *Pragya*, *Parangat*, *Banking Pragya*, kit materials, exercise workbooks, and handwriting notes). Raw source lessons are not simply copied; they are reorganized into modern bilingual pedagogic modules, structured into standard 2-page spreads, and formatted according to strict Typst template specifications.
+    - **Online Authoritative Verification & Enhancement Protocol**: Where source materials provide foundational phonetic and orthographic coverage, section contents are cross-referenced and enriched using authoritative external standards from the Central Hindi Directorate (Ministry of Education, Govt of India) (*Devanagari Script and Hindi Orthography Standardization* / 'Devanagari Lipi tatha Hindi Vartani ka Manakikaran') and official administrative bodies. This ensures cutting-edge accuracy regarding letter loops, shirorekha rules, conjuncts, and administrative conventions.
    - **Spread Format**: Standard baseline sections use a **2-page facing spread** (Page 1: Theory and Core Rules; Page 2: Tables, Comparative Analysis, and Review Worksheet).
    - **Master TOC (Pages 3 & 4)**: Lists the 30 Parts across 2 pages (15 parts per page) with comfortable vertical padding (`y: 5.2pt`).
    - **Part Opener Pages**: Each part begins with a dedicated 1-page opener featuring a part overview and a **2-column layout (10 rows × 2 columns)** section directory table with normal font size (9.8pt bold / 8.2pt English) and `y: 5.5pt` padding.
@@ -57,7 +58,7 @@ The objective of **Hindi Pushtak** is to provide learners, scholars, and languag
 
 ## 2. Current Document Structure
 
-The document currently compiles to **exactly 9 A4 pages** with mathematical precision and zero overflow:
+The document currently compiles to **exactly 11 A4 pages** with mathematical precision and zero overflow:
 
 ```
 [ Page 1 ] : Title Page (Cover)
