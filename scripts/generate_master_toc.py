@@ -138,29 +138,29 @@ def generate_typst_part_opener_page(part_num, overview_hi="", overview_en=""):
     lines.append(f"// --- खंड {to_dev_num(p_num)} : मुखपृष्ठ एवं अनुभाग-सूची (Part {p_num} Opener) ---")
     lines.append("#v(0pt)")
     lines.append(f'#text(size: 15pt, weight: "bold")[खंड {to_dev_num(p_num)} : {p_dev}] \\')
-    lines.append(f'#text(size: 9.5pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Part {p_num} : {p_en}]')
+    lines.append(f'#text(size: 9.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Part {p_num} : {p_en}]')
     lines.append("#v(2pt)")
-    lines.append('#line(length: 100%, stroke: 0.5pt + rgb("#cccccc"))')
+    lines.append('#line(length: 100%, stroke: 0.5pt + rgb("#000000"))')
     lines.append("#v(2pt)")
     
     if overview_hi and overview_en:
         lines.append(f'#text(size: 8.8pt)[{overview_hi}] \\')
-        lines.append(f'#text(size: 7.8pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{overview_en}]')
+        lines.append(f'#text(size: 7.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{overview_en}]')
         lines.append("#v(2pt)")
 
-    lines.append('#text(size: 10pt, weight: "bold")[अनुभाग सूची] #h(6pt) #text(size: 8.5pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Directory (20 Sections)]')
+    lines.append('#text(size: 10pt, weight: "bold")[अनुभाग सूची] #h(6pt) #text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Directory (20 Sections)]')
     lines.append("#v(1pt)")
     lines.append("#table(")
     lines.append("  columns: (38pt, 1fr),")
-    lines.append("  inset: (x: 4pt, y: 1.8pt),")
+    lines.append("  inset: (x: 4pt, y: 2.8pt),")
     lines.append("  align: (center + horizon, left + horizon),")
-    lines.append('  [*अनुभाग* \\ #text(size: 6.8pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Sec]], [*अनुभाग शीर्षक एवं अध्ययन विषय* \\ #text(size: 6.8pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Title & Scope]],')
+    lines.append('  [*अनुभाग* \\ #text(size: 6.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Sec]], [*अनुभाग शीर्षक एवं अध्ययन विषय* \\ #text(size: 6.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Section Title & Scope]],')
 
     for s_dev_num, s_dev_title, s_en_num, s_en_title in secs:
         lines.append(f'  [#text(size: 7.8pt, weight: "bold")[{s_dev_num}] \\')
-        lines.append(f'  #text(size: 6.6pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{s_en_num}]],')
+        lines.append(f'  #text(size: 6.6pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{s_en_num}]],')
         lines.append(f'  [#text(size: 8.2pt, weight: "bold")[{s_dev_title}] \\')
-        lines.append(f'  #text(size: 7.0pt, fill: rgb("#666666"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{s_en_title}]],')
+        lines.append(f'  #text(size: 7.0pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[{s_en_title}]],')
 
     lines.append(")")
     lines.append("")
