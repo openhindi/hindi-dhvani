@@ -209,7 +209,7 @@ This section serves as the definitive reference for resuming work in a clean, fr
   - The drawer header and toggle button use the single standard Hindi word **'Pustakchihna'** (*Bookmarks* in English subtitle with smaller font), completely removing mixed slash labels.
 - **Two-Level Hierarchical Structure (`manifest.json`)**:
   - The drawer items are organized into a visual two-level hierarchy driven by `manifest.json`:
-    - **Level 1 (Preliminary & Parts)**: Displays top-level entries including *About the book* (`hindi-pushtak-about.pdf`), *Table of Contents* (`hindi-pushtak-toc.pdf`), and complete Parts (e.g. *Part 1 : Devanagari Script Architecture & Calligraphy*, downloading pages 5–11 as `hindi-pushtak-part-01.pdf`).
+    - **Level 1 (Preliminary & Parts)**: Displays top-level entries including *About the Book* (`hindi-pushtak-about.pdf`), *Table of Contents* (`hindi-pushtak-toc.pdf`), and complete Parts (e.g. *Part 1 : Devanagari Script Architecture & Calligraphy*, downloading pages 5–11 as `hindi-pushtak-part-01.pdf`).
     - **Level 2 (Indented Child Sections)**: Individual curriculum sections are rendered slightly indented (`margin-left: 12px`) with a distinct border accent and smaller font sizes (0.77rem Hindi, 0.66rem English).
 - **Independent Part & Section PDF Downloads**:
   - Every row (both whole parts and individual sections) includes a right-aligned download button vertically aligned with the title text.

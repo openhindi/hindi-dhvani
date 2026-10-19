@@ -38,7 +38,7 @@ import { $typst, loadFonts } from './typst.bundle.js';
         {
           id: 'book-about',
           title_hi: 'पुस्तक परिचय',
-          title_en: 'About the book',
+          title_en: 'About the Book',
           part_label: 'प्रारंभिक',
           section_label: 'पृष्ठ १–२',
           filename: 'hindi-pushtak-about.pdf',
