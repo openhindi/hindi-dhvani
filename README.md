@@ -208,7 +208,10 @@ This section serves as the definitive reference for resuming work in a clean, fr
 - **Standardized Navigation Drawer Title**:
   - The drawer and toggle button use the single standard Hindi word **'Vishay-Suchi'** (*Contents* in English subtitle), completely removing mixed slash labels.
 - **Section-Oriented Manifest (`manifest.json`)**:
-  - The drawer items are driven dynamically from `manifest.json`, mapping each section entry to its exact starting and ending physical page numbers (`startPage`, `endPage`), part affiliation (`part_label`), section title, and standardized download filename.
+  - The drawer items are driven dynamically from `manifest.json`, mapping each curriculum section to its exact starting and ending physical page numbers (`startPage`, `endPage`), part affiliation (`part_label`), section title, and standardized download filename.
+  - **Book About**: Downloads pages 1 and 2 as `hindi-pushtak-about.pdf`.
+  - **Book ToC**: Downloads pages 3 and 4 as `hindi-pushtak-toc.pdf`.
+  - **Curriculum Sections**: Named and downloaded with standardized zero-padded part and section numbers (e.g. `hindi-pushtak-01-01.pdf`, `hindi-pushtak-01-02.pdf`, `hindi-pushtak-01-03.pdf`).
 - **Three-Tier Typography in Drawer Items**:
   - **Tier 1 (Hindi Title)**: Displayed prominently at 0.82rem bold in Devanagari script.
   - **Tier 2 (English Title)**: Positioned directly beneath Hindi in 0.70rem regular font.
@@ -217,7 +220,7 @@ This section serves as the definitive reference for resuming work in a clean, fr
   - Each item in the drawer features a right-aligned download icon button vertically aligned with the 3-tier text.
   - Clicking this button extracts and downloads only the pages pertaining to that specific section into an individual PDF file using client-side `pdf-lib` slicing without re-downloading the entire book.
 
-### 2. Standard Section Authoring Protocol
+### 3. Standard Section Authoring Protocol
 Every new section must be authored as a strict **2-page spread (Pages N & N+1)**:
 - **Page 1 (Verso / Even Page)**:
   1. `#section-opener(sec-num-hi, title-hi, sec-num-en, title-en)`
