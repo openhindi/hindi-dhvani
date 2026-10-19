@@ -105,15 +105,17 @@
 
 #let spread-header(num-hi, title-hi, num-en, title-en) = [
   #v(2pt)
-  #text(size: 14pt, weight: "bold")[#num-hi. #title-hi] #text(size: 8.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[#num-en. #title-en]
+  #text(size: 14pt, weight: "bold")[#num-hi. #title-hi] \
+  #text(size: 8.8pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[#num-en. #title-en]
   #v(4pt)
   #line(length: 100%, stroke: 0.5pt + rgb("#000000"))
   #v(5pt)
 ]
 
 #let topic-heading(num-hi, title-hi, num-en, title-en) = [
-  #v(6pt)
-  #text(size: 13pt, weight: "bold")[#num-hi. #title-hi] #text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[#num-en. #title-en]
+  #v(5pt)
+  #text(size: 13pt, weight: "bold")[#num-hi. #title-hi] \
+  #text(size: 8.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[#num-en. #title-en]
   #v(3pt)
 ]
 
@@ -600,7 +602,7 @@
 #v(3pt)
 #table(
   columns: (70pt, 120pt, 1fr),
-  inset: (x: 5pt, y: 3.8pt),
+  inset: (x: 5pt, y: 3.0pt),
   align: (center + horizon, left + horizon, left + horizon),
   [*शब्द* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Word]], [*ध्वनि संघटन (वर्ण-विच्छेद)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Phonetic Decomposition]], [*आबुगिदा संरचनात्मक विवरण* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Structural Analysis & Vowel Behavior]],
   [#strong[कमल] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[kamal]], [क् + अ + म् + अ + ल् + अ], [तीन अक्षरों में अंतर्निहित 'अ' स्वर की स्वाभाविक उपस्थिति। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Three syllabic units with default inherent schwa.]],
@@ -613,11 +615,11 @@
   [४], [आबुगिदा एवं वर्णमाला प्रणाली की तुलना],
   [4], [Abugida vs Full Alphabet Comparison]
 )
-#v(3pt)
+#v(2pt)
 
 #table(
   columns: (110pt, 1fr, 1fr),
-  inset: (x: 5pt, y: 3.6pt),
+  inset: (x: 5pt, y: 2.8pt),
   align: (left + horizon, left + horizon, left + horizon),
   [*तुलनात्मक बिंदु* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Comparative Parameter]], [*देवनागरी (आबुगिदा)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Devanagari (Abugida)]], [*रोमन / अंग्रेज़ी (वर्णमाला)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Roman / English (Alphabet)]],
   [#strong[मूल वर्ण की प्रकृति] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Basic Character Nature]], [अक्षरात्मक (व्यंजन + अंतर्निहित स्वर)। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Syllabic (Consonant + Inherent Schwa).]], [शुद्ध ध्वन्यात्मक (स्वर-रहित व्यंजन)। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Segmental phoneme without vowels.]],
@@ -625,15 +627,16 @@
   [#strong[उच्चारण अनुरूपता] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Grapheme-Phoneme Match]], [शत-प्रतिशत प्रत्यक्ष एवं नियमित। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Strict 100% phonetic correspondence.]], [अप्रत्यक्ष एवं परिवर्तनशील (Silent letters). \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Irregular spelling with silent letters.]]
 )
 
-#v(6pt)
+#v(3pt)
 
 #exercise-box(
   [अनुभाग १.२ स्व-मूल्यांकन अभ्यास],
   [Section 1.2 Abugida & Orthographic Worksheet],
   [
-    #strong[१. देवनागरी में बिना किसी मात्रा वाले स्वतंत्र व्यंजन वर्ण में कौन सा स्वर अंतर्निहित रहता है?] #h(10pt) #text(size: 8.5pt, fill: rgb("#000000"))[(अ) आ #h(8pt) (ब) अ #h(8pt) (स) ई]     #v(1pt)
-    #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Q1. Which vowel is naturally inherent in an unaugmented Devanagari consonant? (a) aa (b) a (schwa) (c) ee]     #v(5pt)
-    #strong[२. 'विज्ञान' शब्द का मानक वर्ण-विच्छेद कीजिए:] ............................................................................     #v(1pt)
+    #strong[१. देवनागरी में बिना किसी मात्रा वाले स्वतंत्र व्यंजन वर्ण में कौन सा स्वर अंतर्निहित रहता है?] #h(10pt) #text(size: 8.5pt, fill: rgb("#000000"))[(अ) आ #h(8pt) (ब) अ #h(8pt) (स) ई] \
+    #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Q1. Which vowel is naturally inherent in an unaugmented Devanagari consonant? (a) aa (b) a (schwa) (c) ee] \
+    #v(3pt)
+    #strong[२. 'विज्ञान' शब्द का मानक वर्ण-विच्छेद कीजिए:] ............................................................................ \
     #text(size: 7.5pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Q2. Write the standard phonetic deconstruction (varna-vichhed) for the word 'विज्ञान': ....................................]
   ]
 )

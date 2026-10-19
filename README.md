@@ -45,9 +45,9 @@ The objective of **Hindi Pushtak** is to provide learners, scholars, and languag
    - To prevent page overflow, accidental heading separation, or visual inconsistencies across hundreds of sections, all pages must strictly use predefined Typst templates and standardized components:
      - **`#section-opener(sec-num-hi, title-hi, sec-num-en, title-en)`**: Opening banner on Page 1 of each section spread with title, subtitle, divider, and spacing.
      - **`#intro-para(hi-text, en-text)`**: Introductory bilingual paragraph with calibrated `#v(2.5pt)` jump and 8.5pt 90% black English.
-     - **`#section-subheading(num-hi, title-hi, num-en, title-en)`**: Primary conceptual section headings (12.5pt bold Devanagari, 8.8pt English).
-     - **`#spread-header(num-hi, title-hi, num-en, title-en)`**: Top banner on Page 2 of each section spread with 0.5pt divider rule.
-     - **`#topic-heading(num-hi, title-hi, num-en, title-en)`**: Topic / table headings on Page 2 (13pt bold Devanagari, 8.5pt English).
+     - **`#section-subheading(num-hi, title-hi, num-en, title-en)`**: Primary conceptual section headings (12.5pt bold Devanagari, 8.8pt English interlinear beneath).
+     - **`#spread-header(num-hi, title-hi, num-en, title-en)`**: Top banner on Page 2 of each section spread with 0.5pt divider rule and forced line-break (`\`) for interlinear English beneath Devanagari.
+     - **`#topic-heading(num-hi, title-hi, num-en, title-en)`**: Topic / table headings on Page 2 (13pt bold Devanagari, forced line-break (`\`) for interlinear 8.5pt English beneath).
      - **`#rule-box(title-hi, title-en, body)`**: Left-accented 3pt solid black border callout box for core rules and principles.
      - **`#exercise-box(title-hi, title-en, body)`**: Standardized 0.6pt enclosed Comprehension & Review Worksheet at the base of Page 2.
      - **`#kbd(key)`**: Keycap box for computer, InScript typing, and keyboard shortcuts.
@@ -223,11 +223,11 @@ Every new section must be authored as a strict **2-page spread (Pages N & N+1)**
 
 ### 3. Immediate Next Task
 - Author **Section 1.4**:
-  - **Title**: *Characters with Vertical Stem (Khadi Pai)* (खड़ी पाई वाले वर्णों की मानक संरचना)
+  - **Title**: *Characters with Vertical Stem (Khadi Pai)* (Khadi Pai Vale Varnon ki Manak Sanrachna)
   - **Allocated Pages**: **Pages 12 & 13**
   - **Content Scope**:
     - *Page 12*: Classification of Khadi Pai consonants (middle-stem 'ka', 'pha'; end-stem 'kha', 'ga', 'gha', etc.), 3 rule boxes (90° perpendicularity, stem position, conjunct formation via stem dropping).
     - *Page 13*: Master inventory table of Khadi Pai characters, half-form derivation rules, and self-evaluation review worksheet box.
   - **Running Header Configuration**:
-    - Page 12: `left-title: [अनुभाग १.४ : खड़ी पाई वाले वर्ण]`, `right-title: [Section 1.4 : Vertical Stem Characters]`
-    - Page 13: `left-title: [अनुभाग १.४ : अर्ध-रूप संरचना एवं अभ्यास]`, `right-title: [Section 1.4 : Half-Forms & Exercises]`
+    - Page 12: `left-title` (Devanagari: Section 1.4 : Khadi Pai Vale Varna), `right-title: [Section 1.4 : Vertical Stem Characters]`
+    - Page 13: `left-title` (Devanagari: Section 1.4 : Ardh-roop Sanrachna evam Abhyas), `right-title: [Section 1.4 : Half-Forms & Exercises]`
