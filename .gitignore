@@ -1,0 +1,15 @@
+# Operating System & Editors
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Build & Temporary Output
+*.pdf
+*.log
+*.tmp
+dist/
+build/

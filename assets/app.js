@@ -9,7 +9,7 @@
  *  - Light / dark theme (stored choice, else system preference)
  */
 
-import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/typst.ts/+esm';
+import { $typst, loadFonts } from './typst.bundle.js';
 
 (function () {
   'use strict';
@@ -18,26 +18,28 @@ import { $typst, loadFonts } from 'https://cdn.jsdelivr.net/npm/@myriaddreamin/t
    * 1. CONFIGURATION & STATE
    * ========================================================================== */
 
-  const CDN = 'https://cdn.jsdelivr.net/npm/@myriaddreamin';
-
   const CONFIG = Object.freeze({
     typstUrl: 'hindi-pushtak.typ',
     themeKey: 'hindi-book-theme',
     pdfFileName: 'hindi-pushtak.pdf',
-    compilerWasm: `${CDN}/typst-ts-web-compiler@0.7.0/pkg/typst_ts_web_compiler_bg.wasm`,
-    rendererWasm: `${CDN}/typst-ts-renderer@0.7.0/pkg/typst_ts_renderer_bg.wasm`,
+    compilerWasm: 'assets/typst_ts_web_compiler_bg.wasm',
+    rendererWasm: 'assets/typst_ts_renderer_bg.wasm',
     page: { width: 596, height: 842 },
     fonts: [
-      'fonts/NotoSansDevanagari-Regular.ttf',
-      'fonts/NotoSerifDevanagari-Regular.ttf',
-      'fonts/NotoSerifDevanagari-Bold.ttf'
+      'assets/NotoSansDevanagari-Regular.ttf',
+      'assets/NotoSerifDevanagari-Regular.ttf',
+      'assets/NotoSerifDevanagari-Bold.ttf'
     ],
     toc: [
-      { pageNum: 1, title: 'मुखपृष्ठ (Cover)' },
-                               { pageNum: 2, title: 'पुस्तक परिचय : दृष्टिकोण (About the Book)' },
-                               { pageNum: 3, title: 'विषय-सूची (Table of Contents)' },
-                               { pageNum: 4, title: 'खंड १ : अनुभाग १.१ (Devanagari Script)' },
-                               { pageNum: 5, title: 'खंड १ : अनुभाग १.२ (Calligraphy & Stroke Order)' }
+      { pageNum: 1, title: 'मुखपृष्ठ • Cover' },
+      { pageNum: 2, title: 'पुस्तक परिचय • About the Book' },
+      { pageNum: 3, title: 'विषय-सूची भाग १ • Table of Contents (1-5)' },
+      { pageNum: 4, title: 'विषय-सूची भाग २ • Table of Contents (6-10)' },
+      { pageNum: 5, title: 'विषय-सूची भाग ३ • Table of Contents (11-15)' },
+      { pageNum: 6, title: 'विषय-सूची भाग ४ • Table of Contents (16-20)' },
+      { pageNum: 7, title: 'खंड १ : अनुभाग १.१ • Devanagari Script' },
+      { pageNum: 8, title: 'अनुभाग १.१ : स्वर तालिका • Vowels Table' },
+      { pageNum: 9, title: 'अनुभाग १.२ : सुलेख व स्ट्रोक • Calligraphy' }
     ],
     themeColors: { light: '#e9ebf1', dark: '#0d1018' }
   });
