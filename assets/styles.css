@@ -321,6 +321,59 @@ body {
   border-left-color: var(--accent);
 }
 
+/* Level 1: Part Rows & Preliminary Rows */
+.toc-item-row--part {
+  margin-top: 6px;
+  padding: 5px 6px;
+  background: var(--surface-2);
+  border-left: 3px solid var(--line);
+}
+.toc-item-row--part .toc-label-hi {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.toc-item-row--part .toc-label-en {
+  font-size: 0.70rem;
+  font-weight: 500;
+  color: var(--text-2);
+}
+.toc-item-row--part[aria-current="section"] {
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* Level 2: Child Sections (Indented & Smaller Font) */
+.toc-item-row--section {
+  margin-left: 12px;
+  padding: 3px 6px 3px 8px;
+  border-left: 2px solid var(--line);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+.toc-item-row--section .toc-label-hi {
+  font-size: 0.77rem;
+  font-weight: 600;
+}
+.toc-item-row--section .toc-label-en {
+  font-size: 0.66rem;
+  color: var(--muted);
+}
+.toc-item-row--section .toc-label-meta {
+  font-size: 0.60rem;
+}
+.toc-item-row--section .toc-dl-btn {
+  width: 24px;
+  height: 24px;
+}
+.toc-item-row--section .toc-dl-btn svg {
+  width: 12px;
+  height: 12px;
+}
+.toc-item-row--section[aria-current="section"] {
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+}
+
 .toc-item {
   appearance: none;
   flex: 1;

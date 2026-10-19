@@ -207,18 +207,14 @@ This section serves as the definitive reference for resuming work in a clean, fr
 ### 2. Web Reader & Section Download Architecture
 - **Standardized Navigation Drawer Title**:
   - The drawer header and toggle button use the single standard Hindi word **'Pustakchihna'** (*Bookmarks* in English subtitle with smaller font), completely removing mixed slash labels.
-- **Section-Oriented Manifest (`manifest.json`)**:
-  - The drawer items are driven dynamically from `manifest.json`, mapping each curriculum section to its exact starting and ending physical page numbers (`startPage`, `endPage`), part affiliation (`part_label`), section title, and standardized download filename.
-  - **About the book**: Downloads pages 1 and 2 as `hindi-pushtak-about.pdf`.
-  - **Table of Contents**: Downloads pages 3 and 4 as `hindi-pushtak-toc.pdf`.
-  - **Curriculum Sections**: Named and downloaded with standardized zero-padded part and section numbers (e.g. `hindi-pushtak-01-01.pdf`, `hindi-pushtak-01-02.pdf`, `hindi-pushtak-01-03.pdf`).
-- **Three-Tier Typography in Drawer Items**:
-  - **Tier 1 (Hindi Title)**: Displayed prominently at 0.82rem bold in Devanagari script.
-  - **Tier 2 (English Title)**: Positioned directly beneath Hindi in 0.70rem regular font.
-  - **Tier 3 (Part & Section Metadata)**: Positioned underneath English in 0.62rem font with a subtle badge showing the Part and Section numbers along with page ranges.
-- **Section-Specific PDF Download**:
-  - Each item in the drawer features a right-aligned download icon button vertically aligned with the 3-tier text.
-  - Clicking this button extracts and downloads only the pages pertaining to that specific section into an individual PDF file using client-side `pdf-lib` slicing without re-downloading the entire book.
+- **Two-Level Hierarchical Structure (`manifest.json`)**:
+  - The drawer items are organized into a visual two-level hierarchy driven by `manifest.json`:
+    - **Level 1 (Preliminary & Parts)**: Displays top-level entries including *About the book* (`hindi-pushtak-about.pdf`), *Table of Contents* (`hindi-pushtak-toc.pdf`), and complete Parts (e.g. *Part 1 : Devanagari Script Architecture & Calligraphy*, downloading pages 5–11 as `hindi-pushtak-part-01.pdf`).
+    - **Level 2 (Indented Child Sections)**: Individual curriculum sections are rendered slightly indented (`margin-left: 12px`) with a distinct border accent and smaller font sizes (0.77rem Hindi, 0.66rem English).
+- **Independent Part & Section PDF Downloads**:
+  - Every row (both whole parts and individual sections) includes a right-aligned download button vertically aligned with the title text.
+  - Clicking the download button extracts and saves only the pages for that exact part or section using client-side `pdf-lib` extraction.
+  - File naming follows the standardized scheme: `hindi-pushtak-about.pdf`, `hindi-pushtak-toc.pdf`, `hindi-pushtak-part-01.pdf`, and `hindi-pushtak-01-01.pdf`.
 
 ### 3. Standard Section Authoring Protocol
 Every new section must be authored as a strict **2-page spread (Pages N & N+1)**:

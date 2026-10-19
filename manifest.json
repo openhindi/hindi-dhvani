@@ -4,10 +4,9 @@
     "title_en": "Hindi Pushtak",
     "totalPages": 11
   },
-  "sections": [
+  "preliminary": [
     {
       "id": "book-about",
-      "type": "preliminary",
       "title_hi": "पुस्तक परिचय",
       "title_en": "About the book",
       "part_label": "प्रारंभिक",
@@ -18,7 +17,6 @@
     },
     {
       "id": "book-toc",
-      "type": "preliminary",
       "title_hi": "विषय-सूची",
       "title_en": "Table of Contents",
       "part_label": "प्रारंभिक",
@@ -26,45 +24,57 @@
       "filename": "hindi-pushtak-toc.pdf",
       "startPage": 3,
       "endPage": 4
-    },
+    }
+  ],
+  "parts": [
     {
-      "id": "sec-01-01",
-      "type": "section",
+      "id": "part-01",
       "part_num": "01",
-      "section_num": "01",
-      "title_hi": "लिपि का उद्भव एवं विकास",
-      "title_en": "Origin & Evolution Lineage",
+      "title_hi": "भाग १ : देवनागरी लिपि-संरचना एवं सुलेख कला",
+      "title_en": "Part 1 : Devanagari Script Architecture & Calligraphy",
       "part_label": "भाग १",
-      "section_label": "अनुभाग १.१ (पृष्ठ ६–७)",
-      "filename": "hindi-pushtak-01-01.pdf",
-      "startPage": 6,
-      "endPage": 7
-    },
-    {
-      "id": "sec-01-02",
-      "type": "section",
-      "part_num": "01",
-      "section_num": "02",
-      "title_hi": "अक्षरात्मक प्रकृति व आबुगिदा",
-      "title_en": "Abugida Architecture & System",
-      "part_label": "भाग १",
-      "section_label": "अनुभाग १.२ (पृष्ठ ८–९)",
-      "filename": "hindi-pushtak-01-02.pdf",
-      "startPage": 8,
-      "endPage": 9
-    },
-    {
-      "id": "sec-01-03",
-      "type": "section",
-      "part_num": "01",
-      "section_num": "03",
-      "title_hi": "शिरोरेखा के नियम एवं महत्व",
-      "title_en": "Shirorekha Rules & Alignment",
-      "part_label": "भाग १",
-      "section_label": "अनुभाग १.३ (पृष्ठ १०–११)",
-      "filename": "hindi-pushtak-01-03.pdf",
-      "startPage": 10,
-      "endPage": 11
+      "section_label": "पृष्ठ ५–११",
+      "filename": "hindi-pushtak-part-01.pdf",
+      "startPage": 5,
+      "endPage": 11,
+      "sections": [
+        {
+          "id": "sec-01-01",
+          "part_num": "01",
+          "section_num": "01",
+          "title_hi": "लिपि का उद्भव एवं विकास",
+          "title_en": "Origin & Evolution Lineage",
+          "part_label": "भाग १",
+          "section_label": "अनुभाग १.१ (पृष्ठ ६–७)",
+          "filename": "hindi-pushtak-01-01.pdf",
+          "startPage": 6,
+          "endPage": 7
+        },
+        {
+          "id": "sec-01-02",
+          "part_num": "01",
+          "section_num": "02",
+          "title_hi": "अक्षरात्मक प्रकृति व आबुगिदा",
+          "title_en": "Abugida Architecture & System",
+          "part_label": "भाग १",
+          "section_label": "अनुभाग १.२ (पृष्ठ ८–९)",
+          "filename": "hindi-pushtak-01-02.pdf",
+          "startPage": 8,
+          "endPage": 9
+        },
+        {
+          "id": "sec-01-03",
+          "part_num": "01",
+          "section_num": "03",
+          "title_hi": "शिरोरेखा के नियम एवं महत्व",
+          "title_en": "Shirorekha Rules & Alignment",
+          "part_label": "भाग १",
+          "section_label": "अनुभाग १.३ (पृष्ठ १०–११)",
+          "filename": "hindi-pushtak-01-03.pdf",
+          "startPage": 10,
+          "endPage": 11
+        }
+      ]
     }
   ]
 }

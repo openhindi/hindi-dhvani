@@ -5,8 +5,9 @@
  *  - Devanagari font loading (Noto Sans / Noto Serif Devanagari)
  *  - Vector SVG preview of each A4 page
  *  - Native binary PDF download ($typst.pdf)
- *  - Section-based navigation & section-specific PDF slice extraction via pdf-lib
- *  - Single Hindi word 'विषय-सूची' standard contents drawer
+ *  - Two-level hierarchical navigation drawer (Parts & indented Sections)
+ *  - Part-level & section-level PDF slice extraction via pdf-lib
+ *  - Standard 'पुस्तकचिह्न' bookmarks drawer with custom styling
  *  - Light / dark theme (stored choice, else system preference)
  */
 
@@ -32,66 +33,88 @@ import { $typst, loadFonts } from './typst.bundle.js';
       'assets/fonts/NotoSerifDevanagari-Regular.ttf',
       'assets/fonts/NotoSerifDevanagari-Bold.ttf'
     ],
-    fallbackSections: [
-      {
-        id: 'book-about',
-        title_hi: 'पुस्तक परिचय',
-        title_en: 'About the book',
-        part_label: 'प्रारंभिक',
-        section_label: 'पृष्ठ १–२',
-        filename: 'hindi-pushtak-about.pdf',
-        startPage: 1,
-        endPage: 2
-      },
-      {
-        id: 'book-toc',
-        title_hi: 'विषय-सूची',
-        title_en: 'Table of Contents',
-        part_label: 'प्रारंभिक',
-        section_label: 'पृष्ठ ३–४',
-        filename: 'hindi-pushtak-toc.pdf',
-        startPage: 3,
-        endPage: 4
-      },
-      {
-        id: 'sec-01-01',
-        title_hi: 'लिपि का उद्भव एवं विकास',
-        title_en: 'Origin & Evolution Lineage',
-        part_label: 'भाग १',
-        section_label: 'अनुभाग १.१ (पृष्ठ ६–७)',
-        filename: 'hindi-pushtak-01-01.pdf',
-        startPage: 6,
-        endPage: 7
-      },
-      {
-        id: 'sec-01-02',
-        title_hi: 'अक्षरात्मक प्रकृति व आबुगिदा',
-        title_en: 'Abugida Architecture & System',
-        part_label: 'भाग १',
-        section_label: 'अनुभाग १.२ (पृष्ठ ८–९)',
-        filename: 'hindi-pushtak-01-02.pdf',
-        startPage: 8,
-        endPage: 9
-      },
-      {
-        id: 'sec-01-03',
-        title_hi: 'शिरोरेखा के नियम एवं महत्व',
-        title_en: 'Shirorekha Rules & Alignment',
-        part_label: 'भाग १',
-        section_label: 'अनुभाग १.३ (पृष्ठ १०–११)',
-        filename: 'hindi-pushtak-01-03.pdf',
-        startPage: 10,
-        endPage: 11
-      }
-    ],
+    fallbackManifest: {
+      preliminary: [
+        {
+          id: 'book-about',
+          title_hi: 'पुस्तक परिचय',
+          title_en: 'About the book',
+          part_label: 'प्रारंभिक',
+          section_label: 'पृष्ठ १–२',
+          filename: 'hindi-pushtak-about.pdf',
+          startPage: 1,
+          endPage: 2
+        },
+        {
+          id: 'book-toc',
+          title_hi: 'विषय-सूची',
+          title_en: 'Table of Contents',
+          part_label: 'प्रारंभिक',
+          section_label: 'पृष्ठ ३–४',
+          filename: 'hindi-pushtak-toc.pdf',
+          startPage: 3,
+          endPage: 4
+        }
+      ],
+      parts: [
+        {
+          id: 'part-01',
+          part_num: '01',
+          title_hi: 'भाग १ : देवनागरी लिपि-संरचना एवं सुलेख कला',
+          title_en: 'Part 1 : Devanagari Script Architecture & Calligraphy',
+          part_label: 'भाग १',
+          section_label: 'पृष्ठ ५–११',
+          filename: 'hindi-pushtak-part-01.pdf',
+          startPage: 5,
+          endPage: 11,
+          sections: [
+            {
+              id: 'sec-01-01',
+              part_num: '01',
+              section_num: '01',
+              title_hi: 'लिपि का उद्भव एवं विकास',
+              title_en: 'Origin & Evolution Lineage',
+              part_label: 'भाग १',
+              section_label: 'अनुभाग १.१ (पृष्ठ ६–७)',
+              filename: 'hindi-pushtak-01-01.pdf',
+              startPage: 6,
+              endPage: 7
+            },
+            {
+              id: 'sec-01-02',
+              part_num: '01',
+              section_num: '02',
+              title_hi: 'अक्षरात्मक प्रकृति व आबुगिदा',
+              title_en: 'Abugida Architecture & System',
+              part_label: 'भाग १',
+              section_label: 'अनुभाग १.२ (पृष्ठ ८–९)',
+              filename: 'hindi-pushtak-01-02.pdf',
+              startPage: 8,
+              endPage: 9
+            },
+            {
+              id: 'sec-01-03',
+              part_num: '01',
+              section_num: '03',
+              title_hi: 'शिरोरेखा के नियम एवं महत्व',
+              title_en: 'Shirorekha Rules & Alignment',
+              part_label: 'भाग १',
+              section_label: 'अनुभाग १.३ (पृष्ठ १०–११)',
+              filename: 'hindi-pushtak-01-03.pdf',
+              startPage: 10,
+              endPage: 11
+            }
+          ]
+        }
+      ]
+    },
     themeColors: { light: '#e9ebf1', dark: '#0d1018' }
   });
 
   const state = {
     typstSource: '',
-    sections: [],
+    manifestData: null,
     activePage: 1,
-    activeSectionIndex: 0,
     fullPdfBlob: null,
     theme: 'light',
     busy: false,
@@ -168,13 +191,7 @@ import { $typst, loadFonts } from './typst.bundle.js';
 
       groups.forEach((group, idx) => {
         const pageNum = idx + 1;
-        const matchedSec = state.sections.find(
-          (s) => pageNum >= s.startPage && pageNum <= s.endPage
-        );
-        const title = matchedSec
-          ? `${matchedSec.title_hi} (Page ${pageNum})`
-          : `Page ${pageNum}`;
-        const el = createPageElement(pageNum, title);
+        const el = createPageElement(pageNum, `Page ${pageNum}`);
         el.innerHTML = `
           <svg viewBox="0 0 ${width} ${height}" width="100%" height="100%"
                xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +217,7 @@ import { $typst, loadFonts } from './typst.bundle.js';
     try {
       const svgOutput = await $typst.svg({ mainContent: state.typstSource });
       renderPages(svgOutput);
-      renderSectionsList();
+      renderTwoLevelDrawer();
       observePages();
     } catch (err) {
       console.error('Typst compilation failed:', err);
@@ -219,7 +236,7 @@ import { $typst, loadFonts } from './typst.bundle.js';
   }
 
   /* ==========================================================================
-   * 4. PDF EXPORT & SECTION EXTRACTION
+   * 4. PDF EXPORT & SECTION / PART EXTRACTION
    * ========================================================================== */
 
   async function getFullPdfBytes() {
@@ -262,11 +279,11 @@ import { $typst, loadFonts } from './typst.bundle.js';
     }
   }
 
-  async function downloadSectionPdf(section, triggerBtn) {
+  async function downloadSlicePdf(item, triggerBtn) {
     if (state.busy) return;
     state.busy = true;
     if (triggerBtn) triggerBtn.disabled = true;
-    showToast(`Preparing ${section.title_hi} PDF …`, true);
+    showToast(`Preparing ${item.title_hi} PDF …`, true);
 
     try {
       const fullPdfBytes = await getFullPdfBytes();
@@ -277,8 +294,8 @@ import { $typst, loadFonts } from './typst.bundle.js';
         const subDoc = await window.PDFLib.PDFDocument.create();
 
         const totalPages = srcDoc.getPageCount();
-        const start = Math.max(1, section.startPage);
-        const end = Math.min(totalPages, section.endPage);
+        const start = Math.max(1, item.startPage);
+        const end = Math.min(totalPages, item.endPage);
 
         const pageIndices = [];
         for (let p = start; p <= end; p++) {
@@ -291,19 +308,19 @@ import { $typst, loadFonts } from './typst.bundle.js';
         const subPdfBytes = await subDoc.save();
         triggerDownload(
           new Blob([subPdfBytes], { type: 'application/pdf' }),
-          section.filename || `section-${section.id}.pdf`
+          item.filename || `hindi-pushtak-${item.id}.pdf`
         );
-        showToast(`Downloaded ${section.title_hi}`, false, 2500);
+        showToast(`Downloaded ${item.title_hi}`, false, 2500);
       } else {
         // Fallback: download full PDF if pdf-lib is unavailable
         triggerDownload(
           new Blob([fullPdfBytes], { type: 'application/pdf' }),
-          section.filename || `section-${section.id}.pdf`
+          item.filename || `hindi-pushtak-${item.id}.pdf`
         );
-        showToast(`Downloaded ${section.title_hi}`, false, 2500);
+        showToast(`Downloaded ${item.title_hi}`, false, 2500);
       }
     } catch (err) {
-      console.error('Section PDF extraction failed:', err);
+      console.error('Slice PDF extraction failed:', err);
       showToast(`Download failed: ${err.message}`, false, 3000);
     } finally {
       state.busy = false;
@@ -312,102 +329,134 @@ import { $typst, loadFonts } from './typst.bundle.js';
   }
 
   /* ==========================================================================
-   * 5. SECTIONS DRAWER & NAVIGATION
+   * 5. TWO-LEVEL DRAWER & NAVIGATION
    * ========================================================================== */
 
-  function renderSectionsList() {
-    const fragment = document.createDocumentFragment();
+  function createDrawerRow(item, levelClass) {
+    const row = document.createElement('div');
+    row.className = `toc-item-row ${levelClass}`;
+    row.dataset.startPage = item.startPage;
+    row.dataset.endPage = item.endPage;
 
-    state.sections.forEach((sec, idx) => {
-      const row = document.createElement('div');
-      row.className = 'toc-item-row';
-      row.dataset.sectionIndex = idx;
-      row.dataset.startPage = sec.startPage;
-      row.dataset.endPage = sec.endPage;
+    // Navigation button
+    const navBtn = document.createElement('button');
+    navBtn.type = 'button';
+    navBtn.className = 'toc-item';
+    navBtn.setAttribute(
+      'aria-label',
+      `${item.title_hi} — ${item.title_en} (${item.part_label || ''}, ${item.section_label || ''})`
+    );
 
-      // Clickable body for navigation
-      const navBtn = document.createElement('button');
-      navBtn.type = 'button';
-      navBtn.className = 'toc-item';
-      navBtn.setAttribute(
-        'aria-label',
-        `${sec.title_hi} — ${sec.title_en} (${sec.part_label}, ${sec.section_label})`
-      );
+    const hiSpan = document.createElement('span');
+    hiSpan.className = 'toc-label-hi';
+    hiSpan.textContent = item.title_hi;
 
-      // Line 1: Hindi title
-      const hiSpan = document.createElement('span');
-      hiSpan.className = 'toc-label-hi';
-      hiSpan.textContent = sec.title_hi;
+    const enSpan = document.createElement('span');
+    enSpan.className = 'toc-label-en';
+    enSpan.textContent = item.title_en;
 
-      // Line 2: English title (smaller font)
-      const enSpan = document.createElement('span');
-      enSpan.className = 'toc-label-en';
-      enSpan.textContent = sec.title_en;
+    const metaSpan = document.createElement('span');
+    metaSpan.className = 'toc-label-meta';
 
-      // Line 3: Part & Section metadata (still smaller)
-      const metaSpan = document.createElement('span');
-      metaSpan.className = 'toc-label-meta';
-
+    if (item.part_label) {
       const partBadge = document.createElement('span');
       partBadge.className = 'toc-label-part';
-      partBadge.textContent = sec.part_label;
+      partBadge.textContent = item.part_label;
+      metaSpan.appendChild(partBadge);
+    }
 
+    if (item.section_label) {
       const secBadge = document.createElement('span');
       secBadge.className = 'toc-label-sec';
-      secBadge.textContent = sec.section_label;
+      secBadge.textContent = item.section_label;
+      metaSpan.appendChild(secBadge);
+    }
 
-      metaSpan.append(partBadge, secBadge);
-      navBtn.append(hiSpan, enSpan, metaSpan);
-
-      navBtn.addEventListener('click', () => {
-        closeDrawer();
-        goToPage(sec.startPage);
-      });
-
-      // Right-aligned Section Download Button
-      const dlBtn = document.createElement('button');
-      dlBtn.type = 'button';
-      dlBtn.className = 'toc-dl-btn';
-      dlBtn.setAttribute('aria-label', `डाउनलोड ${sec.title_hi} (Download PDF)`);
-      dlBtn.setAttribute('title', `डाउनलोड करें: ${sec.title_hi} (${sec.section_label})`);
-      dlBtn.innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-      `;
-      dlBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        downloadSectionPdf(sec, dlBtn);
-      });
-
-      row.append(navBtn, dlBtn);
-      fragment.appendChild(row);
+    navBtn.append(hiSpan, enSpan, metaSpan);
+    navBtn.addEventListener('click', () => {
+      closeDrawer();
+      goToPage(item.startPage);
     });
 
-    DOM.drawerList.replaceChildren(fragment);
-    setActiveSectionByPage(state.activePage);
+    // Right-aligned download button
+    const dlBtn = document.createElement('button');
+    dlBtn.type = 'button';
+    dlBtn.className = 'toc-dl-btn';
+    dlBtn.setAttribute('aria-label', `डाउनलोड ${item.title_hi} (Download PDF)`);
+    dlBtn.setAttribute('title', `डाउनलोड करें: ${item.title_hi} (${item.section_label || ''})`);
+    dlBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+    `;
+    dlBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      downloadSlicePdf(item, dlBtn);
+    });
+
+    row.append(navBtn, dlBtn);
+    return row;
   }
 
-  function setActiveSectionByPage(pageNum) {
-    state.activePage = pageNum;
-    let foundIndex = -1;
+  function renderTwoLevelDrawer() {
+    const data = state.manifestData || CONFIG.fallbackManifest;
+    const fragment = document.createDocumentFragment();
 
-    DOM.drawerList.querySelectorAll('.toc-item-row').forEach((row, idx) => {
+    // 1. Preliminary entries (Book About, Book ToC)
+    if (data.preliminary && data.preliminary.length > 0) {
+      data.preliminary.forEach((pre) => {
+        fragment.appendChild(createDrawerRow(pre, 'toc-item-row--part'));
+      });
+    }
+
+    // 2. Hierarchical Parts and Sections
+    if (data.parts && data.parts.length > 0) {
+      data.parts.forEach((part) => {
+        // Level 1: Part Row (with full part download option)
+        fragment.appendChild(createDrawerRow(part, 'toc-item-row--part'));
+
+        // Level 2: Child Sections (indented & smaller font)
+        if (part.sections && part.sections.length > 0) {
+          part.sections.forEach((sec) => {
+            fragment.appendChild(createDrawerRow(sec, 'toc-item-row--section'));
+          });
+        }
+      });
+    }
+
+    DOM.drawerList.replaceChildren(fragment);
+    setActiveItemByPage(state.activePage);
+  }
+
+  function setActiveItemByPage(pageNum) {
+    state.activePage = pageNum;
+
+    // We prioritize marking active child sections, falling back to parent part
+    let marked = false;
+    const sectionRows = DOM.drawerList.querySelectorAll('.toc-item-row--section');
+    sectionRows.forEach((row) => {
       const start = Number(row.dataset.startPage);
       const end = Number(row.dataset.endPage);
       if (pageNum >= start && pageNum <= end) {
         row.setAttribute('aria-current', 'section');
-        foundIndex = idx;
+        marked = true;
       } else {
         row.removeAttribute('aria-current');
       }
     });
 
-    if (foundIndex !== -1) {
-      state.activeSectionIndex = foundIndex;
-    }
+    const partRows = DOM.drawerList.querySelectorAll('.toc-item-row--part');
+    partRows.forEach((row) => {
+      const start = Number(row.dataset.startPage);
+      const end = Number(row.dataset.endPage);
+      if (!marked && pageNum >= start && pageNum <= end) {
+        row.setAttribute('aria-current', 'section');
+      } else {
+        row.removeAttribute('aria-current');
+      }
+    });
   }
 
   function observePages() {
@@ -418,7 +467,7 @@ import { $typst, loadFonts } from './typst.bundle.js';
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSectionByPage(Number(entry.target.dataset.page));
+            setActiveItemByPage(Number(entry.target.dataset.page));
           }
         });
       },
@@ -449,7 +498,7 @@ import { $typst, loadFonts } from './typst.bundle.js';
     const el = $(`page-${pageNum}`);
     if (!el) return;
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setActiveSectionByPage(pageNum);
+    setActiveItemByPage(pageNum);
   }
 
   /* ==========================================================================
@@ -518,11 +567,10 @@ import { $typst, loadFonts } from './typst.bundle.js';
     try {
       const response = await fetch(CONFIG.manifestUrl, { cache: 'no-cache' });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const data = await response.json();
-      state.sections = data.sections || CONFIG.fallbackSections;
+      state.manifestData = await response.json();
     } catch (e) {
       console.warn('Could not load manifest.json, using fallback configuration:', e);
-      state.sections = CONFIG.fallbackSections;
+      state.manifestData = CONFIG.fallbackManifest;
     }
   }
 
@@ -536,7 +584,7 @@ import { $typst, loadFonts } from './typst.bundle.js';
     initTheme();
     bindEvents();
     await loadManifest();
-    renderSectionsList();
+    renderTwoLevelDrawer();
 
     try {
       showToast('Typesetting …', true);
