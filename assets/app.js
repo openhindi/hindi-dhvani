@@ -22,13 +22,13 @@ import { $typst, loadFonts } from './typst.bundle.js';
     typstUrl: 'hindi-pushtak.typ',
     themeKey: 'hindi-book-theme',
     pdfFileName: 'hindi-pushtak.pdf',
-    compilerWasm: 'assets/typst_ts_web_compiler_bg.wasm',
-    rendererWasm: 'assets/typst_ts_renderer_bg.wasm',
+    compilerWasm: 'assets/wasm/typst_ts_web_compiler_bg.wasm',
+    rendererWasm: 'assets/wasm/typst_ts_renderer_bg.wasm',
     page: { width: 596, height: 842 },
     fonts: [
-      'assets/NotoSansDevanagari-Regular.ttf',
-      'assets/NotoSerifDevanagari-Regular.ttf',
-      'assets/NotoSerifDevanagari-Bold.ttf'
+      'assets/fonts/NotoSansDevanagari-Regular.ttf',
+      'assets/fonts/NotoSerifDevanagari-Regular.ttf',
+      'assets/fonts/NotoSerifDevanagari-Bold.ttf'
     ],
     toc: [
       { pageNum: 1, title: 'मुखपृष्ठ • Cover' },

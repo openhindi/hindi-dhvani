@@ -103,7 +103,7 @@ An elegant, page-aware, print-accurate digital Hindi book designed with authenti
 | :--- | :--- |
 | [`index.html`](file:///home/zenhome/Projects/hindi-pushtak/index.html) | मुख्य पुस्तक शैल, इनलाइन एसवीजी फेविकॉन, स्थानीय मॉड्यूल स्क्रिप्ट एवं नियंत्रण बटन |
 | [`hindi-pushtak.typ`](file:///home/zenhome/Projects/hindi-pushtak/hindi-pushtak.typ) | पुस्तक का मुख्य समर्पित टाइप्स्ट दस्तावेज़ (A4 पृष्ठ प्रारूप, तालिकाएँ, द्विभाषिक टिप्पणियाँ) |
-| [`assets/`](file:///home/zenhome/Projects/hindi-pushtak/assets/) | समतल निर्देशिका (Flat Directory): सभी सीएसएस (`styles.css`, `fonts.css`), जावास्क्रिप्ट (`app.js`, `typst.bundle.js`), वॉस्म कंपाइलर/रेंडरर बाइनरी (`.wasm`), एवं संपूर्ण ट्रू-टाइप व वेब फ़ॉन्ट्स (`.ttf`, `.woff2`) |
+| [`assets/`](file:///home/zenhome/Projects/hindi-pushtak/assets/) | संपत्ति निर्देशिका: सीएसएस (`styles.css`, `fonts.css`), जावास्क्रिप्ट (`app.js`, `typst.bundle.js`), [`fonts/`](file:///home/zenhome/Projects/hindi-pushtak/assets/fonts/) (ट्रू-टाइप व वेब फ़ॉन्ट्स), एवं [`wasm/`](file:///home/zenhome/Projects/hindi-pushtak/assets/wasm/) (टाइप्स्ट कंपाइलर व रेंडरर बाइनरी) |
 | [`source/`](file:///home/zenhome/Projects/hindi-pushtak/source/) | ६८ प्रामाणिक संदर्भ ग्रंथ, टंकण पाठ्य, व्याकरण व अभ्यास सामग्री |
 
 ---
@@ -126,5 +126,5 @@ http://localhost:8080/
 
 कमांड-लाइन से सीधा पीडीएफ संकलन:
 ```bash
-typst compile --font-path assets/ hindi-pushtak.typ hindi-pushtak.pdf
+typst compile --font-path assets/fonts/ hindi-pushtak.typ hindi-pushtak.pdf
 ```
