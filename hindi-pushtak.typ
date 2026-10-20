@@ -26,6 +26,10 @@
       [अनुभाग १.३ : शिरोरेखा के प्रामाणिक नियम एवं महत्व]
     } else if page-num == 11 {
       [अनुभाग १.३ : शिरोरेखा विच्छेद एवं अभ्यास]
+    } else if page-num == 12 {
+      [अनुभाग १.४ : खड़ी पाई वाले वर्णों की मानक संरचना]
+    } else if page-num == 13 {
+      [अनुभाग १.४ : अर्ध-रूप संरचना एवं अभ्यास]
     } else {
       [हिन्दी पुस्तक]
     }
@@ -47,6 +51,10 @@
       [Section 1.3 : Shirorekha Rules & Importance]
     } else if page-num == 11 {
       [Section 1.3 : Broken Letters & Exercises]
+    } else if page-num == 12 {
+      [Section 1.4 : Vertical Stem Characters]
+    } else if page-num == 13 {
+      [Section 1.4 : Half-Forms & Review Worksheet]
     } else {
       [Hindi Pushtak]
     }
@@ -727,5 +735,97 @@
     #v(2pt)
     #strong[२. 'भ' और 'थ' वर्णों के ऊपर पूरी शिरोरेखा खींच देने से क्रमशः किन वर्णों का भ्रम उत्पन्न होता है?] ..................................................... \
     #text(size: 7.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Q2. Drawing a full solid shirorekha over 'भ' and 'थ' causes visual confusion with which respective letters? ........................]
+  ]
+)
+
+#pagebreak()
+
+// --- PAGE 12: अनुभाग १.४ : खड़ी पाई वाले वर्णों की मानक संरचना (भाग १) ---
+#section-opener(
+  [१.४], [खड़ी पाई वाले वर्णों की मानक संरचना],
+  [1.4], [Characters with Vertical Stem (Khadi Pai Architecture)]
+)
+
+#intro-para(
+  [देवनागरी लिपि के अधिकांश व्यंजन वर्णों की मूल संरचना एक सीधी ऊर्ध्व रेखा पर अवलंबित होती है, जिसे 'खड़ी पाई' (Vertical Stem / Descender Bar) कहा जाता है। केंद्रीय हिंदी निदेशालय के अनुसार खड़ी पाई वर्णमाला का प्रमुख ज्यामितीय मेरुदंड है, जो वर्णों को ९० अंश का गुरुत्वीय संतुलन प्रदान करता है तथा संयुक्ताक्षर निर्माण का प्राथमिक आधार बनता है।],
+  [The vast majority of Devanagari consonants are structurally anchored to a straight vertical upright stroke termed 'Khadi Pai' (vertical stem). Per the Central Hindi Directorate, this stem serves as the principal geometric spine, imparting strict 90-degree equilibrium to characters and establishing the primary rule for conjunct derivation.]
+)
+
+#section-subheading(
+  [१], [खड़ी पाई के तीन अनिवार्य संरचनात्मक नियम],
+  [1], [Three Core Architectural Directives of Khadi Pai]
+)
+
+#rule-box(
+  [१. ९० अंश का लंबवत संरेखण एवं गुरुत्वीय संतुलन],
+  [1. 90-Degree Perpendicularity & Gravitational Balance],
+  [खड़ी पाई सदैव शिरोरेखा के साथ ठीक ९० अंश का समकोण बनाती हुई पूर्णतः सीधी नीचे उतरनी चाहिए। किसी भी परिस्थिति में खड़ी पाई को तिरछा या वक्र नहीं खींचना चाहिए, अन्यथा वर्ण का संतुलन विकृत हो जाता है। #en-line[The vertical stem must descend strictly perpendicular at an exact 90-degree right angle to the shirorekha, never tilting or slanting.]]
+)
+
+#v(3pt)
+#rule-box(
+  [२. स्थान-वर्गीकरण : अंत्य-पाई एवं मध्य-पाई वर्ण],
+  [2. Positional Classification: End-Stem vs Middle-Stem Glyphs],
+  [स्थिति के आधार पर खड़ी पाई दो प्रकार की होती है—(क) अंत्य-पाई वर्ण: जिनमें पाई दाहिने किनारे पर स्थित होती है (जैसे ख, ग, घ, च, ज, त, थ, ध, न, प, ब, भ, म, य, ल, व, श, ष, स); तथा (ख) मध्य-पाई वर्ण: जिनमें पाई वर्ण के केंद्र में होती है (जैसे क, फ)। #en-line[Stems are categorized into: (a) End-stem glyphs where the stem forms the right terminal boundary; and (b) Middle-stem glyphs centered between lobes.]]
+)
+
+#v(3pt)
+#rule-box(
+  [३. पाई-विलोपन नियम द्वारा अर्ध-रूप का निर्माण],
+  [3. Stem-Dropping Directive for Conjunct Half-Forms],
+  [केंद्रीय हिंदी निदेशालय के मानक वर्तनी नियम के अनुसार अंत्य-पाई वाले व्यंजनों का जब किसी परवर्ती व्यंजन के साथ संयुक्ताक्षर बनता है, तब स्वर-रहित पूर्व व्यंजन की खड़ी पाई को पूर्णतः हटा दिया जाता है (जैसे: ग + व = ग्व, प + य = प्य)। #en-line[Per CHD standardization, whenever an end-stem consonant forms a conjunct cluster, its vertical stem is cleanly dropped to form its half-form.]]
+)
+
+#pagebreak()
+
+// --- PAGE 13: अनुभाग १.४ : अर्ध-रूप संरचना, मध्य-पाई नियम एवं अभ्यास (भाग २) ---
+#spread-header(
+  [२], [खड़ी पाई विलोपन एवं मानक अर्ध-रूप तालिका],
+  [2], [Khadi Pai Dropping & Standard Half-Form Master Inventory]
+)
+
+अंत्य खड़ी पाई वाले व्यंजनों के संयुक्त रूप बनाते समय खड़ी पाई को हटाकर परवर्ती वर्ण से संयोजित किया जाता है: #v(1pt)
+#text(size: 8.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[When deriving conjunct half-forms of end-stem consonants, the vertical stroke is dropped per CHD standards:]
+
+#v(1.5pt)
+#table(
+  columns: (70pt, 85pt, 120pt, 1fr),
+  inset: (x: 4.5pt, y: 2.2pt),
+  align: (center + horizon, center + horizon, left + horizon, left + horizon),
+  [*पूर्ण वर्ण* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Full Letter]], [*अर्ध-रूप (हलंत)* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Half-Form]], [*मानक संयुक्ताक्षर* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Standard Conjunct]], [*प्रामाणिक शब्द-उदाहरण* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Authentic Word Examples]],
+  [#strong[ख, ग, घ] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[kha, ga, gha]], [ख्, ग्, घ्], [ख्या, ग्न, घ्न], [ख्याति, लग्न, विघ्न \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Renown, Ascendant, Obstacle]],
+  [#strong[च, ज, झ] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[cha, ja, jha]], [च्, ज्, झ्], [च्च, ज्ज, झ्य], [सच्चा, छज्जा, झ्यामल \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[True, Balcony, Dusky]],
+  [#strong[त, थ, ध, न] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[ta, tha, dha, na]], [त्, थ्, ध्, न्], [त्त, थ्य, ध्व, न्य], [कुत्ता, पथ्य, ध्वनि, न्याय \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Loyal, Regimen, Sound, Justice]],
+  [#strong[प, ब, भ, म] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[pa, ba, bha, ma]], [प्, ब्, भ्, म्], [प्य, ब्ब, भ्य, म्म], [प्यास, डिब्बा, सभ्य, सम्मान \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Thirst, Container, Polite, Honor]],
+  [#strong[य, ल, व, स] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[ya, la, va, sa]], [य्, ल्, व्, स्], [य्य, ल्ल, व्य, स्त], [शय्या, उल्लेख, व्यापार, पुस्तक \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Bed, Reference, Commerce, Book]]
+)
+
+#topic-heading(
+  [३], [मध्य-पाई वर्णों ('क' एवं 'फ') का विशेष संयोजन नियम],
+  [3], [Special Rule for Middle-Stem Consonants ('Ka' & 'Pha')]
+)
+
+#v(1pt)
+#table(
+  columns: (100pt, 1fr, 1fr),
+  inset: (x: 5pt, y: 2.2pt),
+  align: (left + horizon, left + horizon, left + horizon),
+  [*वर्ण श्रेणी* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Consonant Class]], [*अर्ध-रूप निर्माण विधि* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Half-Form Derivation Rule]], [*मानक रूप एवं अमानक रूप* \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Standard vs Deprecated Form]],
+  [#strong['क' वर्ग (मध्य-पाई)] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Center-Stem 'Ka']], [खड़ी पाई अक्षुण्ण रहती है; दाहिने अंकुश को आधा काट दिया जाता है। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Stem remains; right curl curtailed.]], [मानक: *पक्का*, *संयुक्त*, *क्य* \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Standard: pakka, sanyukta.]],
+  [#strong['फ' वर्ग (मध्य-पाई)] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Center-Stem 'Pha']], [खड़ी पाई सुरक्षित रहती है; दाहिनी झुकी पूंछ को आधा छोटा किया जाता है। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Stem intact; trailing tail truncated.]], [मानक: *दफ़्तर*, *हफ़्ता*, *फ्लाई* \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Standard: daftar, hafta.]],
+  [#strong[अमानक पुरानी शैलियाँ] \ #text(size: 6.8pt, fill: rgb("#1a1a1a"))[Deprecated Styles]], [क-त के पुराने जटिल संयुक्त रूप के स्थान पर मानक रूप ग्राह्य। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[Clear conjuncts preferred over obsolete ligatures.]], [निदेशालय निर्देश: खड़ी पाई का स्पष्ट अंकन। \ #text(size: 6.5pt, fill: rgb("#1a1a1a"))[CHD mandate: transparent typography.]]
+)
+
+#v(1pt)
+
+#exercise-box(
+  [अनुभाग १.४ स्व-मूल्यांकन अभ्यास],
+  [Section 1.4 Vertical Stem & Half-Form Review Worksheet],
+  [
+    #strong[१. केंद्रीय हिंदी निदेशालय के अनुसार अंत्य खड़ी पाई वाले व्यंजनों का आधा रूप किस प्रकार बनता है?] #h(6pt) #text(size: 8.5pt, fill: rgb("#000000"))[(अ) हलंत से #h(4pt) (ब) पाई हटाकर #h(4pt) (स) बिंदु से] \
+    #text(size: 7.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Q1. Per CHD directives, how is the half-form of end-stem consonants formed? (a) By halant (b) By dropping khadi pai (c) By dot] \
+    #v(1.5pt)
+    #strong[२. 'क' और 'फ' वर्णों के अर्ध-रूप निर्माण में क्या खड़ी पाई हटाई जाती है? उनका मानक संयुक्त रूप लिखिए:] ................................... \
+    #text(size: 7.2pt, fill: rgb("#1a1a1a"), font: ("Noto Sans Devanagari", "DejaVu Sans"))[Q2. Is the vertical stem dropped for 'क' and 'फ'? Explain their standard conjunct construction: ...................]
   ]
 )

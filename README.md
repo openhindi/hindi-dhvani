@@ -58,7 +58,7 @@ The objective of **Hindi Pushtak** is to provide learners, scholars, and languag
 
 ## 2. Current Document Structure
 
-The document currently compiles to **exactly 11 A4 pages** with mathematical precision and zero overflow:
+The document currently compiles to **exactly 13 A4 pages** with mathematical precision and zero overflow:
 
 ```
 [ Page 1 ] : Title Page (Cover)
@@ -118,6 +118,17 @@ The document currently compiles to **exactly 11 A4 pages** with mathematical pre
   ├── Broken-Loop Characters Table (dha, bha, tha, jha, shra — structural rules, rationale against confusions)
   ├── Comparative Table: Headlined (Devanagari) vs Non-Headlined (Gujarati / Latin) Scripts
   └── Self-Evaluation Worksheet Box (Comprehension multiple-choice and fill-in-the-blank review questions)
+
+[ Page 12 ] : Section 1.4 : Characters with Vertical Stem (Khadi Pai Architecture) (Page 1)
+  ├── Running Header: [Left: Anubhag 1.4 : Khadi Pai vale Varna] | [Right: Section 1.4 : Vertical Stem Characters]
+  ├── Standard section opener, introductory bilingual paragraph (#v(2.5pt) jump)
+  └── 3 Core Architectural Rule Boxes (90-Degree Perpendicularity, End-Stem vs Middle-Stem Glyphs, Stem-Dropping Directive)
+
+[ Page 13 ] : Section 1.4 : Half-Forms, Middle-Stem Rules & Review Drills (Page 2)
+  ├── Running Header: [Left: Anubhag 1.4 : Ardh-roop Sanrachna evam Abhyas] | [Right: Section 1.4 : Half-Forms & Review Worksheet]
+  ├── End-Stem Conjunct Half-Form Master Inventory Table (kha, ga, gha, cha, ja, jha, ta, tha, dha, na, pa, ba, bha, ma, ya, la, va, sa)
+  ├── Middle-Stem Special Rules Table ('Ka' and 'Pha' conjunct mechanics and standard modern typography)
+  └── Self-Evaluation Worksheet Box (Comprehension multiple-choice and half-form rule drill questions)
 ```
 
 ---
