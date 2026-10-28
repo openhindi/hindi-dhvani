@@ -14,10 +14,18 @@ Thumbs.db
 dist/
 build/
 
-# Python Cache & Bytecode
+# Python Cache, Bytecode & Environments
 *.pyc
 *.pyo
 *.pyd
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.env
+.venv
+env/
+venv/
+ENV/
