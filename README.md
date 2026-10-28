@@ -63,17 +63,17 @@ The master curriculum spans 30 Parts (20 Sections per Part = 600 Total Sections)
 | **Part 8** | Sarvanam-Vyavastha evam Rupaavali | Pronouns, Declensions & Demonstratives | Tier 2: Core Morphology | **Complete (20/20)** |
 | **Part 9** | Visheshan, Pravisheshan evam Tulanatmak Roop | Adjectives, Intensifiers & Comparisons | Tier 2: Core Morphology | **Complete (20/20)** |
 | **Part 10** | Sankhya-Paddhati, Ganana evam Maapan | Numerals, Counting & Measurement Systems | Tier 2: Core Morphology | **Complete (20/20)** |
-| **Part 11** | Kriya-Mool, Dhatu evam Hona Sahayak Kriya | Verb Roots, Infinitives & Copula Hona | Tier 3: Verbal Architecture | Queued (Batch 11) |
-| **Part 12** | Vartaman Kaal (Samanya, Apoorna, Sandigdha) | Present Tenses: Simple, Continuous, Presumptive | Tier 3: Verbal Architecture | Queued |
-| **Part 13** | Bhootkaal (Samanya, Aasanna, Poorna, Sandigdha) | Past Tenses: Simple, Immediate, Perfect, Habitual | Tier 3: Verbal Architecture | Queued |
-| **Part 14** | Ne Parsarg Niyam evam Sakarmak Bhootkaal | Ergative Ne Rule & Transitive Past Syntax | Tier 3: Verbal Architecture | Queued |
-| **Part 15** | Bhavishyat Kaal, Agyarth evam Vidhyarth | Future Tenses, Imperatives & Optatives | Tier 3: Verbal Architecture | Queued |
-| **Part 16** | Sanyukt Kriyayein evam Ranjak Dhatu | Compound Verbs & Explicators | Tier 3: Advanced Verbs | Queued |
-| **Part 17** | Preranarthak Kriyayein evam Rachna | Causative Verbs & Morphological Derivations | Tier 3: Advanced Verbs | Queued |
-| **Part 18** | Paksha, Vritti evam Vivashatparak Roop | Verbal Aspects, Modality & Obligation | Tier 3: Advanced Verbs | Queued |
-| **Part 19** | Kridant, Poorvakalik Kriya va Visheshan | Participles, Absolutives & Adverbs | Tier 3: Advanced Verbs | Queued |
-| **Part 20** | Vachya-Vidhan: Kartri, Karma va Bhavavachya | Voice: Active, Passive & Impersonal | Tier 3: Advanced Verbs | Queued |
-| **Part 21** | Vakya-Rachna, Bhed evam Avyaya Sanyojan | Sentence Syntax, Conjunctions & Modifiers | Tier 4: Syntax & Discourse | Queued |
+| **Part 11** | Kriya-Mool, Dhatu evam Hona Sahayak Kriya | Verb Roots, Infinitives & Copula Hona | Tier 3: Verbal Architecture | **Complete (20/20)** |
+| **Part 12** | Vartaman Kaal (Samanya, Apoorna, Sandigdha) | Present Tenses: Simple, Continuous, Presumptive | Tier 3: Verbal Architecture | **Complete (20/20)** |
+| **Part 13** | Bhootkaal (Samanya, Aasanna, Poorna, Sandigdha) | Past Tenses: Simple, Immediate, Perfect, Habitual | Tier 3: Verbal Architecture | **Complete (20/20)** |
+| **Part 14** | Ne Parsarg Niyam evam Sakarmak Bhootkaal | Ergative Ne Rule & Transitive Past Syntax | Tier 3: Verbal Architecture | **Complete (20/20)** |
+| **Part 15** | Bhavishyat Kaal, Agyarth evam Vidhyarth | Future Tenses, Imperatives & Optatives | Tier 3: Verbal Architecture | **Complete (20/20)** |
+| **Part 16** | Sanyukt Kriyayein evam Ranjak Dhatu | Compound Verbs & Explicators | Tier 3: Advanced Verbs | **Complete (20/20)** |
+| **Part 17** | Preranarthak Kriyayein evam Rachna | Causative Verbs & Morphological Derivations | Tier 3: Advanced Verbs | **Complete (20/20)** |
+| **Part 18** | Paksha, Vritti evam Vivashatparak Roop | Verbal Aspects, Modality & Obligation | Tier 3: Advanced Verbs | **Complete (20/20)** |
+| **Part 19** | Kridant, Poorvakalik Kriya va Visheshan | Participles, Absolutives & Adverbs | Tier 3: Advanced Verbs | **Complete (20/20)** |
+| **Part 20** | Vachya-Vidhan: Kartri, Karma va Bhavavachya | Voice: Active, Passive & Impersonal | Tier 3: Advanced Verbs | **Complete (20/20)** |
+| **Part 21** | Vakya-Rachna, Bhed evam Avyaya Sanyojan | Sentence Syntax, Conjunctions & Modifiers | Tier 4: Syntax & Discourse | Queued (Batch 21) |
 | **Part 22** | Upvakya, Sambandhparak Rachna va Nitya-Sambandhi | Relative Clauses & Correlative Syntax | Tier 4: Syntax & Discourse | Queued |
 | **Part 23** | Dainik Jeevan, Shishtachar evam Samvaad | Daily Life, Social Etiquette & Greetings | Tier 4: Spoken Hindi | Queued |
 | **Part 24** | Upayogita, Sevayein, Yatra va Jan-Samvaad | Public Utilities, Travel & Essential Services | Tier 4: Spoken Hindi | Queued |
@@ -90,10 +90,10 @@ The master curriculum spans 30 Parts (20 Sections per Part = 600 Total Sections)
 
 The project advances through **30 smaller, highly detailed batches** (one complete Part of 20 sections per batch). 
 
-### Overall Completion Status: **200 of 600 Sections (33.3%)**
+### Overall Completion Status: **400 of 600 Sections (66.7%)**
 
 ```
-[█████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 200 / 600 Sections
+[██████████████████████████████████░░░░░░░░░░░░░░░░░] 400 / 600 Sections
 ```
 
 #### Batch 1: Part 1 — Devanagari Script Architecture & Calligraphy (Sections 1.1 to 1.20) : **COMPLETE**
@@ -156,9 +156,69 @@ The project advances through **30 smaller, highly detailed batches** (one comple
 - **10.11 – 10.15**: Ordinals (pehla to chatha and -van suffixation), Fractional quantifiers (adha, paun, sava, dedh, dhai, sadhe), Aggregatives (dono, teeno) and cultural sets (darjan, kodi, chalisa, satsai), Multiplicatives (-guna, -hara), South Asian large scales (lakh, crore, arab, kharab, neel, padma, shankh).
 - **10.16 – 10.20**: Traditional Indian metrology (ratti, masha, tola, ser, man; bita, gaj, kos; prahar, ghatika), CHD official orthographic guidelines, Numeral-based idioms (nau do gyarah, chhattis ka ankada), Numeral parsing, Master matrix 1 to 100.
 
+#### Batch 11: Part 11 — Verb Roots, Infinitives & Copula Hona (Sections 11.1 to 11.20) : **COMPLETE**
+- **11.1 – 11.5**: Verb & Dhatu definitions, Root classification (Simple vs Derived/Compound roots), Intransitive diagnostics, Transitive single & double objects, Intransitive to Transitive derivations.
+- **11.6 – 11.10**: Infinitive as verbal noun & subject, Oblique infinitive with postpositions (-ne ke liye, -ne par), Copula Hona present forms (hoon, hai, hain, ho), Past forms (tha, thee, the, theen), Future forms (hoonga, hoga, honge).
+- **11.11 – 11.15**: Existential vs Stative Hona, Tangible possession (ke paas hona), Inalienable possession (relatives & body parts with ka/ki/ke), Sensation & illness (dative 'ko' hona), Universal auxiliary function of Hona.
+- **11.16 – 11.20**: Stative complements (rahna and banna), Copula deletion under negation (nahin hai vs nahin), Gender-number concord errors, Master root and copula paradigm, Diagnostic review exercises.
+
+#### Batch 12: Part 12 — Present Tenses (Sections 12.1 to 12.20) : **COMPLETE**
+- **12.1 – 12.5**: Simple present (ta hai, ti hai, te hain) architecture, Habitual & universal truth expressions, Gender/number concord, Negative formations with copula deletion, Yes/No vs WH-content questions.
+- **12.6 – 12.10**: Daily routine narratives, Continuous aspect (raha hai, rahi hai, rahe hain), Speech-time event tracking, Concord in progressive aspect, Negative and interrogative continuous forms.
+- **12.11 – 12.15**: Futurate continuous (kal ja raha hoon), Simple present vs Continuous aspectual contrasts, Present perfect (aa hai, ee hai, e hain), Ergative 'ne' in present perfect, Presumptive present (karta hoga, kar raha hoga).
+- **12.16 – 12.20**: Subjunctive present (karta ho, kar raha ho), Frequentative habituals (karta rahta hai), Concord errors in present tense, Master present paradigm across all aspects, Practical dialogues and review drills.
+
+#### Batch 13: Part 13 — Past Tenses (Sections 13.1 to 13.20) : **COMPLETE**
+- **13.1 – 13.5**: Simple past / past absolute morphology (-aa, -ee, -e, -een), Intransitive verbs in past tense without 'ne', Irregular suppletive participles (gaya, kiya, diya, liya, hua), Immediate past (aaya hai), Pluperfect / remote past (aaya tha).
+- **13.6 – 13.10**: Past continuous (ja raha tha), Past habitual iterative (karta tha), Presumptive past (gaya hoga, kiya hoga), Subjunctive past (gaya ho), Past counterfactual conditional (yadi karta to hota).
+- **13.11 – 13.15**: Temporal locatives and time points (kal, parson, tab), Past negation mechanics (nahin kiya, nahin gaya tha), Past interrogative syntax, Continuative & progressive past (karta raha vs karta gaya), Memoir and narrative discourse styles.
+- **13.16 – 13.20**: Simple past vs Pluperfect contrast (aaya vs aaya tha), Comparative paradigm of all past aspects, Common concord errors in past tense, Transformation drills, Comprehensive evaluation exercises.
+
+#### Batch 14: Part 14 — Ergative 'Ne' Rule & Transitive Past Syntax (Sections 14.1 to 14.20) : **COMPLETE**
+- **14.1 – 14.5**: Historical evolution of 'ne' from Sanskrit instrumental to split ergativity, Universal 3-condition formula for 'ne', Object-verb agreement (Karmani prayoga), Default neutral agreement (Bhave prayoga), Exceptional verbs (bolna, bhoolna, lana, samajhna).
+- **14.6 – 14.10**: Ditransitive ergative concord, Compound verb vector determining 'ne' occurrence, Transitive vectors enforcing 'ne' (lena, dena, dalna), Intransitive vectors blocking 'ne' (jana, aana), Modal verbs blocking 'ne' (sakna, pana, chukna).
+- **14.11 – 14.15**: Inceptive and obligative blocking (lagna, padna, hona), Bound morphology with pronouns (maine, usne, unhone), Honorific subjects and object-driven agreement, Overt vs covert object ellipsis, Primary vs secondary objects.
+- **14.16 – 14.20**: Triad of syntactic concord (Kartari, Karmani, Bhave), Non-native interference errors, Algorithmic decision tree for 'ne', Transformational drills, Comprehensive assessment and parsing.
+
+#### Batch 15: Part 15 — Future Tenses, Imperatives & Optatives (Sections 15.1 to 15.20) : **COMPLETE**
+- **15.1 – 15.5**: Simple future morphology (Root + Subjunctive + -ga/-gi/-ge), Person paradigm (1st, 2nd, 3rd), Future gender/number concord, Future continuous (kar raha hoga), Future perfect (kar chuka hoga).
+- **15.6 – 15.10**: Subjunctive future (shayad vah aaye), Future conditional (yadi tum padhoge to...), 4-tier imperative system: Tier 1 intimate 'tu' (bare root), Tier 2 familiar 'tum' (-o suffix), Tier 3 polite 'aap' (-iye suffix with kijiye, dijiye, lijiye).
+- **15.11 – 15.15**: Tier 4 deferential future imperative (-iyega), Neutral infinitival imperative (-na for general rules), Speech acts (orders, directives, permissions, suggestions), Prohibitive particles (mat, na, nahin), Politeness modifiers (kripaya, zara).
+- **15.16 – 15.20**: Deontic modality with 'chahiye', Future temporal locatives and deadlines, Concord errors in future and imperatives, Master paradigm matrix of future and imperatives, Practical formal speech and review drills.
+
+#### Batch 16: Part 16 — Compound Verbs & Explicators (Sections 16.1 to 16.20) : **COMPLETE**
+- **16.1 – 16.5**: Compound verb architecture (Main Stem V1 + Vector V2), Explicator 'jana' (completion, transformation, loss), Explicator 'lena' (inward self-benefit, deliberation), Explicator 'dena' (outward other-benefit, release), Explicator 'padna' (suddenness, inevitability).
+- **16.6 – 16.10**: Explicator 'dalna' (violence, high intensity, speed), Explicator 'baithna' (rash blunders, regret, stubbornness), Explicator 'uthna' (sudden eruption, resonant outbursts), Explicator 'rakhna' (precaution, advance preparation), Explicator 'chhodna' (exhaustive finality).
+- **16.11 – 16.15**: Explicator 'aana' (centripetal motion, tradition), Negative constraint (prohibition of 'nahin' in compound verbs), Inflectional locus on vector verb, Bare verb vs Compound verb semantic nuances, Intransitive main stem with transitive vector (hans dena).
+- **16.16 – 16.20**: Transitive main stem with intransitive vector (kha jana), Stylistic aesthetics in Premchand and modern prose, L2 learner selection errors, Master taxonomy grid of 12 canonical vectors, Comprehensive parsing and application drills.
+
+#### Batch 17: Part 17 — Causative Verbs & Morphological Derivations (Sections 17.1 to 17.20) : **COMPLETE**
+- **17.1 – 17.5**: Theory of causation (direct agency vs mediated causation), Morphological triad (Root $\rightarrow$ 1st Causative -aana $\rightarrow$ 2nd Causative -vaana), First causative direct participation, Second causative mediated agency, Vowel shortening rules (aa $\rightarrow$ a/i, ee $\rightarrow$ i, oo $\rightarrow$ u).
+- **17.6 – 17.10**: Vowel alternation (e $\rightarrow$ i, o $\rightarrow$ u: dekhna $\rightarrow$ dikhana, bolna $\rightarrow$ bulana), Transitivity continuum (girna $\rightarrow$ girana $\rightarrow$ girvana), Irregular causatives (tootna $\rightarrow$ todna $\rightarrow$ tudvana), Agent roles (Instigating agent vs Executing agent), Instrumental marking of intermediate agent with 'se'.
+- **17.11 – 17.15**: Accusative marking of animate causee with 'ko', Transitive causative double objects and object concord, Causativization of ditransitives (3-participant argument structure), Bureaucratic and administrative usage, Everyday service economy causatives (dhulvana, silvana).
+- **17.16 – 17.20**: Tense, aspect and voice dynamics in causatives, Universal 'ne' application in causative past, Common grammatical errors in derivation, Master lexicon of 100 canonical verb roots and their dual causatives, Practical dialogue assessment.
+
+#### Batch 18: Part 18 — Verbal Aspects, Modality & Obligation (Sections 18.1 to 18.20) : **COMPLETE**
+- **18.1 – 18.5**: Theory of grammatical aspect (temporal flow vs tense), Durative continuative (ta rahna), Incremental progressive (ta jana), Prescriptive habitual (past participle + karna: kiya karo), Inceptive aspect (oblique infinitive + lagna: rone laga).
+- **18.6 – 18.10**: Permissive aspect (ne dena: jaane do), Ability modality (sakna: kar sakta hai), Opportunity potential (ne pana: aa paya), Completive aspect (chukna: kar chuka hai), External compulsion (ne padna: jana pada).
+- **18.11 – 18.15**: Planned obligation & schedules (ne hona: jana hai), Deontic moral necessity (chahiye), Past counterfactual regret (chahiye tha), Volitive modality (chahna: padhna chahta hai), Imminent prospective aspect (-ne vala hona: aane vala hai).
+- **18.16 – 18.20**: Archaic/dramatic imminence (ko hona: chhootne ko hai), Dative subject marking with 'ko' in obligation, Common aspectual confusions, Master structural grid of aspects and modals, Practical narrative evaluation.
+
+#### Batch 19: Part 19 — Participles, Absolutives & Adverbs (Sections 19.1 to 19.20) : **COMPLETE**
+- **19.1 – 19.5**: Theory of participles (Kridanta: nouns and adjectives from roots), Present imperfective participle (-ta hua: behta hua paani), Past perfective participle (-aa hua: toota hua kanch), Participle concord with substantives, Invariant adverbial participles (-te hue).
+- **19.6 – 19.10**: Absolutive conjunctive participle (Root + kar/karke: jakar, khakar), Syntactic condensation of clauses via 'kar', Immediate absolutive (Root + te hi: aate hi), Adverb definition and 4 canonical classes, Locative adverbs (yahan, vahan, idhar, udhar).
+- **19.11 – 19.15**: Temporal adverbs (aaj, kal, abhi, din bhar), Manner adverbs (dheere, tez, achanak, sachmuch), Quantitative adverbs (bahut, thoda, kaafi), Reduplicated and echo adverbs (dheere-dheere, kabhi-kabhi), Denominal and deadjectival adverbial derivations.
+- **19.16 – 19.20**: Canonical word order of adverbs in SOV sentences, Emphatic particles (hi, bhi, to, matra, bhar, tak), Common errors in participle and adverb concord, Master matrix of adverbs and participles, Narrative parsing and assessment.
+
+#### Batch 20: Part 20 — Voice: Active, Passive & Impersonal (Sections 20.1 to 20.20) : **COMPLETE**
+- **20.1 – 20.5**: Theory of grammatical voice (Subject, Object, and Action focus), Active voice (Kartrivachya) concord, Passive voice architecture (Past participle + jana), Agentive marking (ke dvara vs se), Object concord in passives.
+- **20.6 – 20.10**: Agentless passives in public announcements and news, Administrative and official passive register, Impersonal voice (Bhavavachya) from intransitive verbs, Fixed neutral agreement (masculine singular), Incapacity in impersonal voice (sē nahī̃ calā jātā).
+- **20.11 – 20.15**: Incapacity in transitive passives (sē nahī̃ kiyā jātā), Step-by-step active to passive conversion, Reverse transformation back to active, Passive matrix across all tenses, Subjunctive and resolution register (kadam uthaye jaen).
+- **20.16 – 20.20**: Transitivity constraints on voice, Register selection in law, science, journalism and literature, Voice conversion errors, Master tri-voice paradigm matrix across all tenses, Final comprehensive synthesis and review drills.
+
 #### Upcoming Batches
-- **Batch 11**: Part 11 (Sections 11.1 to 11.20) — Verb Roots, Infinitives & Copula Hona (*Kriya-Mool, Dhatu evam Hona Sahayak Kriya*).
-- **Batch 12**: Part 12 (Sections 12.1 to 12.20) — Present Tenses (*Vartaman Kaal: Samanya, Apoorna, Sandigdha*).
+- **Batch 21**: Part 21 (Sections 21.1 to 21.20) — Sentence Syntax, Conjunctions & Modifiers (*Vakya-Rachna, Bhed evam Avyaya Sanyojan*).
+- **Batch 22**: Part 22 (Sections 22.1 to 22.20) — Relative Clauses & Correlative Syntax (*Upvakya, Sambandhparak Rachna va Nitya-Sambandhi*).
 
 ---
 
