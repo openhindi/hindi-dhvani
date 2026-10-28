@@ -55,15 +55,15 @@ The master curriculum spans 30 Parts (20 Sections per Part = 600 Total Sections)
 | :---: | :--- | :--- | :---: | :---: |
 | **Part 1** | Devanagari Lipi-Sanrachna evam Sulekh | Devanagari Script Architecture & Calligraphy | Tier 1: Alphabets & Phonetics | **Complete (20/20)** |
 | **Part 2** | Svar, Anusvaar evam Nasikya Dhvaniyaan | Vowels, Diacritics & Nasalization | Tier 1: Alphabets & Phonetics | **Complete (20/20)** |
-| **Part 3** | Vyanjan-Vyavastha evam Uchharan-Vigyan | Consonant Classification & Phonetics | Tier 1: Alphabets & Phonetics | Queued (Batch 3) |
-| **Part 4** | Sanyuktakshar, Sandhi evam Varna-Vichhed | Conjuncts, Sandhi & Orthographic Analysis | Tier 1: Alphabets & Phonetics | Queued (Batch 4) |
-| **Part 5** | Sangya, Ling-Vyavastha evam Prakriti | Noun Classes & Grammatical Gender | Tier 2: Core Morphology | Queued |
-| **Part 6** | Vachan-Vidhan evam Rupantaran | Number System & Pluralization Rules | Tier 2: Core Morphology | Queued |
-| **Part 7** | Karak-Pranali, Parsarg evam Tiryak Roop | Case System, Postpositions & Oblique Forms | Tier 2: Core Morphology | Queued |
-| **Part 8** | Sarvanam-Vyavastha evam Rupaavali | Pronouns, Declensions & Demonstratives | Tier 2: Core Morphology | Queued |
-| **Part 9** | Visheshan, Pravisheshan evam Tulanatmak Roop | Adjectives, Intensifiers & Comparisons | Tier 2: Core Morphology | Queued |
-| **Part 10** | Sankhya-Paddhati, Ganana evam Maapan | Numerals, Counting & Measurement Systems | Tier 2: Core Morphology | Queued |
-| **Part 11** | Kriya-Mool, Dhatu evam Hona Sahayak Kriya | Verb Roots, Infinitives & Copula Hona | Tier 3: Verbal Architecture | Queued |
+| **Part 3** | Vyanjan-Vyavastha evam Uchharan-Vigyan | Consonant Classification & Phonetics | Tier 1: Alphabets & Phonetics | **Complete (20/20)** |
+| **Part 4** | Sanyuktakshar, Sandhi evam Varna-Vichhed | Conjuncts, Sandhi & Orthographic Analysis | Tier 1: Alphabets & Phonetics | **Complete (20/20)** |
+| **Part 5** | Sangya, Ling-Vyavastha evam Prakriti | Noun Classes & Grammatical Gender | Tier 2: Core Morphology | **Complete (20/20)** |
+| **Part 6** | Vachan-Vidhan evam Rupantaran | Number System & Pluralization Rules | Tier 2: Core Morphology | **Complete (20/20)** |
+| **Part 7** | Karak-Pranali, Parsarg evam Tiryak Roop | Case System, Postpositions & Oblique Forms | Tier 2: Core Morphology | **Complete (20/20)** |
+| **Part 8** | Sarvanam-Vyavastha evam Rupaavali | Pronouns, Declensions & Demonstratives | Tier 2: Core Morphology | **Complete (20/20)** |
+| **Part 9** | Visheshan, Pravisheshan evam Tulanatmak Roop | Adjectives, Intensifiers & Comparisons | Tier 2: Core Morphology | **Complete (20/20)** |
+| **Part 10** | Sankhya-Paddhati, Ganana evam Maapan | Numerals, Counting & Measurement Systems | Tier 2: Core Morphology | **Complete (20/20)** |
+| **Part 11** | Kriya-Mool, Dhatu evam Hona Sahayak Kriya | Verb Roots, Infinitives & Copula Hona | Tier 3: Verbal Architecture | Queued (Batch 11) |
 | **Part 12** | Vartaman Kaal (Samanya, Apoorna, Sandigdha) | Present Tenses: Simple, Continuous, Presumptive | Tier 3: Verbal Architecture | Queued |
 | **Part 13** | Bhootkaal (Samanya, Aasanna, Poorna, Sandigdha) | Past Tenses: Simple, Immediate, Perfect, Habitual | Tier 3: Verbal Architecture | Queued |
 | **Part 14** | Ne Parsarg Niyam evam Sakarmak Bhootkaal | Ergative Ne Rule & Transitive Past Syntax | Tier 3: Verbal Architecture | Queued |
@@ -90,10 +90,10 @@ The master curriculum spans 30 Parts (20 Sections per Part = 600 Total Sections)
 
 The project advances through **30 smaller, highly detailed batches** (one complete Part of 20 sections per batch). 
 
-### Overall Completion Status: **40 of 600 Sections (6.7%)**
+### Overall Completion Status: **200 of 600 Sections (33.3%)**
 
 ```
-[████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 40 / 600 Sections
+[█████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 200 / 600 Sections
 ```
 
 #### Batch 1: Part 1 — Devanagari Script Architecture & Calligraphy (Sections 1.1 to 1.20) : **COMPLETE**
@@ -108,9 +108,57 @@ The project advances through **30 smaller, highly detailed batches** (one comple
 - **2.11 – 2.15**: Borrowed vowel *Chandra-A* (ऑ / ɔː), Sanskrit *Ri* vs modern Hindi /rɪ/, Pluta trimoraic prolongation (Om), Vowel junctions (Svara Sandhi), Regional dialect shifts.
 - **2.16 – 2.20**: Quantity-driven semantic minimal pairs (*din/dīn, kul/kūl*), Barakhadi 13-fold matrix, Inherent Schwa Deletion rules (/rām/ not /rāma/), Studio vocal calibration, Comprehensive diagnostic review.
 
+#### Batch 3: Part 3 — Consonant Classification & Phonetics (Sections 3.1 to 3.20) : **COMPLETE**
+- **3.1 – 3.5**: Paninian phonetic taxonomy (Ashta Sthanas), Sparsha consonants across 5 Vargas (Ka, Cha, Ta, Ta, Pa), Voicing & Aspiration 2x2 matrix, Minimal pairs, Nasal articulatory dynamics.
+- **3.6 – 3.10**: Flapped/retroflex allophones (ड़ / r, ढ़ / rh), Sibilant triad (श, ष, स), Glottal fricative (ह), Semi-vowels (य, व), Liquid consonants (र, ल).
+- **3.11 – 3.15**: Perso-Arabic Nuqta loan consonants (क़, ख़, ग़, ज़, फ़), Sanskrit Tatsama clusters (क्ष, त्र, ज्ञ, श्र), Gemination rules, Aspiration preservation, CHD orthographic directives.
+- **3.16 – 3.20**: Acoustic waveforms, dialectal variations (Braj, Awadhi, Bhojpuri, Khari Boli), Studio articulation drills, Phonetic diagnostic worksheets, Master consonant classification matrix.
+
+#### Batch 4: Part 4 — Conjuncts, Sandhi & Orthographic Analysis (Sections 4.1 to 4.20) : **COMPLETE**
+- **4.1 – 4.5**: Conjunct typography (Khadi Pai stem removal, Halant conjuncts, K-Ph loops), Ra conjuncts (Ref and Paden forms), Complex ligature anatomy, Orthographic cluster limits, CHD ligature standardization.
+- **4.6 – 4.10**: Vowel Sandhi (Dirgha, Guna, Vriddhi, Yan, Ayadi), Consonant Sandhi (First-to-third, First-to-fifth, Chh-rule), Visarga Sandhi rules, Tatsama vs Tadbhava assimilation, Morphophonemic boundaries.
+- **4.11 – 4.15**: Scientific syllable segmentation (Varna-Vichhed), Akshara metrics (Laghu vs Guru morae), Typographic hyphenation, Common orthographic mistakes, Nuqta omission rules.
+- **4.16 – 4.20**: Morphophonemics across grammatical boundaries, Syllable timing, Calligraphic stroke analysis, Comprehensive diagnostic drills, Master orthographic reference matrix.
+
+#### Batch 5: Part 5 — Noun Classes & Grammatical Gender (Sections 5.1 to 5.20) : **COMPLETE**
+- **5.1 – 5.5**: Ontological basis of nouns (Vyakti, Jati, Bhav, Dravya, Samuha), Abstract noun derivation, Collective aggregates, Semantic shifts, Philosophical foundations of binary grammatical gender.
+- **5.6 – 5.10**: Masculine morphological indicators (-a, -an, -pan, -av, -vala), Feminine suffixes (-i, -iya, -avat, -ahat, -t), Biological vs grammatical gender, Loanword gender assignment, Gender of days/months/mountains/rivers.
+- **5.11 – 5.15**: Gender inflectional pairs, Invariable epicene nouns (Nitya Pumlinga/Strilinga with Nar/Mada), Compound noun gender, Common concord errors, Gender diagnostic tests.
+- **5.16 – 5.20**: Historical evolution of gender (loss of Sanskrit neuter), Socio-cultural aspects, Spoken registers, Morphosyntactic parsing (Pada-Parichaya), Master noun and gender matrix.
+
+#### Batch 6: Part 6 — Number System & Pluralization Rules (Sections 6.1 to 6.20) : **COMPLETE**
+- **6.1 – 6.5**: Number system theory (loss of Sanskrit dual), Marked masculine -a to -e mutation, Kinship/honorific invariable exceptions, Unmarked zero plurals (consonant, -i, -u), Feminine -a to -ẽ suffixation.
+- **6.6 – 6.10**: Feminine -a to -aẽ, Feminine -i/-ee to -iyaan with vowel shortening, Diminutive -iya to -iyaan, Feminine -u/-oo to -uẽ, Loanword plurals.
+- **6.11 – 6.15**: Universal oblique plural marker -õ across all nouns, Shortening of -ee/-oo in oblique, Vocative non-nasalized -o, Honorific plurality (Aadararthak), Collective suffixes (log, jan, gana, vrinda, varga, dal).
+- **6.16 – 6.20**: Inherently plural nouns (prana, darshana, asu, hosha, hastakshara), Inherently singular mass nouns, Perso-Arabic/English loan plural adaptations, Concord errors, Master number inflection matrix.
+
+#### Batch 7: Part 7 — Case System, Postpositions & Oblique Forms (Sections 7.1 to 7.20) : **COMPLETE**
+- **7.1 – 7.5**: Paninian Karaka theory & 8 traditional cases, Direct vs oblique stem mutations, Split ergativity with 'ne' in transitive past, Exceptions to 'ne' (nhana, chheenkna vs lana, bhoolna), Differential object marking with 'ko'.
+- **7.6 – 7.10**: Karana instrumental/causative 'se' & 'ke dvara', Sampradana dative/benefactive 'ko' & 'ke liye', Apadana ablative 'se' (separation, origin, fear, comparison), Contrastive Karana vs Apadana 'se', Sambandha genitive agreement (ka, ke, ki).
+- **7.11 – 7.15**: Adhikarana locatives 'mein' & 'par', Sambodhana vocative interjections (he, are, aji), CHD bound vs free postposition rules, Compound postpositions (ke pas, ke samne, ki or), Unmarked zero-morpheme case syntax.
+- **7.16 – 7.20**: Experiencer dative subjects ('ko' karta), Subject/Object/Neutral verbal concord (kartari, karmani, bhave prayoga), Case errors, Historical grammaticalization of postpositions, Master Karaka matrix.
+
+#### Batch 8: Part 8 — Pronouns, Declensions & Demonstratives (Sections 8.1 to 8.20) : **COMPLETE**
+- **8.1 – 8.5**: Pronoun theoretical framework & 6 canonical classes, 1st person 'main' & 'ham' paradigms, 2nd person tri-level honorific pragmatics (tu, tum, aap), 3rd person proximal 'yah' & distal 'vah', Indefinite 'koi' vs 'kuch'.
+- **8.6 – 8.10**: Relative-correlative 'jo-vah/so' syntax, Interrogative 'kaun' vs 'kya', Reflexive pronouns (aap, swayam, khud), Reflexive possessive 'apna/apne/apni' rule, Oblique mutation matrix.
+- **8.11 – 8.15**: Ergative fusion forms (maine, usne, unhone, jinhone), Synthetic dative/accusative forms (mujhe, use, unhein), Pronominal adjectives vs pronouns, Compound pronouns (jo koi, sab kuch), Pronoun error corrections.
+- **8.16 – 8.20**: Historical evolution from Vedic Asmad/Yushmad, Sociolinguistic power & solidarity shifts, Person-verb agreement rules, Syntactic pronoun parsing, Master pronominal declension grid.
+
+#### Batch 9: Part 9 — Adjectives, Intensifiers & Comparisons (Sections 9.1 to 9.20) : **COMPLETE**
+- **9.1 – 9.5**: Adjective-substantive framework & 4 canonical classes, Qualitative taxonomy (guna, dosha, ranga, kala, dasha), Definite/indefinite numeral subtypes, Quantitative measures (definite vs indefinite), Pronominal/demonstrative adjectives.
+- **9.6 – 9.10**: Marked (-a) vs unmarked invariant adjectives, Adjective-noun concord rules, Attributive vs predicative positioning, Intensifiers (Pravisheshan: bahut, bada, atyant), Degrees of comparison (-tar, -tam vs se adhik, sabse).
+- **9.11 – 9.15**: Denominal adjective derivation (-ik, -it, -i, -iya, -van, -man), Deverbal and deadverbial adjectives, Perso-Arabic & English loan adjectives, Compound & reduplicated adjectives (garam-garam, seedha-saada), Concord & modifier error correction.
+- **9.16 – 9.20**: Nominalization of adjectives (badon ki bat, gareebon ko), Historical sound shifts from Sanskrit Tatsama, Poetic and literary epithets, Adjectival parsing, Master adjective taxonomy matrix.
+
+#### Batch 10: Part 10 — Numerals, Counting & Measurement Systems (Sections 10.1 to 10.20) : **COMPLETE**
+- **10.1 – 10.5**: Indian philosophical origins of zero and decimal place-value, Devanagari numerals (०-९), Cardinals 1-10 with CHD standard spellings, Cardinals 11-20 phonological fusion (-rah), Cardinals 21-30 decade fusion (-is), Cardinals 31-40 (-tis).
+- **10.6 – 10.10**: Cardinals 41-50 (-alis), Cardinals 51-60 (-avan/-pan), Cardinals 61-70 (-sath), Cardinals 71-80 (-hattar), Cardinals 81-100 peak numerals to centennial 'sau' (-asi, -anve, sau).
+- **10.11 – 10.15**: Ordinals (pehla to chatha and -van suffixation), Fractional quantifiers (adha, paun, sava, dedh, dhai, sadhe), Aggregatives (dono, teeno) and cultural sets (darjan, kodi, chalisa, satsai), Multiplicatives (-guna, -hara), South Asian large scales (lakh, crore, arab, kharab, neel, padma, shankh).
+- **10.16 – 10.20**: Traditional Indian metrology (ratti, masha, tola, ser, man; bita, gaj, kos; prahar, ghatika), CHD official orthographic guidelines, Numeral-based idioms (nau do gyarah, chhattis ka ankada), Numeral parsing, Master matrix 1 to 100.
+
 #### Upcoming Batches
-- **Batch 3**: Part 3 (Sections 3.1 to 3.20) — Consonant Classification & Phonetics (*Vyanjan-Vyavastha evam Uchharan-Vigyan*).
-- **Batch 4**: Part 4 (Sections 4.1 to 4.20) — Conjuncts, Sandhi & Orthographic Analysis (*Sanyuktakshar, Sandhi evam Varna-Vichhed*).
+- **Batch 11**: Part 11 (Sections 11.1 to 11.20) — Verb Roots, Infinitives & Copula Hona (*Kriya-Mool, Dhatu evam Hona Sahayak Kriya*).
+- **Batch 12**: Part 12 (Sections 12.1 to 12.20) — Present Tenses (*Vartaman Kaal: Samanya, Apoorna, Sandigdha*).
 
 ---
 
